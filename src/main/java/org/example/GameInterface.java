@@ -615,6 +615,12 @@ public class GameInterface extends JFrame implements ActionListener {
             carrao.incluir(conn);
             ShowPane.show(fr, carrao.toString());
             c++;
+
+            // Criação e escrita no arquivo texto
+            CreateTextFile fileWriter = new CreateTextFile();
+            fileWriter.openFile(); // Abre o arquivo
+            fileWriter.addRecord(carrao.toString()); // Escreve a string resultante no arquivo
+            fileWriter.closeFile(); // Fecha o arquivo
         }
 
         if (e.getSource() == exitButton) {
