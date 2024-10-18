@@ -1,33 +1,25 @@
 package org.example;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.awt.Font;
-import java.awt.Cursor;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Graphics;
+import javax.swing.*;
 
-public class GameInterface extends JFrame {
-    //Contador para exibição dos carros
-    private int c = 0, engineCounter = 0;
+public class GarageInterface extends JFrame implements ActionListener {
+    //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
+    private int c = 0, engineCounter = 0, createCounter = 0;
 
     // JPanels principais
+    JPanel startPanel;
     JPanel menuPanel;
     JPanel carPanel;
     CustomPanel exhibitionPanel;
     JPanel settingsPanel;
-    JFrame frame = new JFrame();
+    private Timer timer;
 
     // Definição das váriaveis para declaração do objeto carro
     String engineTypeCar;
@@ -47,10 +39,13 @@ public class GameInterface extends JFrame {
     // Card Layout para facilitar a troca entre JPanels na seção de botões
     CardLayout cardLayout;
 
+    // Botões do startPanel (inferior)
+    PixelatedButton startButton;
+    PixelatedButton garageButton;
+
     // Botões do settingPanel (superior)
-    PixelatedButton dataBaseButton;
     PixelatedButton menuButton;
-    PixelatedButton statsButton;
+    PixelatedButton createButton;
     PixelatedButton exitButton;
 
     // Botões do carPanel (inferior)
@@ -125,32 +120,43 @@ public class GameInterface extends JFrame {
     
     Color appColor = new Color(13, 6, 40);
     Color buttonColor = new Color(103, 124, 163);
+    Color startColor = new Color(41, 40, 45);
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 
     // Panel customizado para inserção de imagem de background
-    public class CustomPanel extends JPanel {
-    private Image backgroundImage;
+    public static class CustomPanel extends JPanel {
+        private Image backgroundImage;
 
-    public CustomPanel(String imagePath) {
-        try {
-            backgroundImage = new ImageIcon(imagePath).getImage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Erro ao carregar a imagem" + e.getMessage());
+        public CustomPanel(String imagePath) {
+            setBackgroundImage(imagePath); // Usando o novo metodo ao construir o painel
+        }
+
+        // Metodo para alterar a imagem de fundo
+        public void setBackgroundImage(String imagePath) {
+            try {
+                backgroundImage = new ImageIcon(imagePath).getImage();
+                repaint(); // Reforça a repintura do painel com a nova imagem
+            } catch (Exception e) {
+                System.err.println("Erro ao carregar a imagem: " + e.getMessage());
+            }
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            if (backgroundImage != null) {
+                g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
+            }
         }
     }
 
-    // Exibição da imagem de fundo
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (backgroundImage != null) {
-            g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
-        }
-    }
-}
 
     // Botão customizado
-    class PixelatedButton extends JButton {
+    static class PixelatedButton extends JButton {
         public PixelatedButton(String label) {
             super(label);
             this.setFont(new Font("Monospaced", Font.BOLD, 16));
@@ -182,20 +188,26 @@ public class GameInterface extends JFrame {
     }
 
     // Construtor da interface gráfica do jogo
-    GameInterface() {
+    GarageInterface() {
         // Card Layout
         cardLayout = new CardLayout();
         menuPanel = new JPanel(cardLayout);
         menuPanel.setBackground(buttonColor);
 
+        // Start Panel
+        startPanel = new JPanel();
+        startPanel.setBackground(startColor);
+        startPanel.setPreferredSize(new Dimension(900, 75));
+        startPanel.setLayout(new FlowLayout(0, 195, 55));
+
         // Settings Panel
         settingsPanel = new JPanel();
-        settingsPanel.setBackground(appColor);
+        settingsPanel.setBackground(startColor);
         settingsPanel.setPreferredSize(new Dimension(900, 75));
-        settingsPanel.setLayout(new FlowLayout(0, 100, 25));
+        settingsPanel.setLayout(new FlowLayout(0, 245, 25));
 
         // Exhibition Panel
-        exhibitionPanel = new CustomPanel("images\\Garagem_pixelada.jpg");
+        exhibitionPanel = new CustomPanel("images\\capa.jpg");
         exhibitionPanel.setBackground(Color.BLACK);
         exhibitionPanel.setPreferredSize(new Dimension(900, 425));
 
@@ -449,16 +461,22 @@ public class GameInterface extends JFrame {
         bodyPaintPanel.add(colorBlue);
         bodyPaintPanel.add(colorBlack);
 
-        // Buttons
-        dataBaseButton = new PixelatedButton("Data Base");
+        // Start Buttons
+        startButton = new PixelatedButton("New");
+        startButton.setPreferredSize(new Dimension(150, 60));
+        garageButton = new PixelatedButton("Garage");
+        garageButton.setPreferredSize(new Dimension(150, 60));
+
+        // Start Panel
+        startPanel.add(startButton);
+        startPanel.add(garageButton);
+
+        // Settings Buttons
         menuButton = new PixelatedButton("Menu");
-        statsButton = new PixelatedButton("Stats");
         exitButton = new PixelatedButton("Exit");
 
-        // Add buttons to panels
-        settingsPanel.add(dataBaseButton);
+        // Settings Panel
         settingsPanel.add(menuButton);
-        settingsPanel.add(statsButton);
         settingsPanel.add(exitButton);
 
         carPanel.add(engineButton);
@@ -482,16 +500,25 @@ public class GameInterface extends JFrame {
         Connection finalConn = conn;
 
         //Acessa os veículos armazenados na database
-        dataBaseButton.addActionListener(event -> {
-            GameInterface.mostrarCarros(finalConn);
+        garageButton.addActionListener(event -> {
+            GarageInterface.mostrarCarros(finalConn);
+        });
+
+        //Inicia a criação de um novo carro
+        startButton.addActionListener(event -> {
+            cardLayout.show(menuPanel, "carPanel");
+
+            settingsPanel.setBackground(appColor);
+            exhibitionPanel.setBackgroundImage("images\\Garagem_pixelada.jpg");
         });
 
         //Retorna ao menu principal de botões
         menuButton.addActionListener(event -> {
             cardLayout.show(menuPanel, "carPanel");
 
-            if (engineCounter == 6)
+            if (engineCounter == 6) {
                 engineButton.setEnabled(false);
+            }
         });
 
         //Encerra a aplicação
@@ -499,22 +526,6 @@ public class GameInterface extends JFrame {
             System.exit(1);
         });
 
-        //Exibe os atributos do carro
-        statsButton.addActionListener(event -> {
-            Engine carEngine = new Engine(engineTypeCar, cylinderAmmount, cylindersCar, aspirationCar, fuelCar, engineMaterialCar, tractionCar);
-            Brakes carBrakes = new Brakes(brakesCar);
-            Tires carTires = new Tires(tiresCar);
-            Chassis carChassis = new Chassis(chassisCar);
-            Suspension carSuspension = new Suspension(suspensionCar);
-            BodyPaint carBodyPaint = new BodyPaint(colorCar);
-
-            Car carrao = new Car(carEngine, carBrakes, carTires, carChassis, carSuspension, carBodyPaint);
-            carrao.setStats();
-            carEngine.incluir(finalConn);
-            carrao.incluir(finalConn);
-            ShowPane.show(frame, carrao.toString());
-            c++;
-        });
 
 // --------------------------Engine--------------------------
         engineButton.addActionListener(event -> cardLayout.show(menuPanel, "enginePanel"));
@@ -528,19 +539,19 @@ public class GameInterface extends JFrame {
 
         threeCylinders.addActionListener(event -> {
             cylinderAmmount = 3;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         fourCylindersInline.addActionListener(event -> {
             cylinderAmmount = 4;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         fiveCylinders.addActionListener(event -> {
             cylinderAmmount = 5;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -551,13 +562,13 @@ public class GameInterface extends JFrame {
 
         fourCylindersBoxer.addActionListener(event -> {
             cylinderAmmount = 4;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         sixCylindersBoxer.addActionListener(event -> {
             cylinderAmmount = 6;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -568,25 +579,25 @@ public class GameInterface extends JFrame {
 
         sixCylindersV.addActionListener(event -> {
             cylinderAmmount = 6;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         eightCylinders.addActionListener(event -> {
             cylinderAmmount = 8;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         tenCylinders.addActionListener(event -> {
             cylinderAmmount = 10;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         twelveCylinders.addActionListener(event -> {
             cylinderAmmount = 12;
-            engineType.setEnabled(false); engineCounter++;
+            engineType.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -595,43 +606,43 @@ public class GameInterface extends JFrame {
 
         firstCylinder.addActionListener(event -> {
             cylindersCar = 1.0;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         secondCylinder.addActionListener(event -> {
             cylindersCar = 1.6;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         thirdCylinder.addActionListener(event -> {
             cylindersCar = 2.0;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         fourthCylinder.addActionListener(event -> {
             cylindersCar = 2.4;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         fifthCylinder.addActionListener(event -> {
             cylindersCar = 3.0;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         sixthCylinder.addActionListener(event -> {
             cylindersCar = 3.6;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         seventhCylinder.addActionListener(event -> {
             cylindersCar = 4.2;
-            cylinders.setEnabled(false); engineCounter++;
+            cylinders.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -640,19 +651,19 @@ public class GameInterface extends JFrame {
 
         naturalAspiration.addActionListener(event -> {
             aspirationCar = "aspirado naturalmente";
-            aspiration.setEnabled(false); engineCounter++;
+            aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         turboCompressor.addActionListener(event -> {
             aspirationCar = "turbo compressor";
-            aspiration.setEnabled(false); engineCounter++;
+            aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         superCompressor.addActionListener(event -> {
             aspirationCar = "super compressor";
-            aspiration.setEnabled(false); engineCounter++;
+            aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -661,13 +672,13 @@ public class GameInterface extends JFrame {
 
         gasFuel.addActionListener(event -> {
             fuelCar = "gasolina";
-            fuel.setEnabled(false); engineCounter++;
+            fuel.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         dieselFuel.addActionListener(event -> {
             fuelCar = "diesel";
-            fuel.setEnabled(false); engineCounter++;
+            fuel.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -676,19 +687,19 @@ public class GameInterface extends JFrame {
 
         moltedIron.addActionListener(event -> {
             engineMaterialCar = "ferro fundido";
-            engineMaterial.setEnabled(false); engineCounter++;
+            engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         aluminiumAlloy.addActionListener(event -> {
             engineMaterialCar = "liga de aluminio";
-            engineMaterial.setEnabled(false); engineCounter++;
+            engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         titaniumAlloy.addActionListener(event -> {
             engineMaterialCar = "liga de titanio";
-            engineMaterial.setEnabled(false); engineCounter++;
+            engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -697,19 +708,19 @@ public class GameInterface extends JFrame {
 
         rearTraction.addActionListener(event -> {
             tractionCar = "traseira";
-            traction.setEnabled(false); engineCounter++;
+            traction.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         frontTraction.addActionListener(event -> {
             tractionCar = "dianteira";
-            traction.setEnabled(false); engineCounter++;
+            traction.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         integralTraction.addActionListener(event -> {
             tractionCar = "integral";
-            traction.setEnabled(false); engineCounter++;
+            traction.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
@@ -718,25 +729,25 @@ public class GameInterface extends JFrame {
 
         popularBrakes.addActionListener(event -> {
             brakesCar = "popular";
-            brakesButton.setEnabled(false);
+            brakesButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         sportBrakes.addActionListener(event -> {
             brakesCar = "esportivo";
-            brakesButton.setEnabled(false);
+            brakesButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         raceBrakes.addActionListener(event -> {
             brakesCar = "corrida";
-            brakesButton.setEnabled(false);
+            brakesButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         ceramicBrakes.addActionListener(event -> {
             brakesCar = "ceramica";
-            brakesButton.setEnabled(false);
+            brakesButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
@@ -745,25 +756,25 @@ public class GameInterface extends JFrame {
 
         popularTires.addActionListener(event -> {
             tiresCar = "popular";
-            tiresButton.setEnabled(false);
+            tiresButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         sportTires.addActionListener(event -> {
             tiresCar = "esportivo";
-            tiresButton.setEnabled(false);
+            tiresButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         raceTires.addActionListener(event -> {
             tiresCar = "corrida";
-            tiresButton.setEnabled(false);
+            tiresButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         offRoadTires.addActionListener(event -> {
             tiresCar = "off-road";
-            tiresButton.setEnabled(false);
+            tiresButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
@@ -772,31 +783,31 @@ public class GameInterface extends JFrame {
 
         suvChassis.addActionListener(event -> {
             chassisCar = "suv";
-            chassisButton.setEnabled(false);
+            chassisButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         sedanChassis.addActionListener(event -> {
             chassisCar = "sedan";
-            chassisButton.setEnabled(false);
+            chassisButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         sportChassis.addActionListener(event -> {
             chassisCar = "esportivo";
-            chassisButton.setEnabled(false);
+            chassisButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         hatchbackChassis.addActionListener(event -> {
             chassisCar = "hatchback";
-            chassisButton.setEnabled(false);
+            chassisButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         coupeChassis.addActionListener(event -> {
             chassisCar = "coupe";
-            chassisButton.setEnabled(false);
+            chassisButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
@@ -805,25 +816,25 @@ public class GameInterface extends JFrame {
 
         popularSuspension.addActionListener(event -> {
             suspensionCar = "popular";
-            suspensionButton.setEnabled(false);
+            suspensionButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         sportSuspension.addActionListener(event -> {
             suspensionCar = "esportivo";
-            suspensionButton.setEnabled(false);
+            suspensionButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         raceSuspension.addActionListener(event -> {
             suspensionCar = "corrida";
-            suspensionButton.setEnabled(false);
+            suspensionButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         rallySuspension.addActionListener(event -> {
             suspensionCar = "rally";
-            suspensionButton.setEnabled(false);
+            suspensionButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
@@ -832,29 +843,30 @@ public class GameInterface extends JFrame {
 
         colorBlack.addActionListener(event -> {
             colorCar = "Preto";
-            bodyPaintButton.setEnabled(false);
+            bodyPaintButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         colorRed.addActionListener(event -> {
             colorCar = "Vermelho";
-            bodyPaintButton.setEnabled(false);
+            bodyPaintButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         colorBlue.addActionListener(event -> {
             colorCar = "Azul";
-            bodyPaintButton.setEnabled(false);
+            bodyPaintButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
 
         colorYellow.addActionListener(event -> {
             colorCar = "Amarelo";
-            bodyPaintButton.setEnabled(false);
+            bodyPaintButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
         
         // Add panels to CardLayout
+        menuPanel.add(startPanel, "startPanel");
         menuPanel.add(carPanel, "carPanel");
         menuPanel.add(enginePanel, "enginePanel");
             menuPanel.add(engineTypePanel, "engineType");
@@ -872,7 +884,56 @@ public class GameInterface extends JFrame {
         menuPanel.add(chassisPanel, "chassisPanel");
         menuPanel.add(suspensionPanel, "suspensionPanel");
         menuPanel.add(bodyPaintPanel, "bodyPaintPanel");
-        
+
+        // Timer
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (createCounter == 11) {
+                    engineButton.setEnabled(true);
+                        engineType.setEnabled(true);
+                        engineMaterial.setEnabled(true);
+                        cylinders.setEnabled(true);
+                        aspiration.setEnabled(true);
+                        fuel.setEnabled(true);
+                        engineMaterial.setEnabled(true);
+                        traction.setEnabled(true);
+                    brakesButton.setEnabled(true);
+                    tiresButton.setEnabled(true);
+                    chassisButton.setEnabled(true);
+                    suspensionButton.setEnabled(true);
+                    bodyPaintButton.setEnabled(true);
+
+                    settingsPanel.setBackground(startColor);
+                    cardLayout.show(menuPanel, "startPanel");
+                    exhibitionPanel.setBackgroundImage("images//capa.jpg");
+
+                    Engine carEngine = new Engine(engineTypeCar, cylinderAmmount, cylindersCar, aspirationCar, fuelCar, engineMaterialCar, tractionCar);
+                    Brakes carBrakes = new Brakes(brakesCar);
+                    Tires carTires = new Tires(tiresCar);
+                    Chassis carChassis = new Chassis(chassisCar);
+                    Suspension carSuspension = new Suspension(suspensionCar);
+                    BodyPaint carBodyPaint = new BodyPaint(colorCar);
+
+                    Car carrao = new Car(carEngine, carBrakes, carTires, carChassis, carSuspension, carBodyPaint);
+                    carrao.setStats();
+                    carEngine.incluir(finalConn);
+                    carrao.incluir(finalConn);
+                    c++;
+
+                    // Criação e escrita no arquivo texto
+                    CreateTextFile fileWriter = new CreateTextFile();
+                    fileWriter.openFile(); // Abre o arquivo
+                    fileWriter.addRecord(carrao.toString()); // Escreve a string resultante no arquivo
+                    fileWriter.closeFile(); // Fecha o arquivo
+
+                    engineCounter = 0;
+                    createCounter = 0;
+                }
+            }
+        });
+
+        timer.start();
 
         // Game window
         this.setLayout(new BorderLayout());
@@ -889,7 +950,7 @@ public class GameInterface extends JFrame {
     }
 
     public static void main(String[] args) {
-        new GameInterface();
+        new GarageInterface();
     }
 
     public static void mostrarCarros(Connection conn) {

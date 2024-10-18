@@ -1,0 +1,17 @@
+------------------------------Car------------------------------
+Engine -> Type: em linha; Cylinder Ammount: 4; Cylinders: 1.6; Aspiration: turbo compressor; Fuel: diesel; Material: liga de titanio; Traction: integral
+2 - Brakes: esportivo
+3 - Tires: popular
+4 - Chassis Model: esportivo
+5 - Suspension: rally
+6 - Body Paint Color: Vermelho
+------------------------------Stats------------------------------
+A - Cost: 127770
+B - Consumption: 20
+C - Weight: 1560
+D - Max Speed: 441
+E - Acceleration: 1
+F - Handling: 1
+G - Brakes: 3
+H - Power: 204
+I - Torque: 129
