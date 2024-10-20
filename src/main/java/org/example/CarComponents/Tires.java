@@ -1,9 +1,9 @@
-package org.example;
+package org.example.CarComponents;
 
 public class Tires {
     private String tireType;
 
-    Tires(String tireType) {
+    public Tires(String tireType) {
         this.tireType = tireType;
     }
 

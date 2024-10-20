@@ -14,7 +14,7 @@ public class Conector{
         }
     }
 
-    public Connection conectar() throws SQLException{
+    public static Connection conectar() throws SQLException{
         String servidor = "localhost";
         String porta = "3306";
         String database = "TMasters";

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.CarComponents;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +16,7 @@ public class Car {
     private Chassis chassis;
     private Suspension suspension;
     private BodyPaint bodyPaint;
+    private String carName;
 
     //Atributos do carro
     private double cost;
@@ -29,13 +30,14 @@ public class Car {
     private double brakesPower;
 
     //Construtor
-    Car (Engine engine, Brakes brakes, Tires tires, Chassis chassis, Suspension suspension, BodyPaint bodyPaint) {
+    public Car(Engine engine, Brakes brakes, Tires tires, Chassis chassis, Suspension suspension, BodyPaint bodyPaint, String carName) {
         this.engine = engine;
         this.brakes = brakes;
         this.tires = tires;
         this.chassis = chassis;
         this.suspension = suspension;
         this.bodyPaint = bodyPaint;
+        this.carName = carName;
     }
 
     public void setBrakes(Brakes brakes) {
@@ -54,6 +56,10 @@ public class Car {
         this.suspension = suspension;
     }
 
+    public void setCarName(String carName) {
+        this.carName = carName;
+    }
+
     //Calcular o valor dos atributos
     public void setStats() {
         cost = engine.setCost() + brakes.setCost() + tires.setCost() + chassis.setCost() + suspension.setCost() + bodyPaint.setCost();
@@ -69,9 +75,9 @@ public class Car {
         brakesPower = (160 / frictionCoef) / 55.56;
     }
 
-    //Método para exibição no terminal (Provisório)
+    //Metodo para exibição no terminal
     public String toString() {
-        return "------------------------------Car------------------------------\n" +
+        return "------------------------------<"+ carName + ">------------------------------\n" +
                 engine.toString() + brakes.toString() + tires.toString() + chassis.toString() + suspension.toString() + bodyPaint.toString() +
                 "\n------------------------------Stats------------------------------\n" + 
                 String.format("A - Cost: %.0f\nB - Consumption: %.0f\nC - Weight: %.0f\n" + 
@@ -80,7 +86,7 @@ public class Car {
     }
 
     public void incluir(Connection conn){
-        String sqlInsert = "INSERT INTO Cars(id_engine, brakes, tires, chassis, suspension) VALUES (?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO Cars(eng_id, brakes, tires, chassis, suspension, name) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement stm = null;
 
         try{
@@ -91,6 +97,7 @@ public class Car {
             stm.setString(3, tires.getTireType());
             stm.setString(4, chassis.getChassisModel());
             stm.setString(5, suspension.getSuspensionType());
+            stm.setString(6, carName);
             stm.execute();
             conn.commit();
         }

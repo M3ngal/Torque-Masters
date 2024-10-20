@@ -1,9 +1,9 @@
-package org.example;
+package org.example.CarComponents;
 
 public class Suspension {
     private String suspensionType;
 
-    Suspension(String suspensionType) {
+    public Suspension(String suspensionType) {
         this.suspensionType = suspensionType;
     }
 

@@ -1,9 +1,9 @@
-package org.example;
+package org.example.CarComponents;
 
 public class Chassis {
     private String chassisModel;
 
-    Chassis(String chassisModel) {
+    public Chassis(String chassisModel) {
         this.chassisModel = chassisModel;
     }
 

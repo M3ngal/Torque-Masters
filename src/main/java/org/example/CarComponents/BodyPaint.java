@@ -1,9 +1,9 @@
-package org.example;
+package org.example.CarComponents;
 
 public class BodyPaint {
     private String bodyPaintColor;
 
-    BodyPaint(String bodyPaintColor) {
+    public BodyPaint(String bodyPaintColor) {
         this.bodyPaintColor = bodyPaintColor;
     }
 

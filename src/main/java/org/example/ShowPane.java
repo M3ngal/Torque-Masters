@@ -28,7 +28,7 @@ public class ShowPane extends JDialog implements ActionListener{
         dispose();
     }
 
-    static void show(JFrame fr, String parts){
+    public static void show(JFrame fr, String parts){
         ShowPane sp = new ShowPane(fr, parts);
     }
 }

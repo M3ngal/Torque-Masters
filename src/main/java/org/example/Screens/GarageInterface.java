@@ -1,4 +1,10 @@
-package org.example;
+package org.example.Screens;
+
+import org.example.*;
+import org.example.CarComponents.*;
+import org.example.CustomComponents.CustomPanel;
+import org.example.CustomComponents.CustomTextField;
+import org.example.CustomComponents.PixelatedButton;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
 
-public class GarageInterface extends JFrame implements ActionListener {
+public class GarageInterface extends JPanel {
     //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
     private int c = 0, engineCounter = 0, createCounter = 0;
 
@@ -35,6 +41,7 @@ public class GarageInterface extends JFrame implements ActionListener {
     String chassisCar;
     String suspensionCar;
     String colorCar;
+    String carName;
     
     // Card Layout para facilitar a troca entre JPanels na seção de botões
     CardLayout cardLayout;
@@ -45,7 +52,6 @@ public class GarageInterface extends JFrame implements ActionListener {
 
     // Botões do settingPanel (superior)
     PixelatedButton menuButton;
-    PixelatedButton createButton;
     PixelatedButton exitButton;
 
     // Botões do carPanel (inferior)
@@ -100,7 +106,7 @@ public class GarageInterface extends JFrame implements ActionListener {
         PixelatedButton offRoadTires;
 
     PixelatedButton chassisButton;
-        PixelatedButton suvChassis; 
+        PixelatedButton suvChassis;
         PixelatedButton sedanChassis;
         PixelatedButton sportChassis;
         PixelatedButton hatchbackChassis;
@@ -117,75 +123,14 @@ public class GarageInterface extends JFrame implements ActionListener {
         PixelatedButton colorBlue;
         PixelatedButton colorYellow;
         PixelatedButton colorBlack;
-    
+
+    PixelatedButton carNameButton;
+    PixelatedButton setCarName;
+    CustomTextField carNameField;
+
     Color appColor = new Color(13, 6, 40);
     Color buttonColor = new Color(103, 124, 163);
     Color startColor = new Color(41, 40, 45);
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-
-    // Panel customizado para inserção de imagem de background
-    public static class CustomPanel extends JPanel {
-        private Image backgroundImage;
-
-        public CustomPanel(String imagePath) {
-            setBackgroundImage(imagePath); // Usando o novo metodo ao construir o painel
-        }
-
-        // Metodo para alterar a imagem de fundo
-        public void setBackgroundImage(String imagePath) {
-            try {
-                backgroundImage = new ImageIcon(imagePath).getImage();
-                repaint(); // Reforça a repintura do painel com a nova imagem
-            } catch (Exception e) {
-                System.err.println("Erro ao carregar a imagem: " + e.getMessage());
-            }
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            if (backgroundImage != null) {
-                g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
-            }
-        }
-    }
-
-
-    // Botão customizado
-    static class PixelatedButton extends JButton {
-        public PixelatedButton(String label) {
-            super(label);
-            this.setFont(new Font("Monospaced", Font.BOLD, 16));
-            this.setForeground(Color.BLACK);
-            this.setFocusPainted(false);
-            this.setBorderPainted(false);
-            this.setContentAreaFilled(false);
-            this.setOpaque(false);
-            this.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        // Exibição do botão customizado
-        @Override
-        protected void paintComponent(Graphics g) {
-            if (getModel().isPressed()) {
-                g.setColor(new Color(91, 85, 136));
-            } else {
-                g.setColor(new Color(91, 85, 136));
-            }
-            g.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
-            super.paintComponent(g);
-        }
-
-        @Override
-        protected void paintBorder(Graphics g) {
-            g.setColor(Color.BLACK);
-            g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
-        }
-    }
 
     // Construtor da interface gráfica do jogo
     GarageInterface() {
@@ -214,11 +159,10 @@ public class GarageInterface extends JFrame implements ActionListener {
         // Button Panel
         carPanel = new JPanel();
         carPanel.setBackground(buttonColor);
-        carPanel.setLayout(new FlowLayout(0, 35, 75));
+        carPanel.setLayout(new FlowLayout(0, 27, 75));
         carPanel.setPreferredSize(new Dimension(900, 175));
 
 //-----------------------------------------------------Car Components Panels-----------------------------------------------------------------------
-
         // Engine Panel
         JPanel enginePanel = new JPanel();
         enginePanel.setBackground(buttonColor);
@@ -461,6 +405,20 @@ public class GarageInterface extends JFrame implements ActionListener {
         bodyPaintPanel.add(colorBlue);
         bodyPaintPanel.add(colorBlack);
 
+        // Car Name Panel
+        JPanel carNamePanel = new JPanel();
+        carNamePanel.setBackground(buttonColor);
+        carNamePanel.setLayout(new FlowLayout(0, 60, 75));
+        carNamePanel.setPreferredSize(new Dimension(900, 175));
+
+        carNameButton = new PixelatedButton("Name");
+
+        setCarName = new PixelatedButton("Set Name");
+        carNameField = new CustomTextField( 50);
+
+        carNamePanel.add(setCarName);
+        carNamePanel.add(carNameField);
+
         // Start Buttons
         startButton = new PixelatedButton("New");
         startButton.setPreferredSize(new Dimension(150, 60));
@@ -485,6 +443,7 @@ public class GarageInterface extends JFrame implements ActionListener {
         carPanel.add(chassisButton);
         carPanel.add(suspensionButton);
         carPanel.add(bodyPaintButton);
+        carPanel.add(carNameButton);
 
         //Database Connection
         Connection conn = null;
@@ -525,7 +484,6 @@ public class GarageInterface extends JFrame implements ActionListener {
         exitButton.addActionListener(event -> {
             System.exit(1);
         });
-
 
 // --------------------------Engine--------------------------
         engineButton.addActionListener(event -> cardLayout.show(menuPanel, "enginePanel"));
@@ -864,6 +822,16 @@ public class GarageInterface extends JFrame implements ActionListener {
             bodyPaintButton.setEnabled(false); createCounter++;
             cardLayout.show(menuPanel, "carPanel");
         });
+
+// --------------------------Car Name--------------------------
+        carNameButton.addActionListener(event -> cardLayout.show(menuPanel, "carNamePanel"));
+
+        setCarName.addActionListener(event -> {
+            carName = carNameField.getText();
+            carNameField.setText("");
+            carNameButton.setEnabled(false); createCounter++;
+            cardLayout.show(menuPanel, "carPanel");
+        });
         
         // Add panels to CardLayout
         menuPanel.add(startPanel, "startPanel");
@@ -884,17 +852,18 @@ public class GarageInterface extends JFrame implements ActionListener {
         menuPanel.add(chassisPanel, "chassisPanel");
         menuPanel.add(suspensionPanel, "suspensionPanel");
         menuPanel.add(bodyPaintPanel, "bodyPaintPanel");
+        menuPanel.add(carNamePanel, "carNamePanel");
 
         // Timer
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (createCounter == 11) {
+                if (createCounter == 12) {
                     engineButton.setEnabled(true);
                         engineType.setEnabled(true);
                         engineMaterial.setEnabled(true);
                         cylinders.setEnabled(true);
-                        aspiration.setEnabled(true);
+                        aspiration.setEnabled(  true);
                         fuel.setEnabled(true);
                         engineMaterial.setEnabled(true);
                         traction.setEnabled(true);
@@ -903,6 +872,7 @@ public class GarageInterface extends JFrame implements ActionListener {
                     chassisButton.setEnabled(true);
                     suspensionButton.setEnabled(true);
                     bodyPaintButton.setEnabled(true);
+                    carNameButton.setEnabled(true);
 
                     settingsPanel.setBackground(startColor);
                     cardLayout.show(menuPanel, "startPanel");
@@ -915,7 +885,7 @@ public class GarageInterface extends JFrame implements ActionListener {
                     Suspension carSuspension = new Suspension(suspensionCar);
                     BodyPaint carBodyPaint = new BodyPaint(colorCar);
 
-                    Car carrao = new Car(carEngine, carBrakes, carTires, carChassis, carSuspension, carBodyPaint);
+                    Car carrao = new Car(carEngine, carBrakes, carTires, carChassis, carSuspension, carBodyPaint, carName);
                     carrao.setStats();
                     carEngine.incluir(finalConn);
                     carrao.incluir(finalConn);
@@ -941,21 +911,11 @@ public class GarageInterface extends JFrame implements ActionListener {
         this.add(settingsPanel, BorderLayout.NORTH);
         this.add(exhibitionPanel, BorderLayout.CENTER);
         this.add(menuPanel, BorderLayout.SOUTH);
-
-        this.setVisible(true);
-        this.setSize(900, 700);
-        this.setResizable(false);
-        this.setTitle("Torque Masters");
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }
-
-    public static void main(String[] args) {
-        new GarageInterface();
     }
 
     public static void mostrarCarros(Connection conn) {
         JFrame fr = new JFrame();
-        String sql = "SELECT id_engine, brakes, tires, chassis, suspension FROM cars";
+        String sql = "SELECT eng_id, brakes, tires, chassis, suspension, name FROM cars";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs =  pstmt.executeQuery()) {
@@ -966,9 +926,10 @@ public class GarageInterface extends JFrame implements ActionListener {
                 String tires = rs.getString("tires");
                 String chassis = rs.getString("chassis");
                 String suspension = rs.getString("suspension");
+                String carName = rs.getString("name");
 
-                String carInfo = String.format("Car{id_engine='%s', brakes='%s', tires='%s', chassis='%s', suspension='%s'}",
-                        id_engine, brakes, tires, chassis, suspension);
+                String carInfo = String.format("Car{eng_id='%s', brakes='%s', tires='%s', chassis='%s', suspension='%s', name='%s'}",
+                        id_engine, brakes, tires, chassis, suspension, carName);
 
                 ShowPane.show(fr, carInfo);
             }

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.CarComponents;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class Engine {
     private String engineMaterial;
     private String traction;
 
-    Engine(String engineType, int cylindersAmmount, double cylinders, String aspiration, String fuel, String engineMaterial, String traction) {
+    public Engine(String engineType, int cylindersAmmount, double cylinders, String aspiration, String fuel, String engineMaterial, String traction) {
         //passagem de valores para os atributos do construtores
         this.engineType = engineType;
         this.cylindersAmmount = cylindersAmmount;
