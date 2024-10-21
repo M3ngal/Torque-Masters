@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import javax.swing.*;
 
 public class GarageInterface extends JPanel {
+    private Timer timer;
+
     //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
     private int c = 0, engineCounter = 0, createCounter = 0;
 
@@ -25,7 +27,6 @@ public class GarageInterface extends JPanel {
     JPanel carPanel;
     CustomPanel exhibitionPanel;
     JPanel settingsPanel;
-    private Timer timer;
 
     // Definição das váriaveis para declaração do objeto carro
     String engineTypeCar;

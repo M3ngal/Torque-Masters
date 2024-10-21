@@ -86,7 +86,7 @@ public class Car {
     }
 
     public void incluir(Connection conn){
-        String sqlInsert = "INSERT INTO Cars(eng_id, brakes, tires, chassis, suspension, name) VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO Cars(car_id, brakes, tires, chassis, suspension, name) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement stm = null;
 
         try{
@@ -122,75 +122,6 @@ public class Car {
         }
     }
 
-    public void excluir(Connection conn, int id){
-        String sqlDelete = "DELETE FROM Cars WHERE id = ?";
-        PreparedStatement stm = null;
-
-        try{
-            conn.setAutoCommit(false);
-            stm = conn.prepareStatement(sqlDelete);
-            stm.setInt(1, id);
-            stm.execute();
-            conn.commit();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            try{
-                conn.rollback();
-            }
-            catch (SQLException e1){
-                System.out.print(e1.getStackTrace());
-            }
-        }
-        finally{
-            if(stm != null){
-                try{
-                    stm.close();
-                }
-                catch (SQLException e1){
-                    System.out.print(e1.getStackTrace());
-                }
-            }
-        }
-    }
-
-    public void atualizar(Connection conn, int id){
-        String sqlUpdate = "UPDATE Cars SET id_engine = ?, brakes = ?, tires = ?, chassis = ?, suspension = ? WHERE id = ?";
-        PreparedStatement stm = null;
-
-        try{
-            conn.setAutoCommit(false);
-            stm = conn.prepareStatement(sqlUpdate);
-            stm.setInt(1, engine.getId());
-            stm.setString(2, brakes.getBrakeType());
-            stm.setString(3, tires.getTireType());
-            stm.setString(4, chassis.getChassisModel());
-            stm.setString(5, suspension.getSuspensionType());
-            stm.setInt(0, id);
-            stm.execute();
-            conn.commit();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            try{
-                conn.rollback();
-            }
-            catch(SQLException e1){
-                System.out.print(e1.getStackTrace());
-            }
-        }
-        finally{
-            if(stm != null){
-                try{
-                    stm.close();
-                }
-                catch(SQLException e1){
-                    System.out.print(e1.getStackTrace());
-                }
-            }
-        }
-    }
-
     public void carregar(Connection conn, int id) {
         String sqlSelect = "SELECT id_engine, brakes, tires, chassis, suspension FROM Cars WHERE id = ?";
         PreparedStatement stm = null;
@@ -207,6 +138,7 @@ public class Car {
                 this.suspension.setSuspensionType(rs.getString(5));
             }
         }
+
         catch(Exception e){
             e.printStackTrace();
             try{

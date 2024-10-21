@@ -1,17 +1,17 @@
-------------------------------<gfhrfghrthrt>------------------------------
-Engine -> Type: boxer; Cylinder Ammount: 4; Cylinders: 2.0; Aspiration: super compressor; Fuel: diesel; Material: liga de aluminio; Traction: dianteira
-2 - Brakes: popular
-3 - Tires: esportivo
-4 - Chassis Model: esportivo
-5 - Suspension: rally
+------------------------------<Carro1>------------------------------
+Engine -> Type: em linha; Cylinder Ammount: 4; Cylinders: 2.0; Aspiration: turbo compressor; Fuel: gasolina; Material: liga de aluminio; Traction: dianteira
+2 - Brakes: esportivo
+3 - Tires: corrida
+4 - Chassis Model: sedan
+5 - Suspension: esportivo
 6 - Body Paint Color: Azul
 ------------------------------Stats------------------------------
-A - Cost: 116510
-B - Consumption: 19
-C - Weight: 1588
-D - Max Speed: 581
+A - Cost: 82010
+B - Consumption: 18
+C - Weight: 1429
+D - Max Speed: 771
 E - Acceleration: 0
 F - Handling: 1
-G - Brakes: 3
-H - Power: 256
-I - Torque: 159
+G - Brakes: 2
+H - Power: 224
+I - Torque: 140
