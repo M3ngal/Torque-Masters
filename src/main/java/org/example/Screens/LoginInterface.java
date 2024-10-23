@@ -9,9 +9,14 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginInterface extends CustomPanel {
+    private String username;
+    private String password;
+    private int userID;
     private boolean userFound = false;
     private GameWindow gameWindow;
 
@@ -153,12 +158,13 @@ public class LoginInterface extends CustomPanel {
         // ActionListeners
         loginButton.addActionListener(event -> {
             Users user = new Users();
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+            username = usernameField.getText();
+            password = passwordField.getText();
 
             for (Users u : user.readUser()) {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
-                    gameWindow.showGarageInterface();
+                    setUserID(finalConn);
+                    gameWindow.showGarageInterface(userID);
                     return;
                 }
             }
@@ -171,8 +177,8 @@ public class LoginInterface extends CustomPanel {
 
         signUpButton.addActionListener(event -> {
             Users user = new Users(usernameField.getText(), passwordField.getText());
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+            username = usernameField.getText();
+            password = passwordField.getText();
 
             for (Users u : user.readUser()) {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
@@ -184,10 +190,10 @@ public class LoginInterface extends CustomPanel {
 
             if (!userFound) {
                 user.addUser(finalConn);
+                setUserID(finalConn);
                 cardLayout.show(menuPanel, "userAddedPanel");
-                waitCode(4, gameWindow::showGarageInterface);
+                waitCode(4, () -> gameWindow.showGarageInterface(userID));
             }
-
         });
 
         // Add Components
@@ -215,5 +221,54 @@ public class LoginInterface extends CustomPanel {
         Timer timer = new Timer(time * 1000, e -> callback.run());
         timer.setRepeats(false);
         timer.start();
+    }
+
+    public void setUserID(Connection conn) {
+        String sqlSelect = "SELECT user_id FROM login WHERE username = ? AND password = ?";
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        try {
+            stm = conn.prepareStatement(sqlSelect);
+            stm.setString(1, username);
+            stm.setString(2, password);
+            rs = stm.executeQuery();
+
+            if (rs.next()) {
+                this.userID = rs.getInt(1);
+            }
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+            try{
+                conn.rollback();
+            }
+            catch (SQLException e1){
+                System.out.print(e1.getStackTrace());
+            }
+        }
+        finally{
+            if(rs != null){
+                try{
+                    rs.close();
+                }
+                catch (SQLException e1){
+                    System.out.print(e1.getStackTrace());
+                }
+            }
+            if(stm != null){
+                try{
+                    stm.close();
+                }
+                catch (SQLException e1){
+                    System.out.print(e1.getStackTrace());
+                }
+            }
+        }
+    }
+
+    public int getUserID() {
+        return userID;
     }
 }

@@ -7,7 +7,6 @@ public class GameWindow extends JFrame {
     private LoginInterface loginInterface;
 
     GameWindow() {
-        garageInterface = new GarageInterface();
         loginInterface = new LoginInterface(this);
         this.setContentPane(loginInterface);
 
@@ -19,10 +18,12 @@ public class GameWindow extends JFrame {
         this.setVisible(true);
     }
 
-    public void showGarageInterface() {
+    public Runnable showGarageInterface(int userID) {
+        garageInterface = new GarageInterface(userID);
         this.setContentPane(garageInterface);
         this.revalidate();
         this.repaint();
+        return null;
     }
 
     public static void main(String[] args) {

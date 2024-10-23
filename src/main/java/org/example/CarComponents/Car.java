@@ -10,6 +10,7 @@ public class Car {
     Scanner sc = new Scanner(System.in);
 
     //Componentes do carro
+    private int userID;
     private Engine engine;
     private Brakes brakes;
     private Tires tires;
@@ -30,7 +31,9 @@ public class Car {
     private double brakesPower;
 
     //Construtor
-    public Car(Engine engine, Brakes brakes, Tires tires, Chassis chassis, Suspension suspension, BodyPaint bodyPaint, String carName) {
+    public Car(int userID, Engine engine, Brakes brakes, Tires tires, Chassis chassis,
+               Suspension suspension, BodyPaint bodyPaint, String carName) {
+        this.userID = userID;
         this.engine = engine;
         this.brakes = brakes;
         this.tires = tires;
@@ -86,13 +89,13 @@ public class Car {
     }
 
     public void incluir(Connection conn){
-        String sqlInsert = "INSERT INTO Cars(car_id, brakes, tires, chassis, suspension, name) VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO Cars(user_id, brakes, tires, chassis, suspension, name) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement stm = null;
 
         try{
             conn.setAutoCommit(false);
             stm = conn.prepareStatement(sqlInsert);
-            stm.setInt(1, engine.getId());
+            stm.setInt(1, userID);
             stm.setString(2, brakes.getBrakeType());
             stm.setString(3, tires.getTireType());
             stm.setString(4, chassis.getChassisModel());

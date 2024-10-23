@@ -46,9 +46,11 @@ public class Users {
                 Users user = new Users(rSet.getString("username"), rSet.getString("password"));
                 users.add(user);
             }
+
         } catch (Exception e) {
             System.out.println("Prepared statement error...");
             e.printStackTrace();
+
         } finally {
             try {
                 if (rSet != null)
