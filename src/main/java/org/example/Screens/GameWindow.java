@@ -7,12 +7,14 @@ public class GameWindow extends JFrame {
     private LoginInterface loginInterface;
 
     GameWindow() {
+        WarehouseInterface warehouseInterface = new WarehouseInterface();
         loginInterface = new LoginInterface(this);
-        this.setContentPane(loginInterface);
+        this.setContentPane(warehouseInterface);
 
         this.setSize(900, 700);
         this.setResizable(false);
         this.setTitle("Torque Masters");
+        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         this.setVisible(true);
