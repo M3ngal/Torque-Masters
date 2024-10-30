@@ -1,8 +1,8 @@
 package org.example.Screens;
 
-import org.example.Conector;
+import org.example.Configurations.Conector;
 import org.example.CustomComponents.*;
-import org.example.Users;
+import org.example.Configurations.Users;
 
 import javax.swing.*;
 import java.awt.*;
@@ -93,6 +93,9 @@ public class LoginInterface extends CustomPanel {
 
         passwordField = new CustomPasswordField(20);
         passwordField.setBounds(160, 100, 250, 40);
+
+        usernameField.setText("Lucca");
+        passwordField.setText("Urso");
 
         // Buttons
         loginButton = new PixelatedButton("Login");
@@ -213,10 +216,6 @@ public class LoginInterface extends CustomPanel {
         this.add(menuPanel);
     }
 
-    public void setUserFound(boolean userFound) {
-        this.userFound = userFound;
-    }
-
     public void waitCode(int time, Runnable callback) {
         Timer timer = new Timer(time * 1000, e -> callback.run());
         timer.setRepeats(false);
@@ -266,9 +265,5 @@ public class LoginInterface extends CustomPanel {
                 }
             }
         }
-    }
-
-    public int getUserID() {
-        return userID;
     }
 }

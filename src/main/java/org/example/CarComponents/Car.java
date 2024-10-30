@@ -2,7 +2,6 @@ package org.example.CarComponents;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -40,26 +39,6 @@ public class Car {
         this.chassis = chassis;
         this.suspension = suspension;
         this.bodyPaint = bodyPaint;
-        this.carName = carName;
-    }
-
-    public void setBrakes(Brakes brakes) {
-        this.brakes = brakes;
-    }
-
-    public void setTires(Tires tires) {
-        this.tires = tires;
-    }
-
-    public void setChassis(Chassis chassis) {
-        this.chassis = chassis;
-    }
-
-    public void setSuspension(Suspension suspension) {
-        this.suspension = suspension;
-    }
-
-    public void setCarName(String carName) {
         this.carName = carName;
     }
 
@@ -125,49 +104,87 @@ public class Car {
         }
     }
 
-    public void carregar(Connection conn, int id) {
-        String sqlSelect = "SELECT id_engine, brakes, tires, chassis, suspension FROM Cars WHERE id = ?";
-        PreparedStatement stm = null;
-        ResultSet rs = null;
+    public String getBrakes() {
+        return brakes.getBrakeType();
+    }
 
-        try{
-            stm = conn.prepareStatement(sqlSelect);
-            stm.setInt(1, id);
-            rs = stm.executeQuery();
-            if(rs.next()){
-                this.brakes.setBrakeType(rs.getString(2));
-                this.tires.setTireType(rs.getString(3));
-                this.chassis.setChassisModel(rs.getString(4));
-                this.suspension.setSuspensionType(rs.getString(5));
-            }
-        }
+    public String getTires() {
+        return tires.getTireType();
+    }
 
-        catch(Exception e){
-            e.printStackTrace();
-            try{
-                conn.rollback();
-            }
-            catch (SQLException e1){
-                System.out.print(e1.getStackTrace());
-            }
-        }
-        finally{
-            if(rs != null){
-                try{
-                    rs.close();
-                }
-                catch (SQLException e1){
-                    System.out.print(e1.getStackTrace());
-                }
-            }
-            if(stm != null){
-                try{
-                    stm.close();
-                }
-                catch (SQLException e1){
-                    System.out.print(e1.getStackTrace());
-                }
-            }
-        }
+    public String getChassis() {
+        return chassis.getChassisModel();
+    }
+
+    public String getSuspension() {
+        return suspension.getSuspensionType();
+    }
+
+    public String getCarName() {
+        return this.carName;
+    }
+
+    public String getEngineType() {
+        return engine.getEngineType();
+    }
+
+    public int getCylinderAmount() {
+        return engine.getCylindersAmmount();
+    }
+
+    public double getCylinders() {
+        return engine.getCylinders();
+    }
+
+    public String getAspiration() {
+        return engine.getAspiration();
+    }
+
+    public String getFuel() {
+        return engine.getFuel();
+    }
+
+    public String getMaterial() {
+        return engine.getEngineMaterial();
+    }
+
+    public String getTraction() {
+        return engine.getTraction();
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public double getConsumption() {
+        return consumption;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public double getAcceleration() {
+        return acceleration;
+    }
+
+    public double getTorque() {
+        return torque;
+    }
+
+    public double getPower() {
+        return power;
+    }
+
+    public double getHandling() {
+        return handling;
+    }
+
+    public double getBrakesPower() {
+        return brakesPower;
     }
 }

@@ -1,17 +1,17 @@
-------------------------------<Carrão>------------------------------
-Engine -> Type: boxer; Cylinder Ammount: 4; Cylinders: 2.0; Aspiration: turbo compressor; Fuel: gasolina; Material: liga de aluminio; Traction: dianteira
-2 - Brakes: esportivo
+------------------------------<Jeep>------------------------------
+Engine -> Type: V; Cylinder Ammount: 10; Cylinders: 4.2; Aspiration: super compressor; Fuel: diesel; Material: liga de aluminio; Traction: integral
+2 - Brakes: ceramica
 3 - Tires: corrida
 4 - Chassis Model: esportivo
-5 - Suspension: corrida
+5 - Suspension: rally
 6 - Body Paint Color: Azul
 ------------------------------Stats------------------------------
-A - Cost: 124010
-B - Consumption: 18
-C - Weight: 1529
-D - Max Speed: 771
+A - Cost: 0
+B - Consumption: 0
+C - Weight: 0
+D - Max Speed: 0
 E - Acceleration: 0
-F - Handling: 1
-G - Brakes: 2
-H - Power: 224
-I - Torque: 140
+F - Handling: 0
+G - Brakes: 0
+H - Power: 0
+I - Torque: 0

@@ -1,7 +1,8 @@
 package org.example.Screens;
 
-import org.example.*;
 import org.example.CarComponents.*;
+import org.example.Configurations.Conector;
+import org.example.Configurations.CreateTextFile;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.CustomTextField;
 import org.example.CustomComponents.PixelatedButton;
@@ -10,14 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
 
 public class GarageInterface extends JPanel {
     private Timer timer;
-    private int userId;
 
     //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
     private int c = 0, engineCounter = 0, createCounter = 0;
@@ -135,7 +133,7 @@ public class GarageInterface extends JPanel {
     Color startColor = new Color(41, 40, 45);
 
     // Construtor da interface gráfica do jogo
-    GarageInterface(int userId) {
+    GarageInterface(int userId, GameWindow gameWindow) {
         // Card Layout
         cardLayout = new CardLayout();
         menuPanel = new JPanel(cardLayout);
@@ -433,6 +431,8 @@ public class GarageInterface extends JPanel {
 
         // Settings Buttons
         menuButton = new PixelatedButton("Menu");
+        menuButton.setEnabled(false);
+
         exitButton = new PixelatedButton("Exit");
 
         // Settings Panel
@@ -462,12 +462,13 @@ public class GarageInterface extends JPanel {
 
         //Acessa os veículos armazenados na database
         garageButton.addActionListener(event -> {
-            GarageInterface.mostrarCarros(finalConn, userId);
+            gameWindow.showWarehouseInterface(userId);
         });
 
         //Inicia a criação de um novo carro
         startButton.addActionListener(event -> {
             cardLayout.show(menuPanel, "carPanel");
+            menuButton.setEnabled(true);
 
             settingsPanel.setBackground(appColor);
             exhibitionPanel.setBackgroundImage("images\\Garagem_pixelada.jpg");
@@ -484,7 +485,7 @@ public class GarageInterface extends JPanel {
 
         //Encerra a aplicação
         exitButton.addActionListener(event -> {
-            System.exit(1);
+            System.exit(0);
         });
 
 // --------------------------Engine--------------------------
@@ -835,7 +836,7 @@ public class GarageInterface extends JPanel {
             cardLayout.show(menuPanel, "carPanel");
         });
         
-        // Add panels to CardLayout
+        // Adding Components
         menuPanel.add(startPanel, "startPanel");
         menuPanel.add(carPanel, "carPanel");
         menuPanel.add(enginePanel, "enginePanel");
@@ -888,7 +889,6 @@ public class GarageInterface extends JPanel {
                     BodyPaint carBodyPaint = new BodyPaint(colorCar);
 
                     Car carrao = new Car(userId, carEngine, carBrakes, carTires, carChassis, carSuspension, carBodyPaint, carName);
-                    carrao.setStats();
                     carEngine.incluir(finalConn);
                     carrao.incluir(finalConn);
                     c++;
@@ -901,47 +901,16 @@ public class GarageInterface extends JPanel {
 
                     engineCounter = 0;
                     createCounter = 0;
+                    menuButton.setEnabled(false);
                 }
             }
         });
 
         timer.start();
 
-
-
-        // Game window
         this.setLayout(new BorderLayout());
-
         this.add(settingsPanel, BorderLayout.NORTH);
         this.add(exhibitionPanel, BorderLayout.CENTER);
         this.add(menuPanel, BorderLayout.SOUTH);
-    }
-
-    public static void mostrarCarros(Connection conn, int userId) {
-        JFrame fr = new JFrame();
-        String sql = "SELECT user_id, brakes, tires, chassis, suspension, name FROM cars WHERE user_id = ?";
-
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            // Define o valor do parâmetro user_id na query
-            pstmt.setInt(1, userId);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    int user_id = rs.getInt("user_id");
-                    String brakes = rs.getString("brakes");
-                    String tires = rs.getString("tires");
-                    String chassis = rs.getString("chassis");
-                    String suspension = rs.getString("suspension");
-                    String carName = rs.getString("name");
-
-                    String carInfo = String.format("Car{user_id='%s', brakes='%s', tires='%s', chassis='%s', suspension='%s', name='%s'}",
-                            user_id, brakes, tires, chassis, suspension, carName);
-
-                    ShowPane.show(fr, carInfo);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
