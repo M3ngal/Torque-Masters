@@ -1,10 +1,10 @@
-------------------------------<Jeep>------------------------------
-Engine -> Type: V; Cylinder Ammount: 10; Cylinders: 4.2; Aspiration: super compressor; Fuel: diesel; Material: liga de aluminio; Traction: integral
-2 - Brakes: ceramica
-3 - Tires: corrida
+------------------------------<abc>------------------------------
+Engine -> Type: em linha; Cylinder Ammount: 3; Cylinders: 2,0; Aspiration: turbo compressor; Fuel: diesel; Material: liga de titanio; Traction: integral
+2 - Brakes: esportivo
+3 - Tires: esportivo
 4 - Chassis Model: esportivo
-5 - Suspension: rally
-6 - Body Paint Color: Azul
+5 - Suspension: corrida
+6 - Body Paint Color: Preto
 ------------------------------Stats------------------------------
 A - Cost: 0
 B - Consumption: 0
