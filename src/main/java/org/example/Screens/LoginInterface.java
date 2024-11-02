@@ -1,5 +1,6 @@
 package org.example.Screens;
 
+import org.example.Configurations.Client;
 import org.example.Configurations.Conector;
 import org.example.CustomComponents.*;
 import org.example.Configurations.Users;
@@ -19,6 +20,7 @@ public class LoginInterface extends CustomPanel {
     private int userID;
     private boolean userFound = false;
     private GameWindow gameWindow;
+    private Client client;
 
     private CardLayout cardLayout;
     private JPanel menuPanel;
@@ -43,8 +45,9 @@ public class LoginInterface extends CustomPanel {
     Color backgroundColor = new Color(	249, 253, 221);
     Color loginColor = new Color(121, 105, 124);
 
-    LoginInterface(GameWindow gameWindow) {
+    LoginInterface(GameWindow gameWindow, Client client) {
         super("images//Garagem_Login.png");
+        this.client = client;
         this.gameWindow = gameWindow;
         setLayout(null);
 
@@ -167,8 +170,8 @@ public class LoginInterface extends CustomPanel {
             for (Users u : user.readUser()) {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                     setUserID(finalConn);
-                    //
-                    gameWindow.showGarageInterface(userID);
+                    sendUpdateMessageToClient();
+                    gameWindow.showGarageInterface(userID, client);
                     return;
                 }
             }
@@ -196,7 +199,7 @@ public class LoginInterface extends CustomPanel {
                 user.addUser(finalConn);
                 setUserID(finalConn);
                 cardLayout.show(menuPanel, "userAddedPanel");
-                waitCode(4, () -> gameWindow.showGarageInterface(userID));
+                waitCode(4, () -> gameWindow.showGarageInterface(userID, client));
             }
         });
 
@@ -266,5 +269,10 @@ public class LoginInterface extends CustomPanel {
                 }
             }
         }
+    }
+
+    public void sendUpdateMessageToClient() {
+        String fixedMessage = "Efetuou Login";
+        client.updateMessage(fixedMessage);  // Envia a mensagem para o Client
     }
 }

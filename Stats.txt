@@ -1,10 +1,10 @@
-------------------------------<abc>------------------------------
+------------------------------<rufus>------------------------------
 Engine -> Type: em linha; Cylinder Ammount: 3; Cylinders: 2,0; Aspiration: turbo compressor; Fuel: diesel; Material: liga de titanio; Traction: dianteira
-2 - Brakes: esportivo
+2 - Brakes: popular
 3 - Tires: esportivo
 4 - Chassis Model: esportivo
-5 - Suspension: esportivo
-6 - Body Paint Color: Azul
+5 - Suspension: corrida
+6 - Body Paint Color: Preto
 ------------------------------Stats------------------------------
 A - Cost: 0
 B - Consumption: 0

@@ -1,5 +1,6 @@
 package org.example.Screens;
 
+import org.example.Configurations.Client;
 import org.example.CarComponents.*;
 import org.example.Configurations.Conector;
 import org.example.CustomComponents.CustomPanel;
@@ -19,6 +20,7 @@ import java.util.List;
 
 public class WarehouseInterface extends CustomPanel {
     private int y = 0;
+    private Client client;
 
     private JLabel warehouseLabel;
     private JLabel carNameLabel;
@@ -64,8 +66,9 @@ public class WarehouseInterface extends CustomPanel {
     Font engineFont = new Font("Arial", Font.BOLD, 16);
     Font titleLabelFont = new Font("Arial", Font.BOLD, 26);
 
-    WarehouseInterface(int userId, GameWindow gameWindow) {
+    WarehouseInterface(int userId, GameWindow gameWindow, Client client) {
         super("images//warehouse.jpg");
+        this.client = client;
         this.setLayout(null);
 
         // Warehouse Title Label
@@ -177,7 +180,7 @@ public class WarehouseInterface extends CustomPanel {
             carInfoPanel.setVisible(false);
 
             carButton.addActionListener(event -> {
-                //
+                sendUpdateMessageToClient(c);
                 userCarsPanel.setVisible(false);
                 carInfoPanel.setVisible(true);
                 carInfoPanel.removeAll();
@@ -389,7 +392,7 @@ public class WarehouseInterface extends CustomPanel {
 
         //Action Listeners
         returnButton.addActionListener(event -> {
-            gameWindow.showGarageInterface(userId);
+            gameWindow.showGarageInterface(userId, client);
         });
 
         exitButton.addActionListener(event -> {
@@ -457,5 +460,10 @@ public class WarehouseInterface extends CustomPanel {
         }
 
         return storage;
+    }
+
+    public void sendUpdateMessageToClient(Car car) {
+        String fixedMessage = "Acessou carro: " + car.getCarName();
+        client.updateMessage(fixedMessage);  // Envia a mensagem para o Client
     }
 }

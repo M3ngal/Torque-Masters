@@ -1,5 +1,6 @@
 package org.example.Screens;
 
+import org.example.Configurations.Client;
 import org.example.CarComponents.*;
 import org.example.Configurations.Conector;
 import org.example.Configurations.CreateTextFile;
@@ -16,6 +17,7 @@ import javax.swing.*;
 
 public class GarageInterface extends JPanel {
     private Timer timer;
+    private Client client;
 
     //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
     private int c = 0, engineCounter = 0, createCounter = 0;
@@ -133,7 +135,8 @@ public class GarageInterface extends JPanel {
     Color startColor = new Color(41, 40, 45);
 
     // Construtor da interface gráfica do jogo
-    GarageInterface(int userId, GameWindow gameWindow) {
+    GarageInterface(int userId, GameWindow gameWindow, Client client) {
+        this.client = client;
         // Card Layout
         cardLayout = new CardLayout();
         menuPanel = new JPanel(cardLayout);
@@ -462,7 +465,7 @@ public class GarageInterface extends JPanel {
 
         //Acessa os veículos armazenados na database
         garageButton.addActionListener(event -> {
-            gameWindow.showWarehouseInterface(userId);
+            gameWindow.showWarehouseInterface(userId, client);
         });
 
         //Inicia a criação de um novo carro
@@ -878,7 +881,7 @@ public class GarageInterface extends JPanel {
                     carNameButton.setEnabled(true);
 
                     settingsPanel.setBackground(startColor);
-                    //
+                    sendUpdateMessageToClient();
                     cardLayout.show(menuPanel, "startPanel");
                     exhibitionPanel.setBackgroundImage("images//capa.jpg");
 
@@ -913,5 +916,10 @@ public class GarageInterface extends JPanel {
         this.add(settingsPanel, BorderLayout.NORTH);
         this.add(exhibitionPanel, BorderLayout.CENTER);
         this.add(menuPanel, BorderLayout.SOUTH);
+    }
+
+    public void sendUpdateMessageToClient() {
+        String fixedMessage = "Finalizou carro";
+        client.updateMessage(fixedMessage);  // Envia a mensagem para o Client
     }
 }
