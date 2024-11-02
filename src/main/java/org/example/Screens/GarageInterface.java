@@ -878,6 +878,7 @@ public class GarageInterface extends JPanel {
                     carNameButton.setEnabled(true);
 
                     settingsPanel.setBackground(startColor);
+                    //
                     cardLayout.show(menuPanel, "startPanel");
                     exhibitionPanel.setBackgroundImage("images//capa.jpg");
 

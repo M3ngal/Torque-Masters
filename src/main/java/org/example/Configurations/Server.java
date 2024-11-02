@@ -25,7 +25,7 @@ public class Server {
         String msg;
         try {
             while ((msg = clientSocket.getMessage()) != null && !msg.equalsIgnoreCase("sair")) {
-                System.out.printf("Mensagem recebida do cliente %s: %s\n", clientSocket.getRemoteSocketAddress(), msg);
+                System.out.printf("Ação do cliente %s: %s\n", clientSocket.getRemoteSocketAddress(), msg);
             }
         } finally {
             clientSocket.close();

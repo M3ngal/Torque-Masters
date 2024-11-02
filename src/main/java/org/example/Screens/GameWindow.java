@@ -7,7 +7,7 @@ public class GameWindow extends JFrame {
     private WarehouseInterface warehouseInterface;
     private LoginInterface loginInterface;
 
-    GameWindow() {
+    public GameWindow() {
         loginInterface = new LoginInterface(this);
         this.setContentPane(loginInterface);
 
@@ -34,9 +34,5 @@ public class GameWindow extends JFrame {
         this.revalidate();
         this.repaint();
         return null;
-    }
-
-    public static void main(String[] args) {
-        new GameWindow();
     }
 }

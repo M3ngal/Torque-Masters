@@ -167,6 +167,7 @@ public class LoginInterface extends CustomPanel {
             for (Users u : user.readUser()) {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                     setUserID(finalConn);
+                    //
                     gameWindow.showGarageInterface(userID);
                     return;
                 }

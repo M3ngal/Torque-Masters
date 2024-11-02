@@ -177,6 +177,7 @@ public class WarehouseInterface extends CustomPanel {
             carInfoPanel.setVisible(false);
 
             carButton.addActionListener(event -> {
+                //
                 userCarsPanel.setVisible(false);
                 carInfoPanel.setVisible(true);
                 carInfoPanel.removeAll();

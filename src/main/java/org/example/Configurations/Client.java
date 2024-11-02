@@ -23,6 +23,7 @@ public class Client {
         clientSocket = new Socket(serverAddress, serverPort);
         saida = new PrintWriter(clientSocket.getOutputStream(), true);
         System.out.println("Conectado ao servidor em " + serverAddress + ":" + serverPort);
+        new GameWindow();
         messageLoop();
     }
 
@@ -37,7 +38,6 @@ public class Client {
     }
 
     public static void main(String args[]) {
-
         try {
             // Utilize o endereço do servidor e a porta correta.
             Client client = new Client("127.0.0.1", 4000); // Use o IP do servidor se em outra máquina
