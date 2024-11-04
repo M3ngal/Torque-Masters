@@ -1,0 +1,33 @@
+
+--------------------------------------------------------
+<SERVER> (03/11/2024 18:24:51) Servidor iniciado na porta: 4000
+<CLIENT> (03/11/2024 18:24:58) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (03/11/2024 18:25:01) Cliente /127.0.0.1:56588: Efetuou Login
+<SERVER> (03/11/2024 18:25:37) Cliente /127.0.0.1:56588: Finalizou carro
+<SERVER> (03/11/2024 18:25:40) Cliente /127.0.0.1:56588: Acessou carro: Subaru WRX
+<SERVER> (03/11/2024 18:25:44) Cliente /127.0.0.1:56588: Acessou carro: Ferrari Chave
+<SERVER> (03/11/2024 18:25:46) Cliente /127.0.0.1:56588: Acessou carro: Subaru WRX
+
+--------------------------------------------------------
+<SERVER> (03/11/2024 18:26:29) Servidor iniciado na porta: 4000
+
+--------------------------------------------------------
+<SERVER> (03/11/2024 18:27:41) Servidor iniciado na porta: 4000
+<CLIENT> (03/11/2024 18:27:48) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Efetuou Login
+<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Ferrari Chave
+<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Subaru WRX
+<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Ferrari Chave
+
+--------------------------------------------------------
+<SERVER> (03/11/2024 18:33:04) Servidor iniciado na porta: 4000
+<CLIENT> (03/11/2024 18:33:13) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (03/11/2024 18:33:15) Cliente /127.0.0.1:57137: Efetuou Login
+<SERVER> (03/11/2024 18:33:16) Cliente /127.0.0.1:57137: Acessou carro: Ferrari Chave
+<SERVER> (03/11/2024 18:33:18) Cliente /127.0.0.1:57137: Acessou carro: Subaru WRX
+<SERVER> (03/11/2024 18:33:29) Cliente /127.0.0.1:57137: Acessou carro: Ferrari Chave
+
+--------------------------------------------------------
+<SERVER> (04/11/2024 12:05:50) Servidor iniciado na porta: 4000
+<CLIENT> (04/11/2024 12:05:56) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:06:00) Cliente /127.0.0.1:62155: Efetuou Login

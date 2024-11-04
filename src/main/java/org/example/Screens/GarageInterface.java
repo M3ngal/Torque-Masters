@@ -3,7 +3,7 @@ package org.example.Screens;
 import org.example.Configurations.Client;
 import org.example.CarComponents.*;
 import org.example.Configurations.Conector;
-import org.example.Configurations.CreateTextFile;
+import org.example.Configurations.FileLogWriter;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.CustomTextField;
 import org.example.CustomComponents.PixelatedButton;
@@ -896,12 +896,6 @@ public class GarageInterface extends JPanel {
                     carEngine.incluir(finalConn);
                     carrao.incluir(finalConn);
                     c++;
-
-                    // Criação e escrita no arquivo texto
-                    CreateTextFile fileWriter = new CreateTextFile();
-                    fileWriter.openFile();
-                    fileWriter.addRecord(carrao.toString());
-                    fileWriter.closeFile();
 
                     engineCounter = 0;
                     createCounter = 0;

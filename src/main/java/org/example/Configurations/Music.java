@@ -30,26 +30,11 @@ public class Music {
         }
     }
 
-    // Método para iniciar a música
+    // Metodo para iniciar a música
     public void play() {
         if (clip != null) {
             clip.start(); // Inicia a reprodução do clip
             clip.loop(Clip.LOOP_CONTINUOUSLY); // Reproduz em loop contínuo, se desejado
-        }
-    }
-
-    // Método para parar a música
-    public void stop() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop(); // Para a reprodução do clip
-        }
-    }
-
-    // Método para reiniciar a música
-    public void restart() {
-        if (clip != null) {
-            clip.setFramePosition(0); // Reinicia a música
-            play(); // Inicia novamente a reprodução
         }
     }
 }

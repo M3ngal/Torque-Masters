@@ -3,15 +3,18 @@ package org.example.Configurations;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ClientSocket {
     private final Socket socket;
     private final BufferedReader entrada;
     private final PrintWriter saida;
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public ClientSocket(final Socket socket) throws IOException {
         this.socket = socket;
-        System.out.println("Cliente " + socket.getRemoteSocketAddress() + " se conectou!");
+        System.out.printf("\n<CLIENT> (%s) Cliente %s se conectou", sdf.format(new Date()), socket.getRemoteSocketAddress());
         entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         saida = new PrintWriter(socket.getOutputStream(), true);
     }

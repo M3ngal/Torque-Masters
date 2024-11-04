@@ -3,6 +3,8 @@ package org.example.Configurations;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import org.example.Screens.GameWindow;
 import org.example.Configurations.Music;
@@ -16,6 +18,8 @@ public class Client {
     public String msg = " ";
     private boolean messageUpdated = false;  // Flag para controlar o envio
     Music music = new Music();
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    private static FileLogWriter file = new FileLogWriter();
 
     public Client(String serverAddress, int serverPort) {
         this.serverAddress = serverAddress;
@@ -26,7 +30,10 @@ public class Client {
     public void start(Client client) throws IOException {
         clientSocket = new Socket(serverAddress, serverPort);
         saida = new PrintWriter(clientSocket.getOutputStream(), true);
-        System.out.println("Conectado ao servidor em " + serverAddress + ":" + serverPort);
+
+        System.out.printf("\n<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort);
+        file.writeRecord(String.format("<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort));
+
         new GameWindow(client);
         music.play();
         messageLoop();
@@ -51,8 +58,10 @@ public class Client {
             Client client = new Client("127.0.0.1", 4000);
             client.start(client);
         } catch (IOException ex) {
-            System.out.println("Erro ao iniciar o cliente: " + ex.getMessage());
+            System.out.printf("<CLIENT> (%s) Erro ao iniciar o cliente: %s", sdf.format(new Date()), ex.getMessage());
         }
-        System.out.println("Cliente finalizado!");
+
+        System.out.printf("\n<CLIENT> (%s) Cliente finalizado!", sdf.format(new Date()));
+        file.writeRecord(String.format("<CLIENT> (%s) Cliente finalizado!", sdf.format(new Date())));
     }
 }
