@@ -1,36 +1,32 @@
 package org.example.Configurations;
 
-import java.io.*;
-import java.net.URL;
 import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Music {
-    private Clip clip; // Mantenha uma referência ao Clip
+    private Clip clip; // Referência ao Clip
+    private final String audioFilePath = "src/main/java/resources/musica.wav"; // Caminho armazenado na classe
 
     public Music() {
         try {
-            // Open an audio input stream.
-            URL url = this.getClass().getClassLoader().getResource("musica.wav"); // Use apenas "musica.wav"
-            if (url == null) {
+            // Carrega o arquivo de áudio diretamente usando o caminho armazenado
+            File audioFile = new File(audioFilePath);
+            if (!audioFile.exists()) {
                 System.err.println("Arquivo de áudio não encontrado! Verifique o caminho.");
                 return; // Encerra se o arquivo não for encontrado
             }
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            // Get a sound clip resource.
+
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(audioFile);
             clip = AudioSystem.getClip();
-            // Open audio clip and load samples from the audio input stream.
             clip.open(audioIn);
             play(); // Inicia a reprodução da música
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }
 
-    // Metodo para iniciar a música
+    // Método para iniciar a música
     public void play() {
         if (clip != null) {
             clip.start(); // Inicia a reprodução do clip
