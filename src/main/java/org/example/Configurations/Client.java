@@ -17,7 +17,7 @@ public class Client {
     private int serverPort;
     public String msg = " ";
     private boolean messageUpdated = false;  // Flag para controlar o envio
-    Music music = new Music();
+    //Music music = new Music();
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private static FileLogWriter file = new FileLogWriter();
 
@@ -35,7 +35,7 @@ public class Client {
         file.writeRecord(String.format("<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort));
 
         new GameWindow(client);
-        music.play();
+        //music.play();
         messageLoop();
     }
 

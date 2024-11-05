@@ -49,6 +49,8 @@ public class WarehouseInterface extends CustomPanel {
     private JLabel handlingLabel;
     private JLabel brakesPowerLabel;
 
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
     private JPanel userCarsPanel;
     private JPanel carInfoPanel;
 
@@ -93,12 +95,17 @@ public class WarehouseInterface extends CustomPanel {
             e.printStackTrace();
         }
 
+        // Card Layout
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
+        mainPanel.setBounds(70, 140, 750, 455);
+        mainPanel.setOpaque(false);
+
         // User Cars Panel
         userCarsPanel = new JPanel();
         userCarsPanel.setLayout(null);
         userCarsPanel.setBackground(warehouseColor);
         userCarsPanel.setBounds(70, 140, 750, 455);
-        userCarsPanel.setVisible(true);
 
         // Return Button
         returnButton = new PixelatedWarehouseButton("Menu");
@@ -125,9 +132,6 @@ public class WarehouseInterface extends CustomPanel {
             PixelatedWarehouseButton carButton = new PixelatedWarehouseButton(c.getCarName());
             carButton.setBounds(25, 5 + y, 700, 70);
             y += 75;
-
-            // Set Car Stats
-            c.setStats();
 
             // Car Infos Panel
             carInfoPanel = new JPanel() {
@@ -177,12 +181,13 @@ public class WarehouseInterface extends CustomPanel {
             carInfoPanel.setLayout(null);
             carInfoPanel.setBackground(warehouseColor);
             carInfoPanel.setBounds(70, 140, 750, 455);
-            carInfoPanel.setVisible(false);
 
             carButton.addActionListener(event -> {
                 sendUpdateMessageToClient(c);
-                userCarsPanel.setVisible(false);
-                carInfoPanel.setVisible(true);
+                c.setStats();
+                cardLayout.show(mainPanel, "carInfoPanel");
+                mainPanel.revalidate();
+                mainPanel.repaint();
                 carInfoPanel.removeAll();
                 revalidate();
                 repaint();
@@ -213,8 +218,9 @@ public class WarehouseInterface extends CustomPanel {
                 backButton = new PixelatedWarehouseButton("Back");
                 backButton.setBounds(655, 15, 80, 30);
                 backButton.addActionListener(e -> {
-                    userCarsPanel.setVisible(true);
-                    carInfoPanel.setVisible(false);
+                    cardLayout.show(mainPanel, "userCarsPanel");
+                    mainPanel.revalidate();
+                    mainPanel.repaint();
                 });
 
                 // Engine Labels
@@ -391,21 +397,19 @@ public class WarehouseInterface extends CustomPanel {
         }
 
         //Action Listeners
-        returnButton.addActionListener(event -> {
-            gameWindow.showGarageInterface(userId, client);
-        });
+        returnButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client));
 
-        exitButton.addActionListener(event -> {
-            System.exit(0);
-        });
-
+        exitButton.addActionListener(event -> System.exit(0));
 
         //Adding Components
+        mainPanel.add(userCarsPanel, "userCarsPanel");
+        mainPanel.add(carInfoPanel, "carInfoPanel");
+        cardLayout.show(mainPanel, "userCarsPanel");
+
+        this.add(mainPanel);
         this.add(exitButton);
         this.add(returnButton);
         this.add(warehouseLabel);
-        this.add(userCarsPanel);
-        this.add(carInfoPanel);
     }
 
     public List<Car> readDatabase(Connection conn, int userID) {

@@ -1,33 +1,291 @@
 
---------------------------------------------------------
-<SERVER> (03/11/2024 18:24:51) Servidor iniciado na porta: 4000
-<CLIENT> (03/11/2024 18:24:58) Conectado ao servidor em 127.0.0.1: 4000
-<SERVER> (03/11/2024 18:25:01) Cliente /127.0.0.1:56588: Efetuou Login
-<SERVER> (03/11/2024 18:25:37) Cliente /127.0.0.1:56588: Finalizou carro
-<SERVER> (03/11/2024 18:25:40) Cliente /127.0.0.1:56588: Acessou carro: Subaru WRX
-<SERVER> (03/11/2024 18:25:44) Cliente /127.0.0.1:56588: Acessou carro: Ferrari Chave
-<SERVER> (03/11/2024 18:25:46) Cliente /127.0.0.1:56588: Acessou carro: Subaru WRX
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (04/11/2024 12:34:00) Servidor iniciado na porta: 4000
+<CLIENT> (04/11/2024 12:34:13) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:34:15) Cliente /127.0.0.1:63563: Efetuou Login
+<SERVER> (04/11/2024 12:34:17) Cliente /127.0.0.1:63563: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 12:34:19) Cliente /127.0.0.1:63563: Acessou carro: Subaru WRX
+<CLIENT> (04/11/2024 12:48:31) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:48:33) Cliente /127.0.0.1:64085: Efetuou Login
+<SERVER> (04/11/2024 12:48:56) Cliente /127.0.0.1:64085: Finalizou carro
+<SERVER> (04/11/2024 12:49:27) Cliente /127.0.0.1:64085: Finalizou carro
+<CLIENT> (04/11/2024 12:49:38) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 12:50:56) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:51:04) Cliente /127.0.0.1:64259: Efetuou Login
+<CLIENT> (04/11/2024 12:51:44) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:51:52) Cliente /127.0.0.1:64305: Efetuou Login
+<CLIENT> (04/11/2024 12:52:16) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:52:24) Cliente /127.0.0.1:64330: Efetuou Login
+<CLIENT> (04/11/2024 12:53:19) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:53:26) Cliente /127.0.0.1:64438: Efetuou Login
+<CLIENT> (04/11/2024 12:55:16) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:55:33) Cliente /127.0.0.1:64503: Efetuou Login
+<CLIENT> (04/11/2024 12:55:59) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:56:06) Cliente /127.0.0.1:64542: Efetuou Login
+<CLIENT> (04/11/2024 12:56:39) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:56:50) Cliente /127.0.0.1:64636: Efetuou Login
+<CLIENT> (04/11/2024 12:57:40) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:57:47) Cliente /127.0.0.1:64787: Efetuou Login
+<CLIENT> (04/11/2024 12:58:04) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 12:58:12) Cliente /127.0.0.1:64804: Efetuou Login
+<CLIENT> (04/11/2024 13:02:45) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 13:02:52) Cliente /127.0.0.1:65109: Efetuou Login
 
---------------------------------------------------------
-<SERVER> (03/11/2024 18:26:29) Servidor iniciado na porta: 4000
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (04/11/2024 15:11:48) Servidor iniciado na porta: 4000
+<CLIENT> (04/11/2024 15:12:10) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 15:13:16) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 15:14:39) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 15:19:42) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 15:43:35) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 15:43:42) Cliente /127.0.0.1:63434: Efetuou Login
+<CLIENT> (04/11/2024 15:56:22) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 15:56:30) Cliente /127.0.0.1:63998: Efetuou Login
+<CLIENT> (04/11/2024 15:58:06) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 15:58:12) Cliente /127.0.0.1:64124: Efetuou Login
+<SERVER> (04/11/2024 15:58:46) Cliente /127.0.0.1:64124: Finalizou carro
+<SERVER> (04/11/2024 15:59:25) Cliente /127.0.0.1:64124: Finalizou carro
+<CLIENT> (04/11/2024 16:00:20) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:00:26) Cliente /127.0.0.1:64328: Efetuou Login
+<SERVER> (04/11/2024 16:00:38) Cliente /127.0.0.1:64328: Acessou carro: Porsche Tycann
+<SERVER> (04/11/2024 16:00:41) Cliente /127.0.0.1:64328: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 16:00:45) Cliente /127.0.0.1:64328: Acessou carro: BMW M4 Competition
+<CLIENT> (04/11/2024 16:07:23) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:07:29) Cliente /127.0.0.1:64758: Efetuou Login
+<SERVER> (04/11/2024 16:07:38) Cliente /127.0.0.1:64758: Acessou carro: Subaru WRX
+<CLIENT> (04/11/2024 16:07:50) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 16:23:16) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:23:22) Cliente /127.0.0.1:49376: Efetuou Login
+<CLIENT> (04/11/2024 16:23:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:23:44) Cliente /127.0.0.1:49395: Efetuou Login
+<CLIENT> (04/11/2024 16:24:23) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:24:29) Cliente /127.0.0.1:49426: Efetuou Login
+<CLIENT> (04/11/2024 16:27:43) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:27:49) Cliente /127.0.0.1:49749: Efetuou Login
+<CLIENT> (04/11/2024 16:30:21) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:30:32) Cliente /127.0.0.1:49903: Efetuou Login
+<CLIENT> (04/11/2024 16:42:31) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 16:42:36) Cliente /127.0.0.1:50758: Efetuou Login
 
---------------------------------------------------------
-<SERVER> (03/11/2024 18:27:41) Servidor iniciado na porta: 4000
-<CLIENT> (03/11/2024 18:27:48) Conectado ao servidor em 127.0.0.1: 4000
-<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Efetuou Login
-<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Ferrari Chave
-<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Subaru WRX
-<SERVER> (03/11/2024 18:27:41) Cliente /127.0.0.1:56720: Acessou carro: Ferrari Chave
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (04/11/2024 19:51:02) Servidor iniciado na porta: 4000
+<CLIENT> (04/11/2024 19:51:07) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 19:51:14) Cliente /127.0.0.1:52246: Efetuou Login
+<CLIENT> (04/11/2024 19:51:50) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (04/11/2024 20:09:18) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:09:26) Cliente /127.0.0.1:53721: Efetuou Login
+<CLIENT> (04/11/2024 20:13:45) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:13:51) Cliente /127.0.0.1:53980: Efetuou Login
+<CLIENT> (04/11/2024 20:19:10) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:19:16) Cliente /127.0.0.1:54316: Efetuou Login
+<CLIENT> (04/11/2024 20:27:25) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:27:31) Cliente /127.0.0.1:54926: Efetuou Login
+<CLIENT> (04/11/2024 20:33:21) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:33:27) Cliente /127.0.0.1:55275: Efetuou Login
+<CLIENT> (04/11/2024 20:34:51) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:34:53) Cliente /127.0.0.1:55369: Efetuou Login
+<CLIENT> (04/11/2024 20:36:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:36:40) Cliente /127.0.0.1:55491: Efetuou Login
+<CLIENT> (04/11/2024 20:38:01) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:38:02) Cliente /127.0.0.1:55580: Efetuou Login
+<CLIENT> (04/11/2024 20:38:29) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:38:30) Cliente /127.0.0.1:55615: Efetuou Login
+<CLIENT> (04/11/2024 20:38:50) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:38:52) Cliente /127.0.0.1:55645: Efetuou Login
+<CLIENT> (04/11/2024 20:40:06) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:40:08) Cliente /127.0.0.1:55726: Efetuou Login
+<CLIENT> (04/11/2024 20:41:49) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:41:51) Cliente /127.0.0.1:55843: Efetuou Login
+<CLIENT> (04/11/2024 20:44:42) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:44:44) Cliente /127.0.0.1:56015: Efetuou Login
+<CLIENT> (04/11/2024 20:47:21) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 20:47:23) Cliente /127.0.0.1:56192: Efetuou Login
+<CLIENT> (04/11/2024 21:33:06) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:33:10) Cliente /127.0.0.1:58985: Efetuou Login
+<CLIENT> (04/11/2024 21:35:09) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:35:11) Cliente /127.0.0.1:59121: Efetuou Login
+<CLIENT> (04/11/2024 21:35:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:35:43) Cliente /127.0.0.1:59155: Efetuou Login
+<CLIENT> (04/11/2024 21:35:54) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:35:57) Cliente /127.0.0.1:59179: Efetuou Login
+<CLIENT> (04/11/2024 21:36:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:36:40) Cliente /127.0.0.1:59249: Efetuou Login
+<CLIENT> (04/11/2024 21:37:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:37:44) Cliente /127.0.0.1:59317: Efetuou Login
+<CLIENT> (04/11/2024 21:43:51) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:43:53) Cliente /127.0.0.1:59750: Efetuou Login
+<CLIENT> (04/11/2024 21:44:24) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:44:26) Cliente /127.0.0.1:59799: Efetuou Login
+<CLIENT> (04/11/2024 21:48:17) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:48:20) Cliente /127.0.0.1:60062: Efetuou Login
+<CLIENT> (04/11/2024 21:53:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:53:43) Cliente /127.0.0.1:60450: Efetuou Login
+<CLIENT> (04/11/2024 21:55:24) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:55:27) Cliente /127.0.0.1:60593: Efetuou Login
+<CLIENT> (04/11/2024 21:55:44) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:55:50) Cliente /127.0.0.1:60629: Efetuou Login
+<CLIENT> (04/11/2024 21:58:20) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 21:58:22) Cliente /127.0.0.1:60877: Efetuou Login
+<CLIENT> (04/11/2024 22:13:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:13:42) Cliente /127.0.0.1:62007: Efetuou Login
+<CLIENT> (04/11/2024 22:15:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:15:40) Cliente /127.0.0.1:62174: Efetuou Login
+<CLIENT> (04/11/2024 22:16:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:16:42) Cliente /127.0.0.1:62267: Efetuou Login
+<CLIENT> (04/11/2024 22:17:06) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:17:09) Cliente /127.0.0.1:62312: Efetuou Login
+<CLIENT> (04/11/2024 22:51:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:51:44) Cliente /127.0.0.1:49357: Efetuou Login
+<SERVER> (04/11/2024 22:51:50) Cliente /127.0.0.1:49357: Acessou carro: Camaro
+<SERVER> (04/11/2024 22:52:35) Cliente /127.0.0.1:49357: Acessou carro: Camaro
+<CLIENT> (04/11/2024 22:59:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 22:59:48) Cliente /127.0.0.1:50092: Efetuou Login
+<CLIENT> (04/11/2024 23:02:56) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:02:58) Cliente /127.0.0.1:50363: Efetuou Login
+<CLIENT> (04/11/2024 23:04:40) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:04:42) Cliente /127.0.0.1:50543: Efetuou Login
+<CLIENT> (04/11/2024 23:05:20) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:05:22) Cliente /127.0.0.1:50601: Efetuou Login
+<CLIENT> (04/11/2024 23:06:15) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:06:17) Cliente /127.0.0.1:50691: Efetuou Login
+<SERVER> (04/11/2024 23:06:20) Cliente /127.0.0.1:50691: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 23:06:23) Cliente /127.0.0.1:50691: Acessou carro: Porsche 911
+<SERVER> (04/11/2024 23:06:25) Cliente /127.0.0.1:50691: Acessou carro: Subaru WRX
+<SERVER> (04/11/2024 23:06:27) Cliente /127.0.0.1:50691: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 23:06:28) Cliente /127.0.0.1:50691: Acessou carro: Porsche 911
+<SERVER> (04/11/2024 23:06:30) Cliente /127.0.0.1:50691: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 23:06:36) Cliente /127.0.0.1:50691: Acessou carro: Subaru WRX
+<SERVER> (04/11/2024 23:06:40) Cliente /127.0.0.1:50691: Acessou carro: Porsche 911
+<CLIENT> (04/11/2024 23:06:50) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:06:52) Cliente /127.0.0.1:50740: Efetuou Login
+<SERVER> (04/11/2024 23:06:53) Cliente /127.0.0.1:50740: Acessou carro: Porsche 911
+<SERVER> (04/11/2024 23:06:57) Cliente /127.0.0.1:50740: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 23:07:00) Cliente /127.0.0.1:50740: Acessou carro: Subaru WRX
+<SERVER> (04/11/2024 23:07:10) Cliente /127.0.0.1:50740: Acessou carro: Ferrari Chave
+<SERVER> (04/11/2024 23:07:12) Cliente /127.0.0.1:50740: Acessou carro: Porsche 911
+<CLIENT> (04/11/2024 23:37:22) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (04/11/2024 23:37:24) Cliente /127.0.0.1:53228: Efetuou Login
 
---------------------------------------------------------
-<SERVER> (03/11/2024 18:33:04) Servidor iniciado na porta: 4000
-<CLIENT> (03/11/2024 18:33:13) Conectado ao servidor em 127.0.0.1: 4000
-<SERVER> (03/11/2024 18:33:15) Cliente /127.0.0.1:57137: Efetuou Login
-<SERVER> (03/11/2024 18:33:16) Cliente /127.0.0.1:57137: Acessou carro: Ferrari Chave
-<SERVER> (03/11/2024 18:33:18) Cliente /127.0.0.1:57137: Acessou carro: Subaru WRX
-<SERVER> (03/11/2024 18:33:29) Cliente /127.0.0.1:57137: Acessou carro: Ferrari Chave
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (05/11/2024 11:38:59) Servidor iniciado na porta: 4000
+<CLIENT> (05/11/2024 11:39:03) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 11:39:07) Cliente /127.0.0.1:57958: Efetuou Login
+<CLIENT> (05/11/2024 11:57:08) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 11:57:10) Cliente /127.0.0.1:58950: Efetuou Login
+<CLIENT> (05/11/2024 11:57:32) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 11:57:34) Cliente /127.0.0.1:58973: Efetuou Login
+<CLIENT> (05/11/2024 12:01:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:01:40) Cliente /127.0.0.1:59253: Efetuou Login
+<SERVER> (05/11/2024 12:02:02) Cliente /127.0.0.1:59253: Finalizou carro
+<CLIENT> (05/11/2024 12:07:28) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:07:30) Cliente /127.0.0.1:59505: Efetuou Login
+<CLIENT> (05/11/2024 12:09:05) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:09:07) Cliente /127.0.0.1:59552: Efetuou Login
+<CLIENT> (05/11/2024 12:10:23) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:10:34) Cliente /127.0.0.1:59592: Efetuou Login
+<CLIENT> (05/11/2024 12:11:27) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:11:30) Cliente /127.0.0.1:59629: Efetuou Login
+<CLIENT> (05/11/2024 12:11:57) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:11:59) Cliente /127.0.0.1:59823: Efetuou Login
+<CLIENT> (05/11/2024 12:13:09) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:13:11) Cliente /127.0.0.1:59865: Efetuou Login
+<CLIENT> (05/11/2024 12:13:33) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:13:35) Cliente /127.0.0.1:59891: Efetuou Login
+<SERVER> (05/11/2024 12:13:56) Cliente /127.0.0.1:59891: Finalizou carro
+<CLIENT> (05/11/2024 12:14:58) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 12:15:00) Cliente /127.0.0.1:60001: Efetuou Login
+<SERVER> (05/11/2024 12:15:23) Cliente /127.0.0.1:60001: Finalizou carro
 
---------------------------------------------------------
-<SERVER> (04/11/2024 12:05:50) Servidor iniciado na porta: 4000
-<CLIENT> (04/11/2024 12:05:56) Conectado ao servidor em 127.0.0.1: 4000
-<SERVER> (04/11/2024 12:06:00) Cliente /127.0.0.1:62155: Efetuou Login
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (05/11/2024 14:54:58) Servidor iniciado na porta: 4000
+<CLIENT> (05/11/2024 14:55:05) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 14:55:07) Cliente /127.0.0.1:63388: Efetuou Login
+<SERVER> (05/11/2024 14:55:38) Cliente /127.0.0.1:63388: Finalizou carro
+<CLIENT> (05/11/2024 15:02:34) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:02:37) Cliente /127.0.0.1:63674: Efetuou Login
+<CLIENT> (05/11/2024 15:08:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:08:40) Cliente /127.0.0.1:64007: Efetuou Login
+<CLIENT> (05/11/2024 15:09:09) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:09:11) Cliente /127.0.0.1:64033: Efetuou Login
+<CLIENT> (05/11/2024 15:12:52) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:12:54) Cliente /127.0.0.1:64224: Efetuou Login
+<CLIENT> (05/11/2024 15:16:10) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:16:12) Cliente /127.0.0.1:64349: Efetuou Login
+<CLIENT> (05/11/2024 15:17:23) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:17:26) Cliente /127.0.0.1:64427: Efetuou Login
+<SERVER> (05/11/2024 15:17:28) Cliente /127.0.0.1:64427: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:17:30) Cliente /127.0.0.1:64427: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 15:27:26) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:27:27) Cliente /127.0.0.1:65237: Efetuou Login
+<SERVER> (05/11/2024 15:27:29) Cliente /127.0.0.1:65237: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:27:31) Cliente /127.0.0.1:65237: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:27:33) Cliente /127.0.0.1:65237: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 15:30:18) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:30:20) Cliente /127.0.0.1:65339: Efetuou Login
+<SERVER> (05/11/2024 15:30:22) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:24) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:25) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:26) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:27) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:28) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:30:42) Cliente /127.0.0.1:65339: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 15:34:42) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:34:44) Cliente /127.0.0.1:65500: Efetuou Login
+<SERVER> (05/11/2024 15:34:46) Cliente /127.0.0.1:65500: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:34:47) Cliente /127.0.0.1:65500: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:34:48) Cliente /127.0.0.1:65500: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 15:35:23) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:35:25) Cliente /127.0.0.1:65529: Efetuou Login
+<SERVER> (05/11/2024 15:35:27) Cliente /127.0.0.1:65529: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:35:28) Cliente /127.0.0.1:65529: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:35:29) Cliente /127.0.0.1:65529: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 15:35:43) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:35:46) Cliente /127.0.0.1:49165: Efetuou Login
+<SERVER> (05/11/2024 15:37:16) Cliente /127.0.0.1:49165: Finalizou carro
+<SERVER> (05/11/2024 15:37:22) Cliente /127.0.0.1:49165: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 15:37:25) Cliente /127.0.0.1:49165: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:37:27) Cliente /127.0.0.1:49165: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 15:37:29) Cliente /127.0.0.1:49165: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:37:30) Cliente /127.0.0.1:49165: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 15:37:33) Cliente /127.0.0.1:49165: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 15:37:40) Cliente /127.0.0.1:49165: Acessou carro: Toyota Corolla XE
+<CLIENT> (05/11/2024 15:38:52) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 15:38:55) Cliente /127.0.0.1:49433: Efetuou Login
+<SERVER> (05/11/2024 15:38:56) Cliente /127.0.0.1:49433: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 15:38:58) Cliente /127.0.0.1:49433: Acessou carro: Honda Civic SE
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (05/11/2024 20:41:55) Servidor iniciado na porta: 4000
+<CLIENT> (05/11/2024 20:42:02) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 20:42:07) Cliente /127.0.0.1:58531: Efetuou Login
+<SERVER> (05/11/2024 20:42:13) Cliente /127.0.0.1:58531: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 20:42:14) Cliente /127.0.0.1:58531: Acessou carro: Honda Civic SE
+<CLIENT> (05/11/2024 20:43:02) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 20:43:04) Cliente /127.0.0.1:58772: Efetuou Login
+<SERVER> (05/11/2024 20:43:06) Cliente /127.0.0.1:58772: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 20:43:08) Cliente /127.0.0.1:58772: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 20:43:10) Cliente /127.0.0.1:58772: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 20:43:11) Cliente /127.0.0.1:58772: Acessou carro: Toyota Corolla XE
+<CLIENT> (05/11/2024 20:44:15) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 20:44:17) Cliente /127.0.0.1:58876: Efetuou Login
+<SERVER> (05/11/2024 20:44:18) Cliente /127.0.0.1:58876: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 20:44:20) Cliente /127.0.0.1:58876: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 20:44:25) Cliente /127.0.0.1:58876: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 20:44:29) Cliente /127.0.0.1:58876: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 20:44:31) Cliente /127.0.0.1:58876: Acessou carro: Toyota Corolla XE
+<SERVER> (05/11/2024 20:44:35) Cliente /127.0.0.1:58876: Acessou carro: Honda Civic SE
+<SERVER> (05/11/2024 20:44:36) Cliente /127.0.0.1:58876: Acessou carro: Toyota Corolla XE
+<CLIENT> (05/11/2024 20:44:53) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 20:44:58) Cliente /127.0.0.1:58926: Efetuou Login
+<CLIENT> (05/11/2024 20:47:01) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (05/11/2024 20:47:04) Cliente /127.0.0.1:59102: Efetuou Login
+<SERVER> (05/11/2024 20:47:36) Cliente /127.0.0.1:59102: Finalizou carro
+<SERVER> (05/11/2024 20:48:06) Cliente /127.0.0.1:59102: Finalizou carro
+<SERVER> (05/11/2024 20:48:39) Cliente /127.0.0.1:59102: Finalizou carro
+<SERVER> (05/11/2024 20:48:45) Cliente /127.0.0.1:59102: Removeu carro: Porsche Tycann
+<SERVER> (05/11/2024 20:48:45) Cliente /127.0.0.1:59102: Removeu carro: Audi A3
+<SERVER> (05/11/2024 20:48:45) Cliente /127.0.0.1:59102: Removeu carro: Jetta
+<SERVER> (05/11/2024 20:49:07) Cliente /127.0.0.1:59102: Finalizou carro
+<SERVER> (05/11/2024 20:49:22) Cliente /127.0.0.1:59102: Finalizou carro
+<SERVER> (05/11/2024 20:49:32) Cliente /127.0.0.1:59102: Removeu carro: Carro 2
+<SERVER> (05/11/2024 20:49:32) Cliente /127.0.0.1:59102: Removeu carro: Carro 1

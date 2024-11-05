@@ -7,6 +7,7 @@ import org.example.Configurations.Client;
 public class GameWindow extends JFrame {
     private GarageInterface garageInterface;
     private WarehouseInterface warehouseInterface;
+    private DumpsterInterface dumpsterInterface;
     private LoginInterface loginInterface;
     private Client client;
 
@@ -37,6 +38,15 @@ public class GameWindow extends JFrame {
         this.client = client;
         warehouseInterface = new WarehouseInterface(userID, this, client);
         this.setContentPane(warehouseInterface);
+        this.revalidate();
+        this.repaint();
+        return null;
+    }
+
+    public Runnable showDupsterInterface(int userID, Client client) {
+        this.client = client;
+        dumpsterInterface = new DumpsterInterface(userID, this, client);
+        this.setContentPane(dumpsterInterface);
         this.revalidate();
         this.repaint();
         return null;

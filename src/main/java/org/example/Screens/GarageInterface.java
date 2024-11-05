@@ -4,6 +4,7 @@ import org.example.Configurations.Client;
 import org.example.CarComponents.*;
 import org.example.Configurations.Conector;
 import org.example.Configurations.FileLogWriter;
+import org.example.Configurations.Users;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.CustomTextField;
 import org.example.CustomComponents.PixelatedButton;
@@ -12,7 +13,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class GarageInterface extends JPanel {
@@ -23,112 +27,113 @@ public class GarageInterface extends JPanel {
     private int c = 0, engineCounter = 0, createCounter = 0;
 
     // JPanels principais
-    JPanel startPanel;
-    JPanel menuPanel;
-    JPanel carPanel;
-    CustomPanel exhibitionPanel;
-    JPanel settingsPanel;
+    private JPanel startPanel;
+    private JPanel menuPanel;
+    private JPanel carPanel;
+    private CustomPanel exhibitionPanel;
+    private JPanel settingsPanel;
 
     // Definição das váriaveis para declaração do objeto carro
-    String engineTypeCar;
-    int cylinderAmmount;
-    double cylindersCar;
-    String aspirationCar;
-    String fuelCar;
-    String engineMaterialCar;
-    String tractionCar;
+    private String engineTypeCar;
+    private int cylinderAmmount;
+    private double cylindersCar;
+    private String aspirationCar;
+    private String fuelCar;
+    private String engineMaterialCar;
+    private String tractionCar;
 
-    String brakesCar;
-    String tiresCar;
-    String chassisCar;
-    String suspensionCar;
-    String colorCar;
-    String carName;
+    private String brakesCar;
+    private String tiresCar;
+    private String chassisCar;
+    private String suspensionCar;
+    private String colorCar;
+    private String carName;
     
     // Card Layout para facilitar a troca entre JPanels na seção de botões
-    CardLayout cardLayout;
+    private CardLayout cardLayout;
 
     // Botões do startPanel (inferior)
-    PixelatedButton startButton;
-    PixelatedButton garageButton;
+    private PixelatedButton startButton;
+    private PixelatedButton garageButton;
+    private PixelatedButton deleteButton;
 
     // Botões do settingPanel (superior)
-    PixelatedButton menuButton;
-    PixelatedButton exitButton;
+    private PixelatedButton menuButton;
+    private PixelatedButton exitButton;
 
     // Botões do carPanel (inferior)
-    PixelatedButton engineButton;
-        PixelatedButton engineType;
-            PixelatedButton inlineEngine;
-            PixelatedButton boxerEngine;
-            PixelatedButton VEngine;
-                PixelatedButton threeCylinders;
-                PixelatedButton fourCylindersInline;
-                PixelatedButton fourCylindersBoxer;
-                PixelatedButton fiveCylinders;
-                PixelatedButton sixCylindersBoxer;
-                PixelatedButton sixCylindersV;
-                PixelatedButton eightCylinders;
-                PixelatedButton tenCylinders;
-                PixelatedButton twelveCylinders;
-        PixelatedButton cylinders;
-            PixelatedButton firstCylinder;
-            PixelatedButton secondCylinder;
-            PixelatedButton thirdCylinder;
-            PixelatedButton fourthCylinder;
-            PixelatedButton fifthCylinder;
-            PixelatedButton sixthCylinder;
-            PixelatedButton seventhCylinder;
-        PixelatedButton aspiration;
-            PixelatedButton naturalAspiration;
-            PixelatedButton turboCompressor;
-            PixelatedButton superCompressor;
-        PixelatedButton fuel;
-            PixelatedButton gasFuel;
-            PixelatedButton dieselFuel;
-        PixelatedButton engineMaterial;
-            PixelatedButton moltedIron;
-            PixelatedButton aluminiumAlloy;
-            PixelatedButton titaniumAlloy;
-        PixelatedButton traction;
-            PixelatedButton rearTraction;
-            PixelatedButton frontTraction;
-            PixelatedButton integralTraction;
+    private PixelatedButton engineButton;
+        private PixelatedButton engineType;
+            private PixelatedButton inlineEngine;
+            private PixelatedButton boxerEngine;
+            private PixelatedButton VEngine;
+                private PixelatedButton threeCylinders;
+                private PixelatedButton fourCylindersInline;
+                private PixelatedButton fourCylindersBoxer;
+                private PixelatedButton fiveCylinders;
+                private PixelatedButton sixCylindersBoxer;
+                private PixelatedButton sixCylindersV;
+                private PixelatedButton eightCylinders;
+                private PixelatedButton tenCylinders;
+                private PixelatedButton twelveCylinders;
+        private PixelatedButton cylinders;
+            private PixelatedButton firstCylinder;
+            private PixelatedButton secondCylinder;
+            private PixelatedButton thirdCylinder;
+            private PixelatedButton fourthCylinder;
+            private PixelatedButton fifthCylinder;
+            private PixelatedButton sixthCylinder;
+            private PixelatedButton seventhCylinder;
+        private PixelatedButton aspiration;
+            private PixelatedButton naturalAspiration;
+            private PixelatedButton turboCompressor;
+            private PixelatedButton superCompressor;
+        private PixelatedButton fuel;
+            private PixelatedButton gasFuel;
+            private PixelatedButton dieselFuel;
+        private PixelatedButton engineMaterial;
+            private PixelatedButton moltedIron;
+            private PixelatedButton aluminiumAlloy;
+            private PixelatedButton titaniumAlloy;
+        private PixelatedButton traction;
+            private PixelatedButton rearTraction;
+            private PixelatedButton frontTraction;
+            private PixelatedButton integralTraction;
 
-    PixelatedButton brakesButton;
-        PixelatedButton popularBrakes;
-        PixelatedButton sportBrakes;
-        PixelatedButton raceBrakes;
-        PixelatedButton ceramicBrakes;
+    private PixelatedButton brakesButton;
+        private PixelatedButton popularBrakes;
+        private PixelatedButton sportBrakes;
+        private PixelatedButton raceBrakes;
+        private PixelatedButton ceramicBrakes;
 
-    PixelatedButton tiresButton;
-        PixelatedButton popularTires;
-        PixelatedButton sportTires;
-        PixelatedButton raceTires;
-        PixelatedButton offRoadTires;
+    private PixelatedButton tiresButton;
+        private PixelatedButton popularTires;
+        private PixelatedButton sportTires;
+        private PixelatedButton raceTires;
+        private PixelatedButton offRoadTires;
 
-    PixelatedButton chassisButton;
-        PixelatedButton suvChassis;
-        PixelatedButton sedanChassis;
-        PixelatedButton sportChassis;
-        PixelatedButton hatchbackChassis;
-        PixelatedButton coupeChassis;
+    private PixelatedButton chassisButton;
+        private PixelatedButton suvChassis;
+        private PixelatedButton sedanChassis;
+        private PixelatedButton sportChassis;
+        private PixelatedButton hatchbackChassis;
+        private PixelatedButton coupeChassis;
 
-    PixelatedButton suspensionButton;
-        PixelatedButton popularSuspension;
-        PixelatedButton sportSuspension;
-        PixelatedButton raceSuspension;
-        PixelatedButton rallySuspension;
+    private PixelatedButton suspensionButton;
+        private PixelatedButton popularSuspension;
+        private PixelatedButton sportSuspension;
+        private PixelatedButton raceSuspension;
+        private PixelatedButton rallySuspension;
 
-    PixelatedButton bodyPaintButton;
-        PixelatedButton colorRed;
-        PixelatedButton colorBlue;
-        PixelatedButton colorYellow;
-        PixelatedButton colorBlack;
+    private PixelatedButton bodyPaintButton;
+        private PixelatedButton colorRed;
+        private PixelatedButton colorBlue;
+        private PixelatedButton colorYellow;
+        private PixelatedButton colorBlack;
 
-    PixelatedButton carNameButton;
-    PixelatedButton setCarName;
-    CustomTextField carNameField;
+    private PixelatedButton carNameButton;
+    private PixelatedButton setCarName;
+    private CustomTextField carNameField;
 
     Color appColor = new Color(13, 6, 40);
     Color buttonColor = new Color(103, 124, 163);
@@ -146,7 +151,7 @@ public class GarageInterface extends JPanel {
         startPanel = new JPanel();
         startPanel.setBackground(startColor);
         startPanel.setPreferredSize(new Dimension(900, 75));
-        startPanel.setLayout(new FlowLayout(0, 195, 55));
+        startPanel.setLayout(new FlowLayout(0, 112, 55));
 
         // Settings Panel
         settingsPanel = new JPanel();
@@ -415,7 +420,6 @@ public class GarageInterface extends JPanel {
         carNamePanel.setPreferredSize(new Dimension(900, 175));
 
         carNameButton = new PixelatedButton("Name");
-
         setCarName = new PixelatedButton("Set Name");
         carNameField = new CustomTextField( 50);
 
@@ -423,12 +427,15 @@ public class GarageInterface extends JPanel {
         carNamePanel.add(carNameField);
 
         // Start Buttons
+        deleteButton = new PixelatedButton("Delete");
+        deleteButton.setPreferredSize(new Dimension(150, 60));
         startButton = new PixelatedButton("New");
         startButton.setPreferredSize(new Dimension(150, 60));
         garageButton = new PixelatedButton("Garage");
         garageButton.setPreferredSize(new Dimension(150, 60));
 
         // Start Panel
+        startPanel.add(deleteButton);
         startPanel.add(startButton);
         startPanel.add(garageButton);
 
@@ -465,16 +472,30 @@ public class GarageInterface extends JPanel {
 
         //Acessa os veículos armazenados na database
         garageButton.addActionListener(event -> {
-            gameWindow.showWarehouseInterface(userId, client);
+            if (countUserCars(userId) == 0)
+                showTemporaryImage(exhibitionPanel, "images//cars_not_found.jpg");
+
+            else
+                gameWindow.showWarehouseInterface(userId, client);
+        });
+
+        //Exclui um carro do banco de dados
+        deleteButton.addActionListener(event -> {
+            gameWindow.showDupsterInterface(userId, client);
         });
 
         //Inicia a criação de um novo carro
         startButton.addActionListener(event -> {
-            cardLayout.show(menuPanel, "carPanel");
-            menuButton.setEnabled(true);
+            if (countUserCars(userId) >= 6)
+                showTemporaryImage(exhibitionPanel, "images//car_limit.jpg");
 
-            settingsPanel.setBackground(appColor);
-            exhibitionPanel.setBackgroundImage("images\\Garagem_pixelada.jpg");
+            else {
+                cardLayout.show(menuPanel, "carPanel");
+                menuButton.setEnabled(true);
+
+                settingsPanel.setBackground(appColor);
+                exhibitionPanel.setBackgroundImage("images\\Garagem_pixelada.jpg");
+            }
         });
 
         //Retorna ao menu principal de botões
@@ -915,5 +936,61 @@ public class GarageInterface extends JPanel {
     public void sendUpdateMessageToClient() {
         String fixedMessage = "Finalizou carro";
         client.updateMessage(fixedMessage);  // Envia a mensagem para o Client
+    }
+
+    public int countUserCars(int userId) {
+        String sql = "SELECT COUNT(*) FROM Cars WHERE user_id = ?;";
+        int count = 0;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rSet = null;
+
+        try {
+            conn = Conector.conectar();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, userId);
+            rSet = ps.executeQuery();
+
+            if (rSet.next()) {
+                count = rSet.getInt(1);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Prepared statement error...");
+            e.printStackTrace();
+
+        } finally {
+            try {
+                if (rSet != null)
+                    rSet.close();
+
+                if (ps != null)
+                    ps.close();
+
+                if (conn != null)
+                    conn.close();
+
+            } catch (Exception e) {
+                System.out.println("Connections termination error...");
+                e.printStackTrace();
+            }
+        }
+
+        return count;
+    }
+
+    public void showTemporaryImage(CustomPanel exhibitionPanel, String tempImageUrl) {
+        exhibitionPanel.setBackgroundImage(tempImageUrl);
+
+        Timer timer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exhibitionPanel.setBackgroundImage("images//capa.jpg");
+            }
+        });
+
+        timer.setRepeats(false);
+        timer.start();
     }
 }

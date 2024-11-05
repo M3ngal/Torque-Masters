@@ -13,9 +13,9 @@ public class Server {
 
     public void start() throws IOException {
         serverSocket = new ServerSocket(PORT);
-        System.out.printf("\n--------------------------------------------------------\n" +
+        System.out.printf("\n----------------------------------------------------------------------------------------------------------------\n" +
                 "<SERVER> (%s) Servidor iniciado na porta: %d", sdf.format(new Date()), PORT);
-        file.writeRecord(String.format("\n--------------------------------------------------------\n" +
+        file.writeRecord(String.format("\n----------------------------------------------------------------------------------------------------------------\n" +
                 "<SERVER> (%s) Servidor iniciado na porta: %d", sdf.format(new Date()), PORT));
 
         clientConnectionLoop();
