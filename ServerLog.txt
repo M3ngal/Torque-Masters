@@ -289,3 +289,277 @@
 <SERVER> (05/11/2024 20:49:22) Cliente /127.0.0.1:59102: Finalizou carro
 <SERVER> (05/11/2024 20:49:32) Cliente /127.0.0.1:59102: Removeu carro: Carro 2
 <SERVER> (05/11/2024 20:49:32) Cliente /127.0.0.1:59102: Removeu carro: Carro 1
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (06/11/2024 12:04:05) Servidor iniciado na porta: 4000
+<CLIENT> (06/11/2024 12:04:09) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:04:11) Cliente /127.0.0.1:59156: Efetuou Login
+<SERVER> (06/11/2024 12:04:39) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:04:42) Cliente /127.0.0.1:59156: Removeu carro: Clio
+<SERVER> (06/11/2024 12:04:46) Cliente /127.0.0.1:59156: Removeu carro: Clio
+<SERVER> (06/11/2024 12:05:45) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:05:48) Cliente /127.0.0.1:59156: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:05:48) Cliente /127.0.0.1:59156: Removeu carro: Clio
+<SERVER> (06/11/2024 12:06:14) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:06:29) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:06:46) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:07:39) Cliente /127.0.0.1:59156: Finalizou carro
+<SERVER> (06/11/2024 12:07:44) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:07:47) Cliente /127.0.0.1:59156: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:07:48) Cliente /127.0.0.1:59156: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:07:49) Cliente /127.0.0.1:59156: Acessou carro: Carro 4
+<SERVER> (06/11/2024 12:07:50) Cliente /127.0.0.1:59156: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:07:51) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:07:52) Cliente /127.0.0.1:59156: Acessou carro: Carro 6
+<SERVER> (06/11/2024 12:07:54) Cliente /127.0.0.1:59156: Acessou carro: Carro 6
+<SERVER> (06/11/2024 12:07:55) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:07:56) Cliente /127.0.0.1:59156: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:07:58) Cliente /127.0.0.1:59156: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:07:59) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:08:01) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:08:02) Cliente /127.0.0.1:59156: Acessou carro: Carro 6
+<SERVER> (06/11/2024 12:08:03) Cliente /127.0.0.1:59156: Acessou carro: Clio
+<SERVER> (06/11/2024 12:08:04) Cliente /127.0.0.1:59156: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:08:12) Cliente /127.0.0.1:59156: Removeu carro: Clio
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:08:18) Cliente /127.0.0.1:59156: Removeu carro: Clio
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (06/11/2024 12:08:29) Servidor iniciado na porta: 4000
+<CLIENT> (06/11/2024 12:08:42) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:08:45) Cliente /127.0.0.1:59630: Efetuou Login
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:08:48) Cliente /127.0.0.1:59630: Removeu carro: Clio
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:08:54) Cliente /127.0.0.1:59630: Removeu carro: Clio
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:08:58) Cliente /127.0.0.1:59630: Removeu carro: Clio
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:09:03) Cliente /127.0.0.1:59630: Removeu carro: Clio
+<CLIENT> (06/11/2024 12:14:10) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:14:13) Cliente /127.0.0.1:60013: Efetuou Login
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:14:16) Cliente /127.0.0.1:60013: Removeu carro: Clio
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:14:20) Cliente /127.0.0.1:60013: Removeu carro: Clio
+<CLIENT> (06/11/2024 12:15:37) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:15:40) Cliente /127.0.0.1:60085: Efetuou Login
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:15:42) Cliente /127.0.0.1:60085: Removeu carro: Clio
+<CLIENT> (06/11/2024 12:18:14) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:18:17) Cliente /127.0.0.1:60255: Efetuou Login
+<SERVER> (06/11/2024 12:18:18) Cliente /127.0.0.1:60255: Acessou carro: Carro 4
+<SERVER> (06/11/2024 12:18:23) Cliente /127.0.0.1:60255: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:18:25) Cliente /127.0.0.1:60255: Acessou carro: Clio
+<SERVER> (06/11/2024 12:18:27) Cliente /127.0.0.1:60255: Acessou carro: Carro 5
+<CLIENT> (06/11/2024 12:21:10) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:21:13) Cliente /127.0.0.1:60470: Efetuou Login
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:21:22) Cliente /127.0.0.1:60470: Removeu carro: Clio
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:21:25) Cliente /127.0.0.1:60470: Removeu carro: Clio
+<CLIENT> (06/11/2024 12:22:31) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:22:33) Cliente /127.0.0.1:60625: Efetuou Login
+<SERVER> (06/11/2024 12:22:36) Cliente /127.0.0.1:60625: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:22:36) Cliente /127.0.0.1:60625: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:22:36) Cliente /127.0.0.1:60625: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:22:36) Cliente /127.0.0.1:60625: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:22:37) Cliente /127.0.0.1:60625: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:22:37) Cliente /127.0.0.1:60625: Removeu carro: Clio
+<CLIENT> (06/11/2024 12:24:36) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:24:39) Cliente /127.0.0.1:60731: Efetuou Login
+<SERVER> (06/11/2024 12:24:41) Cliente /127.0.0.1:60731: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:24:44) Cliente /127.0.0.1:60731: Removeu carro: Carro 5
+<CLIENT> (06/11/2024 12:25:33) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:25:36) Cliente /127.0.0.1:60840: Efetuou Login
+<SERVER> (06/11/2024 12:25:39) Cliente /127.0.0.1:60840: Removeu carro: Carro 4
+<SERVER> (06/11/2024 12:25:46) Cliente /127.0.0.1:60840: Removeu carro: Clio
+<SERVER> (06/11/2024 12:25:49) Cliente /127.0.0.1:60840: Removeu carro: Carro 6
+<SERVER> (06/11/2024 12:25:55) Cliente /127.0.0.1:60840: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:25:57) Cliente /127.0.0.1:60840: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:25:58) Cliente /127.0.0.1:60840: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:25:58) Cliente /127.0.0.1:60840: Acessou carro: MacLaren
+<CLIENT> (06/11/2024 12:36:49) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:36:51) Cliente /127.0.0.1:61606: Efetuou Login
+<SERVER> (06/11/2024 12:36:53) Cliente /127.0.0.1:61606: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:36:55) Cliente /127.0.0.1:61606: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:36:56) Cliente /127.0.0.1:61606: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:36:58) Cliente /127.0.0.1:61606: Acessou carro: Carro 5
+<CLIENT> (06/11/2024 12:38:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:38:43) Cliente /127.0.0.1:61782: Efetuou Login
+<SERVER> (06/11/2024 12:38:44) Cliente /127.0.0.1:61782: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:38:46) Cliente /127.0.0.1:61782: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:38:48) Cliente /127.0.0.1:61782: Acessou carro: MacLaren
+<SERVER> (06/11/2024 12:38:50) Cliente /127.0.0.1:61782: Acessou carro: Carro 3
+<SERVER> (06/11/2024 12:38:52) Cliente /127.0.0.1:61782: Acessou carro: Carro 5
+<SERVER> (06/11/2024 12:39:21) Cliente /127.0.0.1:61782: Acessou carro: Carro 3
+<CLIENT> (06/11/2024 12:40:09) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:40:11) Cliente /127.0.0.1:62004: Efetuou Login
+<SERVER> (06/11/2024 12:40:13) Cliente /127.0.0.1:62004: Removeu carro: Carro 5
+<SERVER> (06/11/2024 12:40:15) Cliente /127.0.0.1:62004: Removeu carro: Carro 3
+<SERVER> (06/11/2024 12:40:17) Cliente /127.0.0.1:62004: Removeu carro: MacLaren
+<SERVER> (06/11/2024 12:40:46) Cliente /127.0.0.1:62004: Finalizou carro
+<SERVER> (06/11/2024 12:41:10) Cliente /127.0.0.1:62004: Finalizou carro
+<SERVER> (06/11/2024 12:41:12) Cliente /127.0.0.1:62004: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:41:15) Cliente /127.0.0.1:62004: Acessou carro: Fiat Uno
+<SERVER> (06/11/2024 12:41:24) Cliente /127.0.0.1:62004: Removeu carro: Fiat Uno
+<SERVER> (06/11/2024 12:41:25) Cliente /127.0.0.1:62004: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:42:20) Cliente /127.0.0.1:62004: Finalizou carro
+<SERVER> (06/11/2024 12:42:21) Cliente /127.0.0.1:62004: Acessou carro: BMW M4
+<SERVER> (06/11/2024 12:42:27) Cliente /127.0.0.1:62004: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:42:29) Cliente /127.0.0.1:62004: Acessou carro: BMW M4
+<CLIENT> (06/11/2024 12:51:41) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:51:43) Cliente /127.0.0.1:62568: Efetuou Login
+<SERVER> (06/11/2024 12:51:44) Cliente /127.0.0.1:62568: Acessou carro: BMW M4
+<SERVER> (06/11/2024 12:51:45) Cliente /127.0.0.1:62568: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:51:47) Cliente /127.0.0.1:62568: Acessou carro: BMW M4
+<SERVER> (06/11/2024 12:51:48) Cliente /127.0.0.1:62568: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:51:50) Cliente /127.0.0.1:62568: Acessou carro: BMW M4
+<SERVER> (06/11/2024 12:51:51) Cliente /127.0.0.1:62568: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 12:51:53) Cliente /127.0.0.1:62568: Acessou carro: BMW M4
+<CLIENT> (06/11/2024 12:52:01) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 12:52:03) Cliente /127.0.0.1:62586: Efetuou Login
+<SERVER> (06/11/2024 12:52:04) Cliente /127.0.0.1:62586: Acessou carro: BMW M4
+<SERVER> (06/11/2024 12:52:05) Cliente /127.0.0.1:62586: Acessou carro: Bugatti Chiron
+<CLIENT> (06/11/2024 13:01:04) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:01:06) Cliente /127.0.0.1:63174: Efetuou Login
+<CLIENT> (06/11/2024 13:02:52) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:02:54) Cliente /127.0.0.1:63235: Efetuou Login
+<SERVER> (06/11/2024 13:02:56) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:02:56) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:02:59) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:00) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:03) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:04) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:05) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:07) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:11) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:20) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:23) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:32) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:35) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:36) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:37) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:38) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:39) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:40) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:41) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:42) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:03:42) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:44) Cliente /127.0.0.1:63235: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:03:45) Cliente /127.0.0.1:63235: Acessou carro: Bugatti Chiron
+<CLIENT> (06/11/2024 13:04:12) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:04:13) Cliente /127.0.0.1:63368: Efetuou Login
+<SERVER> (06/11/2024 13:04:14) Cliente /127.0.0.1:63368: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:04:15) Cliente /127.0.0.1:63368: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:04:17) Cliente /127.0.0.1:63368: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:04:17) Cliente /127.0.0.1:63368: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:04:18) Cliente /127.0.0.1:63368: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:04:19) Cliente /127.0.0.1:63368: Acessou carro: BMW M4
+<CLIENT> (06/11/2024 13:14:17) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:14:19) Cliente /127.0.0.1:63741: Efetuou Login
+<CLIENT> (06/11/2024 13:14:55) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:15:01) Cliente /127.0.0.1:63777: Efetuou Login
+<SERVER> (06/11/2024 13:15:03) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:03) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:05) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:06) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:09) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:10) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:16) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:18) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:19) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:20) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:21) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:23) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:24) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:15:25) Cliente /127.0.0.1:63777: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:15:26) Cliente /127.0.0.1:63777: Acessou carro: Bugatti Chiron
+<CLIENT> (06/11/2024 13:17:46) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:17:48) Cliente /127.0.0.1:63863: Efetuou Login
+<SERVER> (06/11/2024 13:17:49) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:17:50) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:17:51) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:17:51) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:17:53) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:17:53) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:17:54) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:17:54) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:19) Cliente /127.0.0.1:63863: Finalizou carro
+<SERVER> (06/11/2024 13:18:21) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:21) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:23) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:23) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:25) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:25) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:26) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:27) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:28) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:28) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:29) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:29) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:30) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:31) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:33) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:34) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:38) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:38) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:39) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:40) Cliente /127.0.0.1:63863: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:18:43) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:43) Cliente /127.0.0.1:63863: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:18:52) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:18:52) Cliente /127.0.0.1:63863: Acessou carro: BMW M4
+<CLIENT> (06/11/2024 13:20:25) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:20:27) Cliente /127.0.0.1:63985: Efetuou Login
+<SERVER> (06/11/2024 13:20:29) Cliente /127.0.0.1:63985: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:20:31) Cliente /127.0.0.1:63985: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:20:32) Cliente /127.0.0.1:63985: Acessou carro: Audi A3
+<SERVER> (06/11/2024 13:20:34) Cliente /127.0.0.1:63985: Acessou carro: BMW M4
+<SERVER> (06/11/2024 13:20:37) Cliente /127.0.0.1:63985: Acessou carro: Bugatti Chiron
+<SERVER> (06/11/2024 13:20:45) Cliente /127.0.0.1:63985: Removeu carro: Audi A3

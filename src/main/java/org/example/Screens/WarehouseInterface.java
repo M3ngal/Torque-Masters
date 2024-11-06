@@ -133,64 +133,61 @@ public class WarehouseInterface extends CustomPanel {
             carButton.setBounds(25, 5 + y, 700, 70);
             y += 75;
 
-            // Car Infos Panel
-            carInfoPanel = new JPanel() {
-                @Override
-                protected void paintComponent(Graphics g) {
-                    super.paintComponent(g);
-                    Graphics2D g2D = (Graphics2D) g;
-
-                    g2D.setPaint(titleColor);
-                    g2D.fillRect(20, 80, 710, 100);
-                    g2D.fillRect(20, 200, 335, 235);
-                    g2D.fillRect(395, 200, 335, 235);
-
-                    // Components Rectangles
-                    g2D.setPaint(Color.BLACK);
-                    g2D.setStroke(new BasicStroke(5));
-                    g2D.drawRect(20, 80, 710, 100);
-                    g2D.drawRect(20, 200, 335, 235);
-                    g2D.drawLine(375, 200, 375, 435);
-                    g2D.drawRect(395, 200, 335, 235);
-
-                    // Stats Rectangles Border
-                    g2D.setStroke(new BasicStroke(2));
-                    g2D.drawRect(520, 250, 200, 10);
-                    g2D.drawRect(520, 270, 200, 10);
-                    g2D.drawRect(520, 290, 200, 10);
-                    g2D.drawRect(520, 310, 200, 10);
-                    g2D.drawRect(520, 330, 200, 10);
-                    g2D.drawRect(520, 350, 200, 10);
-                    g2D.drawRect(520, 370, 200, 10);
-                    g2D.drawRect(520, 390, 200, 10);
-                    g2D.drawRect(520, 410, 200, 10);
-
-                    // Stats Fill Rectangles
-                    g2D.setPaint(statsColor);
-                    g2D.fillRect(520, 250, Math.min((int)(c.getCost() * 0.0013), 200), 10);
-                    g2D.fillRect(520, 270, Math.min((int)(c.getConsumption() * 9.09), 200), 10);
-                    g2D.fillRect(520, 290, Math.min((int)(c.getWeight() * 0.1052), 200), 10);
-                    g2D.fillRect(520, 310, Math.min((int)(c.getMaxSpeed() * 0.333), 200), 10);
-                    g2D.fillRect(520, 330, Math.min((int)(c.getAcceleration() * 22.222), 200), 10);
-                    g2D.fillRect(520, 350, Math.min((int)(c.getHandling() * 66.667), 200), 10);
-                    g2D.fillRect(520, 370, Math.min((int)(c.getPower() * 0.181), 200), 10);
-                    g2D.fillRect(520, 390, Math.min((int)(c.getTorque() * 0.1052), 200), 10);
-                    g2D.fillRect(520, 410, Math.min((int)(c.getBrakesPower() * 50), 200), 10);
-                }
-            };
-            carInfoPanel.setLayout(null);
-            carInfoPanel.setBackground(warehouseColor);
-            carInfoPanel.setBounds(70, 140, 750, 455);
-
             carButton.addActionListener(event -> {
                 sendUpdateMessageToClient(c);
-                c.setStats();
-                cardLayout.show(mainPanel, "carInfoPanel");
+
+                // Car Infos Panel
+                carInfoPanel = new JPanel() {
+                    @Override
+                    protected void paintComponent(Graphics g) {
+                        super.paintComponent(g);
+                        Graphics2D g2D = (Graphics2D) g;
+
+                        g2D.setPaint(titleColor);
+                        g2D.fillRect(20, 80, 710, 100);
+                        g2D.fillRect(20, 200, 335, 235);
+                        g2D.fillRect(395, 200, 335, 235);
+
+                        // Components Rectangles
+                        g2D.setPaint(Color.BLACK);
+                        g2D.setStroke(new BasicStroke(5));
+                        g2D.drawRect(20, 80, 710, 100);
+                        g2D.drawRect(20, 200, 335, 235);
+                        g2D.drawLine(375, 200, 375, 435);
+                        g2D.drawRect(395, 200, 335, 235);
+
+                        // Stats Rectangles Border
+                        g2D.setStroke(new BasicStroke(2));
+                        g2D.drawRect(520, 250, 200, 10);
+                        g2D.drawRect(520, 270, 200, 10);
+                        g2D.drawRect(520, 290, 200, 10);
+                        g2D.drawRect(520, 310, 200, 10);
+                        g2D.drawRect(520, 330, 200, 10);
+                        g2D.drawRect(520, 350, 200, 10);
+                        g2D.drawRect(520, 370, 200, 10);
+                        g2D.drawRect(520, 390, 200, 10);
+                        g2D.drawRect(520, 410, 200, 10);
+
+                        // Stats Fill Rectangles
+                        c.setStats();
+                        g2D.setPaint(statsColor);
+                        g2D.fillRect(520, 250, Math.min((int)(c.getCost() * 0.0013), 200), 10);
+                        g2D.fillRect(520, 270, Math.min((int)(c.getConsumption() * 9.09), 200), 10);
+                        g2D.fillRect(520, 290, Math.min((int)(c.getWeight() * 0.1052), 200), 10);
+                        g2D.fillRect(520, 310, Math.min((int)(c.getMaxSpeed() * 0.333), 200), 10);
+                        g2D.fillRect(520, 330, Math.min((int)(c.getAcceleration() * 22.222), 200), 10);
+                        g2D.fillRect(520, 350, Math.min((int)(c.getHandling() * 66.667), 200), 10);
+                        g2D.fillRect(520, 370, Math.min((int)(c.getPower() * 0.181), 200), 10);
+                        g2D.fillRect(520, 390, Math.min((int)(c.getTorque() * 0.1052), 200), 10);
+                        g2D.fillRect(520, 410, Math.min((int)(c.getBrakesPower() * 50), 200), 10);
+                    }
+                };
+                carInfoPanel.setLayout(null);
+                carInfoPanel.setBackground(warehouseColor);
+                carInfoPanel.setBounds(70, 140, 750, 455);
+
                 mainPanel.revalidate();
                 mainPanel.repaint();
-                carInfoPanel.removeAll();
-                revalidate();
-                repaint();
 
                 // Car Name Label
                 try {
@@ -217,8 +214,10 @@ public class WarehouseInterface extends CustomPanel {
                 // Back Button
                 backButton = new PixelatedWarehouseButton("Back");
                 backButton.setBounds(655, 15, 80, 30);
+
                 backButton.addActionListener(e -> {
                     cardLayout.show(mainPanel, "userCarsPanel");
+                    mainPanel.remove(carInfoPanel); // Remove o carInfoPanel do mainPanel
                     mainPanel.revalidate();
                     mainPanel.repaint();
                 });
@@ -365,7 +364,8 @@ public class WarehouseInterface extends CustomPanel {
                 brakesPowerLabel.setFont(statsFont);
                 brakesPowerLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                // Adding components
+                // Adding components and removes previous components
+                carInfoPanel.removeAll();
                 carInfoPanel.add(carNameLabel);
                 carInfoPanel.add(engineComponentsLabel);
                 carInfoPanel.add(carComponentsLabel);
@@ -391,6 +391,9 @@ public class WarehouseInterface extends CustomPanel {
                 carInfoPanel.add(powerLabel);
                 carInfoPanel.add(handlingLabel);
                 carInfoPanel.add(brakesPowerLabel);
+
+                mainPanel.add(carInfoPanel, "carInfoPanel");
+                cardLayout.show(mainPanel, "carInfoPanel");
             });
 
             userCarsPanel.add(carButton);
@@ -403,7 +406,6 @@ public class WarehouseInterface extends CustomPanel {
 
         //Adding Components
         mainPanel.add(userCarsPanel, "userCarsPanel");
-        mainPanel.add(carInfoPanel, "carInfoPanel");
         cardLayout.show(mainPanel, "userCarsPanel");
 
         this.add(mainPanel);

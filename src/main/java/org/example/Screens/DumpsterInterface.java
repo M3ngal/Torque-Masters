@@ -21,6 +21,7 @@ public class DumpsterInterface extends CustomPanel {
     private int y = 0;
     private Client client;
     private CardLayout cardLayout;
+    private Car selectedCar;
 
     private JLabel dumpsterLabel;
     private JLabel deleteLabel;
@@ -110,21 +111,24 @@ public class DumpsterInterface extends CustomPanel {
             y += 80;
 
             dumpButton.addActionListener(event -> {
+                selectedCar = c;
                 cardLayout.show(mainPanel, "DeletePanel");
-                mainPanel.revalidate();
-                mainPanel.repaint();
-            });
-
-            confirmButton.addActionListener(event -> {
-                deleteCar(getEngID(finalConn, c.getCarName(), userId));
-                sendUpdateMessageToClient(c);
-                gameWindow.showGarageInterface(userId, client);
                 mainPanel.revalidate();
                 mainPanel.repaint();
             });
 
             carsPanel.add(dumpButton);
         }
+
+        confirmButton.addActionListener(event -> {
+            if (selectedCar != null) {
+                deleteCar(getEngID(finalConn, selectedCar.getCarName(), userId));
+                sendUpdateMessageToClient(selectedCar);
+                gameWindow.showGarageInterface(userId, client);
+                mainPanel.revalidate();
+                mainPanel.repaint();
+            }
+        });
 
         returnButton.addActionListener(event -> {
             cardLayout.show(mainPanel, "CarsPanel");

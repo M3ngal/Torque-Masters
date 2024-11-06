@@ -44,17 +44,17 @@ public class Car {
 
     //Calcular o valor dos atributos
     public void setStats() {
-        cost = engine.setCost() + brakes.setCost() + tires.setCost() + chassis.setCost() + suspension.setCost() + bodyPaint.setCost();
-        consumption = engine.setConsumption();
-        weight = engine.setWeight() + brakes.setWeight() + tires.setWeight() + chassis.setWeight() + suspension.setWeight();
-        power = engine.setHorsePower();
-        torque = (((Math.pow(power - 470, 2)) / 800) + power - 200) * (4.2 / 3);
-        maxSpeed = (power / torque) * tires.setDiameter() * 8;
-        handling = (engine.setHandling() + tires.setHandling() + chassis.setHandling() + suspension.setHandling()) / 4;
-        acceleration = engine.setTractionCoef() * (torque / (tires.setDiameter() / 100)) / weight;
+        this.cost = this.engine.setCost() + this.brakes.setCost() + this.tires.setCost() + this.chassis.setCost() + this.suspension.setCost() + this.bodyPaint.setCost();
+        this.consumption = this.engine.setConsumption();
+        this.weight = this.engine.setWeight() + this.brakes.setWeight() + this.tires.setWeight() + this.chassis.setWeight() + this.suspension.setWeight();
+        this.power = this.engine.setHorsePower();
+        this.torque = (((Math.pow(this.power - 470, 2)) / 800) + this.power - 200) * (4.2 / 3);
+        this.maxSpeed = (this.power / this.torque) * this.tires.setDiameter() * 8;
+        this.handling = (this.engine.setHandling() + this.tires.setHandling() + this.chassis.setHandling() + this.suspension.setHandling()) / 4;
+        this.acceleration = this.engine.setTractionCoef() * (this.torque / (this.tires.setDiameter() / 100)) / this.weight;
 
-        double frictionCoef = (brakes.setBrake() + tires.setBrake() + chassis.setBrake() + suspension.setBrake()) / 4;
-        brakesPower = (160 / frictionCoef) / 55.56;
+        double frictionCoef = (this.brakes.setBrake() + this.tires.setBrake() + this.chassis.setBrake() + this.suspension.setBrake()) / 4;
+        this.brakesPower = (160 / frictionCoef) / 55.56;
     }
 
     //Metodo para exibição no terminal
