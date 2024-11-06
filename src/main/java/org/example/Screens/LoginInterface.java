@@ -97,9 +97,6 @@ public class LoginInterface extends CustomPanel {
         passwordField = new CustomPasswordField(20);
         passwordField.setBounds(160, 100, 250, 40);
 
-        usernameField.setText("Lucca");
-        passwordField.setText("Urso");
-
         // Buttons
         loginButton = new PixelatedButton("Login");
         loginButton.setBounds(105, 180, 240, 50);

@@ -563,3 +563,15 @@
 <SERVER> (06/11/2024 13:20:34) Cliente /127.0.0.1:63985: Acessou carro: BMW M4
 <SERVER> (06/11/2024 13:20:37) Cliente /127.0.0.1:63985: Acessou carro: Bugatti Chiron
 <SERVER> (06/11/2024 13:20:45) Cliente /127.0.0.1:63985: Removeu carro: Audi A3
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (06/11/2024 13:22:30) Servidor iniciado na porta: 4000
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (06/11/2024 13:23:13) Servidor iniciado na porta: 4000
+<CLIENT> (06/11/2024 13:23:19) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (06/11/2024 13:23:48) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (06/11/2024 13:23:56) Cliente /127.0.0.1:64180: Efetuou Login
+<SERVER> (06/11/2024 13:24:24) Cliente /127.0.0.1:64180: Finalizou carro
+<SERVER> (06/11/2024 13:24:26) Cliente /127.0.0.1:64180: Acessou carro: Navio Negreiro
+<SERVER> (06/11/2024 13:24:44) Cliente /127.0.0.1:64180: Removeu carro: Navio Negreiro
