@@ -1,13 +1,11 @@
 package org.example.Screens;
 
-import org.example.Configurations.Client;
+import org.example.Configurations.*;
 import org.example.CarComponents.*;
-import org.example.Configurations.Conector;
-import org.example.Configurations.FileLogWriter;
-import org.example.Configurations.Users;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.CustomTextField;
 import org.example.CustomComponents.PixelatedButton;
+import org.example.CustomComponents.PixelatedSlider;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,6 +49,9 @@ public class GarageInterface extends JPanel {
     
     // Card Layout para facilitar a troca entre JPanels na seção de botões
     private CardLayout cardLayout;
+
+    // Slider para controle do volume da música
+    private PixelatedSlider volumeSlider;
 
     // Botões do startPanel (inferior)
     private PixelatedButton startButton;
@@ -140,7 +141,7 @@ public class GarageInterface extends JPanel {
     Color startColor = new Color(41, 40, 45);
 
     // Construtor da interface gráfica do jogo
-    GarageInterface(int userId, GameWindow gameWindow, Client client) {
+    GarageInterface(int userId, GameWindow gameWindow, Client client, Music music) {
         this.client = client;
         // Card Layout
         cardLayout = new CardLayout();
@@ -157,7 +158,7 @@ public class GarageInterface extends JPanel {
         settingsPanel = new JPanel();
         settingsPanel.setBackground(startColor);
         settingsPanel.setPreferredSize(new Dimension(900, 75));
-        settingsPanel.setLayout(new FlowLayout(0, 245, 25));
+        settingsPanel.setLayout(new FlowLayout(0, 142, 25));
 
         // Exhibition Panel
         exhibitionPanel = new CustomPanel("images\\capa.jpg");
@@ -445,8 +446,12 @@ public class GarageInterface extends JPanel {
 
         exitButton = new PixelatedButton("Exit");
 
+        // Volume Slider
+        volumeSlider = new PixelatedSlider(music);
+
         // Settings Panel
         settingsPanel.add(menuButton);
+        settingsPanel.add(volumeSlider);
         settingsPanel.add(exitButton);
 
         carPanel.add(engineButton);
@@ -476,12 +481,12 @@ public class GarageInterface extends JPanel {
                 showTemporaryImage(exhibitionPanel, "images//cars_not_found.jpg");
 
             else
-                gameWindow.showWarehouseInterface(userId, client);
+                gameWindow.showWarehouseInterface(userId, client, music);
         });
 
         //Exclui um carro do banco de dados
         deleteButton.addActionListener(event -> {
-            gameWindow.showDupsterInterface(userId, client);
+            gameWindow.showDupsterInterface(userId, client, music);
         });
 
         //Inicia a criação de um novo carro

@@ -2,6 +2,7 @@ package org.example.Screens;
 
 import org.example.Configurations.Client;
 import org.example.Configurations.Conector;
+import org.example.Configurations.Music;
 import org.example.CustomComponents.*;
 import org.example.Configurations.Users;
 
@@ -45,7 +46,7 @@ public class LoginInterface extends CustomPanel {
     Color backgroundColor = new Color(	249, 253, 221);
     Color loginColor = new Color(121, 105, 124);
 
-    LoginInterface(GameWindow gameWindow, Client client) {
+    LoginInterface(GameWindow gameWindow, Client client, Music music) {
         super("images//Garagem_Login.png");
         this.client = client;
         this.gameWindow = gameWindow;
@@ -168,7 +169,7 @@ public class LoginInterface extends CustomPanel {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                     setUserID(finalConn);
                     sendUpdateMessageToClient();
-                    gameWindow.showGarageInterface(userID, client);
+                    gameWindow.showGarageInterface(userID, client, music);
                     return;
                 }
             }
@@ -196,7 +197,7 @@ public class LoginInterface extends CustomPanel {
                 user.addUser(finalConn);
                 setUserID(finalConn);
                 cardLayout.show(menuPanel, "userAddedPanel");
-                waitCode(4, () -> gameWindow.showGarageInterface(userID, client));
+                waitCode(4, () -> gameWindow.showGarageInterface(userID, client, music));
             }
         });
 

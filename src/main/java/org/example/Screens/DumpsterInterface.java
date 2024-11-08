@@ -3,6 +3,7 @@ package org.example.Screens;
 import org.example.CarComponents.*;
 import org.example.Configurations.Client;
 import org.example.Configurations.Conector;
+import org.example.Configurations.Music;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.PixelatedDumpsterButton;
 
@@ -38,7 +39,7 @@ public class DumpsterInterface extends CustomPanel {
     Color dumpColor = new Color(183,208,242);
     Color backgroundColor = new Color(29,22,62, 210);
 
-    DumpsterInterface(int userId, GameWindow gameWindow, Client client) {
+    DumpsterInterface(int userId, GameWindow gameWindow, Client client, Music music) {
         super("images//dumpster.jpg");
         this.client = client;
         this.setLayout(null);
@@ -124,7 +125,7 @@ public class DumpsterInterface extends CustomPanel {
             if (selectedCar != null) {
                 deleteCar(getEngID(finalConn, selectedCar.getCarName(), userId));
                 sendUpdateMessageToClient(selectedCar);
-                gameWindow.showGarageInterface(userId, client);
+                gameWindow.showGarageInterface(userId, client, music);
                 mainPanel.revalidate();
                 mainPanel.repaint();
             }
@@ -138,7 +139,7 @@ public class DumpsterInterface extends CustomPanel {
 
         exitButton.addActionListener(event -> System.exit(0));
 
-        menuButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client));
+        menuButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music));
 
         returnButton.addActionListener(event -> cardLayout.show(mainPanel, "CarsPanel"));
 

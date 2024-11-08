@@ -3,6 +3,7 @@ package org.example.Screens;
 import org.example.Configurations.Client;
 import org.example.CarComponents.*;
 import org.example.Configurations.Conector;
+import org.example.Configurations.Music;
 import org.example.CustomComponents.CustomPanel;
 import org.example.CustomComponents.PixelatedWarehouseButton;
 
@@ -68,7 +69,7 @@ public class WarehouseInterface extends CustomPanel {
     Font engineFont = new Font("Arial", Font.BOLD, 16);
     Font titleLabelFont = new Font("Arial", Font.BOLD, 26);
 
-    WarehouseInterface(int userId, GameWindow gameWindow, Client client) {
+    WarehouseInterface(int userId, GameWindow gameWindow, Client client, Music music) {
         super("images//warehouse.jpg");
         this.client = client;
         this.setLayout(null);
@@ -400,7 +401,7 @@ public class WarehouseInterface extends CustomPanel {
         }
 
         //Action Listeners
-        returnButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client));
+        returnButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music));
 
         exitButton.addActionListener(event -> System.exit(0));
 

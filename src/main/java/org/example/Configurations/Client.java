@@ -5,9 +5,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import org.example.Screens.GameWindow;
 import org.example.Configurations.Music;
+import org.springframework.cglib.core.Local;
 
 public class Client {
     private Socket clientSocket;
@@ -34,7 +37,7 @@ public class Client {
         System.out.printf("\n<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort);
         file.writeRecord(String.format("<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort));
 
-        new GameWindow(client);
+        new GameWindow(music, client);
         music.play();
         messageLoop();
     }
@@ -56,6 +59,10 @@ public class Client {
     public static void main(String args[]) {
         try {
             Client client = new Client("127.0.0.1", 4000);
+
+            ResourceBundle rb = ResourceBundle.getBundle("languages.english");
+            System.out.println("Olá: " + rb.getString("Olá"));
+
             client.start(client);
         } catch (IOException ex) {
             System.out.printf("<CLIENT> (%s) Erro ao iniciar o cliente: %s", sdf.format(new Date()), ex.getMessage());
