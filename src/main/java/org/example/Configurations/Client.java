@@ -20,7 +20,6 @@ public class Client {
     private int serverPort;
     public String msg = " ";
     private boolean messageUpdated = false;  // Flag para controlar o envio
-    Music music = new Music();
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private static FileLogWriter file = new FileLogWriter();
 
@@ -37,8 +36,7 @@ public class Client {
         System.out.printf("\n<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort);
         file.writeRecord(String.format("<CLIENT> (%s) Conectado ao servidor em %s: %d", sdf.format(new Date()), serverAddress, serverPort));
 
-        new GameWindow(music, client);
-        music.play();
+        new GameWindow(client);
         messageLoop();
     }
 
@@ -48,8 +46,15 @@ public class Client {
                 saida.println(msg);
                 messageUpdated = false;  // Reseta a flag após o envio
             }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
         }
     }
+
 
     public void updateMessage(String newMessage) {
         this.msg = newMessage;
@@ -59,10 +64,6 @@ public class Client {
     public static void main(String args[]) {
         try {
             Client client = new Client("127.0.0.1", 4000);
-
-            ResourceBundle rb = ResourceBundle.getBundle("languages.english");
-            System.out.println("Olá: " + rb.getString("Olá"));
-
             client.start(client);
         } catch (IOException ex) {
             System.out.printf("<CLIENT> (%s) Erro ao iniciar o cliente: %s", sdf.format(new Date()), ex.getMessage());

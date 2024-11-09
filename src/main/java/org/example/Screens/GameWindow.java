@@ -11,12 +11,13 @@ public class GameWindow extends JFrame {
     private WarehouseInterface warehouseInterface;
     private DumpsterInterface dumpsterInterface;
     private LoginInterface loginInterface;
+    private LanguageInterface languageInterface;
     private Client client;
 
-    public GameWindow(Music music, Client client) {
+    public GameWindow(Client client) {
         this.client = client;
-        loginInterface = new LoginInterface(this, client, music);
-        this.setContentPane(loginInterface);
+        languageInterface = new LanguageInterface(this, client);
+        this.setContentPane(languageInterface);
 
         this.setSize(900, 700);
         this.setResizable(false);
@@ -25,6 +26,15 @@ public class GameWindow extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setUndecorated(true);
         this.setVisible(true);
+    }
+
+    public Runnable showLoginInterface(Client client) {
+        this.client = client;
+        loginInterface = new LoginInterface(this, client);
+        this.setContentPane(loginInterface);
+        this.revalidate();
+        this.repaint();
+        return null;
     }
 
     public Runnable showGarageInterface(int userID, Client client, Music music) {

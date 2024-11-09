@@ -14,14 +14,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class LoginInterface extends CustomPanel {
     private String username;
     private String password;
     private int userID;
     private boolean userFound = false;
-    private GameWindow gameWindow;
     private Client client;
+    private Music music = new Music();
 
     private CardLayout cardLayout;
     private JPanel menuPanel;
@@ -43,13 +44,13 @@ public class LoginInterface extends CustomPanel {
     private PixelatedButton loginButton;
     private PixelatedButton signUpButton;
 
-    Color backgroundColor = new Color(	249, 253, 221);
+    Color backgroundColor = new Color(249, 253, 221);
     Color loginColor = new Color(121, 105, 124);
 
-    LoginInterface(GameWindow gameWindow, Client client, Music music) {
+    LoginInterface(GameWindow gameWindow, Client client) {
         super("images//Garagem_Login.png");
         this.client = client;
-        this.gameWindow = gameWindow;
+        music.play();
         setLayout(null);
 
         // Title

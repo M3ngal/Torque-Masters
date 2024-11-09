@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Music {
     private Clip clip; // Referência ao Clip
     private FloatControl volumeControl;
-    private final String audioFilePath = "resources//Horizon.wav";
+    private final String audioFilePath = "soundtracks//Horizon.wav";
 
     public Music() {
         try {

@@ -573,8 +573,6 @@
 <CLIENT> (06/11/2024 13:23:48) Conectado ao servidor em 127.0.0.1: 4000
 <SERVER> (06/11/2024 13:23:56) Cliente /127.0.0.1:64180: Efetuou Login
 <SERVER> (06/11/2024 13:24:24) Cliente /127.0.0.1:64180: Finalizou carro
-<SERVER> (06/11/2024 13:24:26) Cliente /127.0.0.1:64180: Acessou carro: Navio Negreiro
-<SERVER> (06/11/2024 13:24:44) Cliente /127.0.0.1:64180: Removeu carro: Navio Negreiro
 
 ----------------------------------------------------------------------------------------------------------------
 <SERVER> (06/11/2024 13:44:43) Servidor iniciado na porta: 4000
@@ -613,3 +611,48 @@
 <SERVER> (07/11/2024 21:44:18) Servidor iniciado na porta: 4000
 <CLIENT> (07/11/2024 21:44:25) Conectado ao servidor em 127.0.0.1: 4000
 <SERVER> (07/11/2024 21:44:31) Cliente /127.0.0.1:52893: Efetuou Login
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (08/11/2024 18:06:24) Servidor iniciado na porta: 4000
+<CLIENT> (08/11/2024 18:06:28) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 18:12:27) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 18:12:52) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 18:16:13) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:16:23) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:17:56) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:18:42) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:21:34) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:21:55) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:22:16) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:22:45) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:25:12) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:25:34) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:31:48) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:32:25) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:33:05) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:34:43) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:35:36) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:41:21) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 19:41:40) Conectado ao servidor em 127.0.0.1: 4000
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (08/11/2024 19:45:04) Servidor iniciado na porta: 4000
+<CLIENT> (08/11/2024 19:45:14) Conectado ao servidor em 127.0.0.1: 4000
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (08/11/2024 19:53:16) Servidor iniciado na porta: 4000
+<CLIENT> (08/11/2024 19:53:26) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (08/11/2024 19:53:28) Cliente /127.0.0.1:49362: Selecionou língua: english
+<SERVER> (08/11/2024 19:53:39) Cliente /127.0.0.1:49362: Efetuou Login
+<SERVER> (08/11/2024 19:53:54) Cliente /127.0.0.1:49362: Acessou carro: Bugatti Chiron
+<CLIENT> (08/11/2024 19:59:06) Conectado ao servidor em 127.0.0.1: 4000
+<CLIENT> (08/11/2024 20:48:17) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (08/11/2024 20:48:21) Cliente /127.0.0.1:51820: Selecionou língua: english
+<SERVER> (08/11/2024 20:48:31) Cliente /127.0.0.1:51820: Efetuou Login
+
+----------------------------------------------------------------------------------------------------------------
+<SERVER> (09/11/2024 13:20:33) Servidor iniciado na porta: 4000
+<CLIENT> (09/11/2024 13:20:38) Conectado ao servidor em 127.0.0.1: 4000
+<SERVER> (09/11/2024 13:20:47) Cliente /127.0.0.1:62346: Selecionou língua: deutsch
+<SERVER> (09/11/2024 13:20:52) Cliente /127.0.0.1:62346: Efetuou Login
+<SERVER> (09/11/2024 13:20:55) Cliente /127.0.0.1:62346: Acessou carro: Bugatti Chiron
