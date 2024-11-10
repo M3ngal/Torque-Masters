@@ -55,7 +55,6 @@ public class Client {
         }
     }
 
-
     public void updateMessage(String newMessage) {
         this.msg = newMessage;
         this.messageUpdated = true;  // Marca a flag como true para enviar a mensagem

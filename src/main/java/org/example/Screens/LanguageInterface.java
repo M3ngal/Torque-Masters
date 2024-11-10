@@ -65,28 +65,31 @@ public class LanguageInterface extends JPanel {
         portugueseButton.addActionListener(event -> {
             rb = ResourceBundle.getBundle("languages.portugues");
             sendUpdateMessageToClient("português");
-            gameWindow.showLoginInterface(client);
+            gameWindow.showLoginInterface(client, rb);
         });
 
         englishButton.addActionListener(event -> {
             rb = ResourceBundle.getBundle("languages.english");
             sendUpdateMessageToClient("english");
-            gameWindow.showLoginInterface(client);
+            gameWindow.showLoginInterface(client, rb);
         });
 
         deutschButton.addActionListener(event -> {
-            gameWindow.showLoginInterface(client);
+            rb = ResourceBundle.getBundle("languages.deutsch");
             sendUpdateMessageToClient("deutsch");
+            gameWindow.showLoginInterface(client, rb);
         });
 
         espanolButton.addActionListener(event -> {
-            gameWindow.showLoginInterface(client);
+            rb = ResourceBundle.getBundle("languages.espanol");
             sendUpdateMessageToClient("español");
+            gameWindow.showLoginInterface(client, rb);
         });
 
         italianoButton.addActionListener(event -> {
-            gameWindow.showLoginInterface(client);
+            rb = ResourceBundle.getBundle("languages.italiano");
             sendUpdateMessageToClient("italiano");
+            gameWindow.showLoginInterface(client, rb);
         });
 
         exitButtom.addActionListener(event -> {
@@ -109,7 +112,7 @@ public class LanguageInterface extends JPanel {
     }
 
     public void sendUpdateMessageToClient(String language) {
-        String fixedMessage = "Selecionou língua: " + language;
+        String fixedMessage = "Selecionou idioma: " + language;
         client.updateMessage(fixedMessage);  // Envia a mensagem para o Client
     }
 }

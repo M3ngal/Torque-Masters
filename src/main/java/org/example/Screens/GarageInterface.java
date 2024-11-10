@@ -15,11 +15,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.*;
 
 public class GarageInterface extends JPanel {
     private Timer timer;
     private Client client;
+    private ResourceBundle rb;
 
     //Contador para exibição dos carros, bloqueio do botão do motor, criação do carro
     private int c = 0, engineCounter = 0, createCounter = 0;
@@ -141,24 +143,31 @@ public class GarageInterface extends JPanel {
     Color startColor = new Color(41, 40, 45);
 
     // Construtor da interface gráfica do jogo
-    GarageInterface(int userId, GameWindow gameWindow, Client client, Music music) {
+    GarageInterface(int userId, GameWindow gameWindow, Client client, Music music, ResourceBundle rb) {
         this.client = client;
+        this.rb = rb;
+
+        // Layout settings
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.weightx = 1.0;
+        gbc.gridx = 0;
+
         // Card Layout
         cardLayout = new CardLayout();
         menuPanel = new JPanel(cardLayout);
         menuPanel.setBackground(buttonColor);
 
         // Start Panel
-        startPanel = new JPanel();
+        startPanel = new JPanel(new GridBagLayout());
         startPanel.setBackground(startColor);
         startPanel.setPreferredSize(new Dimension(900, 75));
-        startPanel.setLayout(new FlowLayout(0, 112, 55));
 
         // Settings Panel
-        settingsPanel = new JPanel();
+        settingsPanel = new JPanel(new GridBagLayout());
         settingsPanel.setBackground(startColor);
         settingsPanel.setPreferredSize(new Dimension(900, 75));
-        settingsPanel.setLayout(new FlowLayout(0, 142, 25));
 
         // Exhibition Panel
         exhibitionPanel = new CustomPanel("images\\capa.jpg");
@@ -166,26 +175,23 @@ public class GarageInterface extends JPanel {
         exhibitionPanel.setPreferredSize(new Dimension(900, 425));
 
         // Button Panel
-        carPanel = new JPanel();
+        carPanel = new JPanel(new GridBagLayout());
         carPanel.setBackground(buttonColor);
-        carPanel.setLayout(new FlowLayout(0, 27, 75));
         carPanel.setPreferredSize(new Dimension(900, 175));
 
 //-----------------------------------------------------Car Components Panels-----------------------------------------------------------------------
         // Engine Panel
-        JPanel enginePanel = new JPanel();
+        JPanel enginePanel = new JPanel(new GridBagLayout());
         enginePanel.setBackground(buttonColor);
-        enginePanel.setLayout(new FlowLayout(0, 15, 75));
         enginePanel.setPreferredSize(new Dimension(900, 175));
 
-        engineButton = new PixelatedButton("Motor");
+        engineButton = new PixelatedButton(rb.getString("motor"));
 
-        JPanel engineTypePanel = new JPanel();
+        JPanel engineTypePanel = new JPanel(new GridBagLayout());
         engineTypePanel.setBackground(buttonColor);
-        engineTypePanel.setLayout(new FlowLayout(0, 150, 75));
         engineTypePanel.setPreferredSize(new Dimension(900, 175));
 
-        engineType = new PixelatedButton("Tipo de Motor");
+        engineType = new PixelatedButton(rb.getString("tipo-do-motor"));
 
         threeCylinders = new PixelatedButton("3");
         fourCylindersInline = new PixelatedButton("4");
@@ -197,30 +203,27 @@ public class GarageInterface extends JPanel {
         tenCylinders = new PixelatedButton("10");
         twelveCylinders = new PixelatedButton("12");
 
-        JPanel inlinePanel = new JPanel();
+        JPanel inlinePanel = new JPanel(new GridBagLayout());
         inlinePanel.setBackground(buttonColor);
-        inlinePanel.setLayout(new FlowLayout(0, 185, 75));
         inlinePanel.setPreferredSize(new Dimension(900, 175));
 
-        inlineEngine = new PixelatedButton("Em Linha");
+        inlineEngine = new PixelatedButton(rb.getString("em-linha"));
 
         inlinePanel.add(threeCylinders);
         inlinePanel.add(fourCylindersInline);
         inlinePanel.add(fiveCylinders);
 
-        JPanel boxerPanel = new JPanel();
+        JPanel boxerPanel = new JPanel(new GridBagLayout());
         boxerPanel.setBackground(buttonColor);
-        boxerPanel.setLayout(new FlowLayout(0, 260, 75));
         boxerPanel.setPreferredSize(new Dimension(900, 175));
 
-        boxerEngine = new PixelatedButton("Boxer");
+        boxerEngine = new PixelatedButton("boxer");
 
         boxerPanel.add(fourCylindersBoxer);
         boxerPanel.add(sixCylindersBoxer);
 
-        JPanel VPanel = new JPanel();
+        JPanel VPanel = new JPanel(new GridBagLayout());
         VPanel.setBackground(buttonColor);
-        VPanel.setLayout(new FlowLayout(0, 140, 75));
         VPanel.setPreferredSize(new Dimension(900, 175));
 
         VEngine = new PixelatedButton("V");
@@ -234,12 +237,11 @@ public class GarageInterface extends JPanel {
         engineTypePanel.add(boxerEngine);
         engineTypePanel.add(VEngine);
 
-        JPanel cylindersPanel = new JPanel();
+        JPanel cylindersPanel = new JPanel(new GridBagLayout());
         cylindersPanel.setBackground(buttonColor);
-        cylindersPanel.setLayout(new FlowLayout(0, 55, 75));
         cylindersPanel.setPreferredSize(new Dimension(900, 175));
 
-        cylinders = new PixelatedButton("Cilindradas");
+        cylinders = new PixelatedButton(rb.getString("cilindradas"));
 
         firstCylinder = new PixelatedButton("1.0");
         secondCylinder = new PixelatedButton("1.6");
@@ -257,59 +259,55 @@ public class GarageInterface extends JPanel {
         cylindersPanel.add(sixthCylinder);
         cylindersPanel.add(seventhCylinder);
 
-        JPanel aspirationPanel = new JPanel();
+        JPanel aspirationPanel = new JPanel(new GridBagLayout());
         aspirationPanel.setBackground(buttonColor);
-        aspirationPanel.setLayout(new FlowLayout(0, 60, 75));
         aspirationPanel.setPreferredSize(new Dimension(900, 175));
 
-        aspiration = new PixelatedButton("Aspiração");
+        aspiration = new PixelatedButton(rb.getString("aspiração"));
 
-        naturalAspiration = new PixelatedButton("Aspirado Naturalmente");
-        turboCompressor = new PixelatedButton("Turbo Compressor");
-        superCompressor = new PixelatedButton("Super Compressor");
+        naturalAspiration = new PixelatedButton(rb.getString("aspirado-naturalmente"));
+        turboCompressor = new PixelatedButton(rb.getString("turbo-compressor"));
+        superCompressor = new PixelatedButton(rb.getString("super-compressor"));
 
         aspirationPanel.add(naturalAspiration);
         aspirationPanel.add(turboCompressor);
         aspirationPanel.add(superCompressor);
         
-        JPanel fuelPanel = new JPanel();
+        JPanel fuelPanel = new JPanel(new GridBagLayout());
         fuelPanel.setBackground(buttonColor);
-        fuelPanel.setLayout(new FlowLayout(0, 225, 75));
         fuelPanel.setPreferredSize(new Dimension(900, 175));
 
-        fuel = new PixelatedButton("Combustivel");
+        fuel = new PixelatedButton(rb.getString("combustivel"));
 
-        gasFuel = new PixelatedButton("Gasolina");
-        dieselFuel = new PixelatedButton("Diesel");
+        gasFuel = new PixelatedButton(rb.getString("gasolina"));
+        dieselFuel = new PixelatedButton(rb.getString("diesel"));
 
         fuelPanel.add(gasFuel);
         fuelPanel.add(dieselFuel);
 
-        JPanel engineMaterialPanel = new JPanel();
+        JPanel engineMaterialPanel = new JPanel(new GridBagLayout());
         engineMaterialPanel.setBackground(buttonColor);
-        engineMaterialPanel.setLayout(new FlowLayout(0, 80, 75));
         engineMaterialPanel.setPreferredSize(new Dimension(900, 175));
 
         engineMaterial = new PixelatedButton("Material");
 
-        moltedIron = new PixelatedButton("Ferro Fundido");
-        aluminiumAlloy = new PixelatedButton("Liga de Aluminio");
-        titaniumAlloy = new PixelatedButton("Liga de Titanio");
+        moltedIron = new PixelatedButton(rb.getString("ferro-fundido"));
+        aluminiumAlloy = new PixelatedButton(rb.getString("liga-de-aluminio"));
+        titaniumAlloy = new PixelatedButton(rb.getString("liga-de-titanio"));
 
         engineMaterialPanel.add(moltedIron);
         engineMaterialPanel.add(aluminiumAlloy);
         engineMaterialPanel.add(titaniumAlloy);
 
-        JPanel tractionPanel = new JPanel();
+        JPanel tractionPanel = new JPanel(new GridBagLayout());
         tractionPanel.setBackground(buttonColor);
-        tractionPanel.setLayout(new FlowLayout(0, 135, 75));
         tractionPanel.setPreferredSize(new Dimension(900, 175));
 
-        traction = new PixelatedButton("Tração");
+        traction = new PixelatedButton(rb.getString("tração"));
 
-        rearTraction = new PixelatedButton("Traseira");
-        frontTraction = new PixelatedButton("Dianteira");
-        integralTraction = new PixelatedButton("Integral");
+        rearTraction = new PixelatedButton(rb.getString("traseira"));
+        frontTraction = new PixelatedButton(rb.getString("dianteira"));
+        integralTraction = new PixelatedButton(rb.getString("integral"));
 
         tractionPanel.add(rearTraction);
         tractionPanel.add(frontTraction);
@@ -323,17 +321,16 @@ public class GarageInterface extends JPanel {
         enginePanel.add(traction);
 
         // Brakes Panel
-        JPanel brakesPanel = new JPanel();
+        JPanel brakesPanel = new JPanel(new GridBagLayout());
         brakesPanel.setBackground(buttonColor);
-        brakesPanel.setLayout(new FlowLayout(0, 90, 75));
         brakesPanel.setPreferredSize(new Dimension(900, 175));
 
-        brakesButton = new PixelatedButton("Freios");
+        brakesButton = new PixelatedButton(rb.getString("freios"));
 
-        popularBrakes = new PixelatedButton("Popular");
-        sportBrakes = new PixelatedButton("Esportivo");
-        raceBrakes = new PixelatedButton("Corrida");
-        ceramicBrakes = new PixelatedButton("Ceramica");
+        popularBrakes = new PixelatedButton(rb.getString("popular"));
+        sportBrakes = new PixelatedButton(rb.getString("esportivo"));
+        raceBrakes = new PixelatedButton(rb.getString("corrida"));
+        ceramicBrakes = new PixelatedButton(rb.getString("ceramica"));
 
         brakesPanel.add(popularBrakes);
         brakesPanel.add(sportBrakes);
@@ -341,17 +338,16 @@ public class GarageInterface extends JPanel {
         brakesPanel.add(ceramicBrakes);
 
         // Tires Panel
-        JPanel tiresPanel = new JPanel();
+        JPanel tiresPanel = new JPanel(new GridBagLayout());
         tiresPanel.setBackground(buttonColor);
-        tiresPanel.setLayout(new FlowLayout(0, 90, 75));
         tiresPanel.setPreferredSize(new Dimension(900, 175));
 
-        tiresButton = new PixelatedButton("Rodas");
+        tiresButton = new PixelatedButton(rb.getString("rodas"));
 
-        popularTires = new PixelatedButton("Popular");
-        sportTires = new PixelatedButton("Esportivo");
-        raceTires = new PixelatedButton("Corrida");
-        offRoadTires = new PixelatedButton("Off-Road");
+        popularTires = new PixelatedButton(rb.getString("popular"));
+        sportTires = new PixelatedButton(rb.getString("esportivo"));
+        raceTires = new PixelatedButton(rb.getString("corrida"));
+        offRoadTires = new PixelatedButton(rb.getString("off-road"));
 
         tiresPanel.add(popularTires);
         tiresPanel.add(sportTires);
@@ -359,18 +355,17 @@ public class GarageInterface extends JPanel {
         tiresPanel.add(offRoadTires);
 
         // Chassis Panel
-        JPanel chassisPanel = new JPanel();
+        JPanel chassisPanel = new JPanel(new GridBagLayout());
         chassisPanel.setBackground(buttonColor);
-        chassisPanel.setLayout(new FlowLayout(0, 75, 75));
         chassisPanel.setPreferredSize(new Dimension(900, 175));
 
-        chassisButton = new PixelatedButton("Chassi");
+        chassisButton = new PixelatedButton(rb.getString("chassi"));
 
-        suvChassis = new PixelatedButton("SUV");
-        sedanChassis = new PixelatedButton("Sedan");
-        sportChassis = new PixelatedButton("Sport");
-        hatchbackChassis = new PixelatedButton("HatchBack");
-        coupeChassis = new PixelatedButton("Coupe");
+        suvChassis = new PixelatedButton(rb.getString("suv"));
+        sedanChassis = new PixelatedButton(rb.getString("sedan"));
+        sportChassis = new PixelatedButton(rb.getString("sport"));
+        hatchbackChassis = new PixelatedButton(rb.getString("hatchback"));
+        coupeChassis = new PixelatedButton(rb.getString("coupe"));
 
         chassisPanel.add(suvChassis);
         chassisPanel.add(sedanChassis);
@@ -379,17 +374,16 @@ public class GarageInterface extends JPanel {
         chassisPanel.add(coupeChassis);
         
         // Suspension Panel
-        JPanel suspensionPanel = new JPanel();
+        JPanel suspensionPanel = new JPanel(new GridBagLayout());
         suspensionPanel.setBackground(buttonColor);
-        suspensionPanel.setLayout(new FlowLayout(0, 90, 75));
         suspensionPanel.setPreferredSize(new Dimension(900, 175));
 
-        suspensionButton = new PixelatedButton("Suspenssão");
+        suspensionButton = new PixelatedButton(rb.getString("suspensão"));
 
-        popularSuspension = new PixelatedButton("Popular");
-        sportSuspension = new PixelatedButton("Esportivo");
-        raceSuspension = new PixelatedButton("Corrida");
-        rallySuspension = new PixelatedButton("Rally");
+        popularSuspension = new PixelatedButton(rb.getString("popular"));
+        sportSuspension = new PixelatedButton(rb.getString("esportivo"));
+        raceSuspension = new PixelatedButton(rb.getString("corrida"));
+        rallySuspension = new PixelatedButton(rb.getString("rally"));
 
         suspensionPanel.add(popularSuspension);
         suspensionPanel.add(sportSuspension);
@@ -397,17 +391,16 @@ public class GarageInterface extends JPanel {
         suspensionPanel.add(rallySuspension);
 
         // Body Paint Panel
-        JPanel bodyPaintPanel = new JPanel();
+        JPanel bodyPaintPanel = new JPanel(new GridBagLayout());
         bodyPaintPanel.setBackground(buttonColor);
-        bodyPaintPanel.setLayout(new FlowLayout(0, 90, 75));
         bodyPaintPanel.setPreferredSize(new Dimension(900, 175));
 
-        bodyPaintButton = new PixelatedButton("Pintura");
+        bodyPaintButton = new PixelatedButton(rb.getString("pintura"));
 
-        colorRed = new PixelatedButton("Vermelho");
-        colorYellow = new PixelatedButton("Amarelo");
-        colorBlue = new PixelatedButton("Azul");
-        colorBlack = new PixelatedButton("Preto");
+        colorRed = new PixelatedButton(rb.getString("vermelho"));
+        colorYellow = new PixelatedButton(rb.getString("amarelo"));
+        colorBlue = new PixelatedButton(rb.getString("azul"));
+        colorBlack = new PixelatedButton(rb.getString("preto"));
 
         bodyPaintPanel.add(colorRed);
         bodyPaintPanel.add(colorYellow);
@@ -415,52 +408,51 @@ public class GarageInterface extends JPanel {
         bodyPaintPanel.add(colorBlack);
 
         // Car Name Panel
-        JPanel carNamePanel = new JPanel();
+        JPanel carNamePanel = new JPanel(new GridBagLayout());
         carNamePanel.setBackground(buttonColor);
-        carNamePanel.setLayout(new FlowLayout(0, 60, 75));
         carNamePanel.setPreferredSize(new Dimension(900, 175));
 
-        carNameButton = new PixelatedButton("Name");
-        setCarName = new PixelatedButton("Set Name");
+        carNameButton = new PixelatedButton(rb.getString("nome"));
+        setCarName = new PixelatedButton(rb.getString("dar-nome"));
         carNameField = new CustomTextField( 50);
 
         carNamePanel.add(setCarName);
         carNamePanel.add(carNameField);
 
         // Start Buttons
-        deleteButton = new PixelatedButton("Delete");
+        deleteButton = new PixelatedButton(rb.getString("excluir"));
         deleteButton.setPreferredSize(new Dimension(150, 60));
-        startButton = new PixelatedButton("New");
+        startButton = new PixelatedButton(rb.getString("novo"));
         startButton.setPreferredSize(new Dimension(150, 60));
-        garageButton = new PixelatedButton("Garage");
+        garageButton = new PixelatedButton(rb.getString("garagem"));
         garageButton.setPreferredSize(new Dimension(150, 60));
 
         // Start Panel
-        startPanel.add(deleteButton);
-        startPanel.add(startButton);
-        startPanel.add(garageButton);
+        startPanel.add(deleteButton, gbc); gbc.gridx++;
+        startPanel.add(startButton, gbc); gbc.gridx++;
+        startPanel.add(garageButton, gbc); gbc.gridx++;
 
         // Settings Buttons
-        menuButton = new PixelatedButton("Menu");
+        menuButton = new PixelatedButton(rb.getString("menu"));
         menuButton.setEnabled(false);
 
-        exitButton = new PixelatedButton("Exit");
+        exitButton = new PixelatedButton(rb.getString("sair"));
 
         // Volume Slider
         volumeSlider = new PixelatedSlider(music);
 
         // Settings Panel
-        settingsPanel.add(menuButton);
-        settingsPanel.add(volumeSlider);
-        settingsPanel.add(exitButton);
+        settingsPanel.add(menuButton, gbc); gbc.gridx++;
+        settingsPanel.add(volumeSlider, gbc); gbc.gridx++;
+        settingsPanel.add(exitButton, gbc); gbc.gridx++;
 
-        carPanel.add(engineButton);
-        carPanel.add(brakesButton);
-        carPanel.add(tiresButton);
-        carPanel.add(chassisButton);
-        carPanel.add(suspensionButton);
-        carPanel.add(bodyPaintButton);
-        carPanel.add(carNameButton);
+        carPanel.add(engineButton, gbc); gbc.gridx++;
+        carPanel.add(brakesButton, gbc); gbc.gridx++;
+        carPanel.add(tiresButton, gbc); gbc.gridx++;
+        carPanel.add(chassisButton, gbc); gbc.gridx++;
+        carPanel.add(suspensionButton, gbc); gbc.gridx++;
+        carPanel.add(bodyPaintButton, gbc); gbc.gridx++;
+        carPanel.add(carNameButton, gbc); gbc.gridx++;
 
         //Database Connection
         Connection conn = null;
@@ -481,12 +473,12 @@ public class GarageInterface extends JPanel {
                 showTemporaryImage(exhibitionPanel, "images//cars_not_found.jpg");
 
             else
-                gameWindow.showWarehouseInterface(userId, client, music);
+                gameWindow.showWarehouseInterface(userId, client, music, rb);
         });
 
         //Exclui um carro do banco de dados
         deleteButton.addActionListener(event -> {
-            gameWindow.showDupsterInterface(userId, client, music);
+            gameWindow.showDupsterInterface(userId, client, music, rb);
         });
 
         //Inicia a criação de um novo carro
@@ -524,7 +516,7 @@ public class GarageInterface extends JPanel {
 
         inlineEngine.addActionListener(event -> {
             cardLayout.show(menuPanel, "inline");
-            engineTypeCar = "em linha";
+            engineTypeCar = "em-linha";
         });
 
         threeCylinders.addActionListener(event -> {
@@ -640,19 +632,19 @@ public class GarageInterface extends JPanel {
         aspiration.addActionListener(event -> cardLayout.show(menuPanel, "aspiration"));
 
         naturalAspiration.addActionListener(event -> {
-            aspirationCar = "aspirado naturalmente";
+            aspirationCar = "aspirado-naturalmente";
             aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         turboCompressor.addActionListener(event -> {
-            aspirationCar = "turbo compressor";
+            aspirationCar = "turbo-compressor";
             aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         superCompressor.addActionListener(event -> {
-            aspirationCar = "super compressor";
+            aspirationCar = "super-compressor";
             aspiration.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
@@ -676,19 +668,19 @@ public class GarageInterface extends JPanel {
         engineMaterial.addActionListener(event -> cardLayout.show(menuPanel, "engineMaterial"));
 
         moltedIron.addActionListener(event -> {
-            engineMaterialCar = "ferro fundido";
+            engineMaterialCar = "ferro-fundido";
             engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         aluminiumAlloy.addActionListener(event -> {
-            engineMaterialCar = "liga de aluminio";
+            engineMaterialCar = "liga-de-aluminio";
             engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });
 
         titaniumAlloy.addActionListener(event -> {
-            engineMaterialCar = "liga de titanio";
+            engineMaterialCar = "liga-de-titanio";
             engineMaterial.setEnabled(false); engineCounter++; createCounter++;
             cardLayout.show(menuPanel, "enginePanel");
         });

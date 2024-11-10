@@ -5,6 +5,7 @@ import javax.swing.*;
 import org.example.Configurations.Client;
 import org.example.Configurations.Music;
 
+import java.util.ResourceBundle;
 
 public class GameWindow extends JFrame {
     private GarageInterface garageInterface;
@@ -28,36 +29,36 @@ public class GameWindow extends JFrame {
         this.setVisible(true);
     }
 
-    public Runnable showLoginInterface(Client client) {
+    public Runnable showLoginInterface(Client client, ResourceBundle rb) {
         this.client = client;
-        loginInterface = new LoginInterface(this, client);
+        loginInterface = new LoginInterface(this, client, rb);
         this.setContentPane(loginInterface);
         this.revalidate();
         this.repaint();
         return null;
     }
 
-    public Runnable showGarageInterface(int userID, Client client, Music music) {
+    public Runnable showGarageInterface(int userID, Client client, Music music, ResourceBundle rb) {
         this.client = client;
-        garageInterface = new GarageInterface(userID, this, client, music);
+        garageInterface = new GarageInterface(userID, this, client, music, rb);
         this.setContentPane(garageInterface);
         this.revalidate();
         this.repaint();
         return null;
     }
 
-    public Runnable showWarehouseInterface(int userID, Client client, Music music) {
+    public Runnable showWarehouseInterface(int userID, Client client, Music music, ResourceBundle rb) {
         this.client = client;
-        warehouseInterface = new WarehouseInterface(userID, this, client, music);
+        warehouseInterface = new WarehouseInterface(userID, this, client, music, rb);
         this.setContentPane(warehouseInterface);
         this.revalidate();
         this.repaint();
         return null;
     }
 
-    public Runnable showDupsterInterface(int userID, Client client, Music music) {
+    public Runnable showDupsterInterface(int userID, Client client, Music music, ResourceBundle rb) {
         this.client = client;
-        dumpsterInterface = new DumpsterInterface(userID, this, client, music);
+        dumpsterInterface = new DumpsterInterface(userID, this, client, music, rb);
         this.setContentPane(dumpsterInterface);
         this.revalidate();
         this.repaint();

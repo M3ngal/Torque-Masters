@@ -23,6 +23,7 @@ public class LoginInterface extends CustomPanel {
     private boolean userFound = false;
     private Client client;
     private Music music = new Music();
+    private ResourceBundle rb;
 
     private CardLayout cardLayout;
     private JPanel menuPanel;
@@ -47,9 +48,10 @@ public class LoginInterface extends CustomPanel {
     Color backgroundColor = new Color(249, 253, 221);
     Color loginColor = new Color(121, 105, 124);
 
-    LoginInterface(GameWindow gameWindow, Client client) {
+    LoginInterface(GameWindow gameWindow, Client client, ResourceBundle rb) {
         super("images//Garagem_Login.png");
         this.client = client;
+        this.rb = rb;
         music.play();
         setLayout(null);
 
@@ -84,26 +86,28 @@ public class LoginInterface extends CustomPanel {
         loginPanel.setBackground(loginColor);
 
         // Username Components
-        usernameLabel = new JLabel("Username:");
+        usernameLabel = new JLabel(rb.getString("usuario") + ":");
         usernameLabel.setFont(new Font("Arial", Font.PLAIN, 22));
-        usernameLabel.setBounds(40, 30, 120, 40);
+        usernameLabel.setBounds(0, 30, 150, 40);
+        usernameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
         usernameField = new CustomTextField(20);
         usernameField.setBounds(160, 30, 250, 40);
 
         // Password Components
-        passwordLabel = new JLabel("Password:");
+        passwordLabel = new JLabel(rb.getString("senha") + ":");
         passwordLabel.setFont(new Font("Arial", Font.PLAIN, 22));
-        passwordLabel.setBounds(40, 100, 120, 40);
+        passwordLabel.setBounds(10, 100, 140, 40);
+        passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
 
         passwordField = new CustomPasswordField(20);
         passwordField.setBounds(160, 100, 250, 40);
 
         // Buttons
-        loginButton = new PixelatedButton("Login");
+        loginButton = new PixelatedButton(rb.getString("acessar"));
         loginButton.setBounds(105, 180, 240, 50);
 
-        signUpButton = new PixelatedButton("Sign Up");
+        signUpButton = new PixelatedButton(rb.getString("cadastrar"));
         signUpButton.setBounds(105, 260, 240, 50);
 
         // Error Panel
@@ -113,8 +117,8 @@ public class LoginInterface extends CustomPanel {
         errorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         // Error Label
-        errorLabel = new JLabel("404: User not found");
-        errorLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        errorLabel = new JLabel(rb.getString("usuario-encontrado"));
+        errorLabel.setFont(new Font("Arial", Font.BOLD, 30));
         errorLabel.setHorizontalAlignment(JLabel.CENTER);
         errorLabel.setVerticalAlignment(JLabel.CENTER);
 
@@ -127,8 +131,8 @@ public class LoginInterface extends CustomPanel {
         userExistPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         // User Already Exist Label
-        userExistLabel = new JLabel("403: User Already Exists");
-        userExistLabel.setFont(new Font("Arial", Font.BOLD, 35));
+        userExistLabel = new JLabel(rb.getString("usuario-existente"));
+        userExistLabel.setFont(new Font("Arial", Font.BOLD, 26));
         userExistLabel.setHorizontalAlignment(JLabel.CENTER);
         userExistLabel.setVerticalAlignment(JLabel.CENTER);
 
@@ -141,8 +145,8 @@ public class LoginInterface extends CustomPanel {
         userAddedPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         // User Added Label
-        userAddedLabel = new JLabel("201: User Added. Logging In...");
-        userAddedLabel.setFont(new Font("Arial", Font.BOLD, 26));
+        userAddedLabel = new JLabel(rb.getString("usuario-adicionado"));
+        userAddedLabel.setFont(new Font("Arial", Font.BOLD, 20));
         userAddedLabel.setHorizontalAlignment(JLabel.CENTER);
         userAddedLabel.setVerticalAlignment(JLabel.CENTER);
 
@@ -170,7 +174,7 @@ public class LoginInterface extends CustomPanel {
                 if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                     setUserID(finalConn);
                     sendUpdateMessageToClient();
-                    gameWindow.showGarageInterface(userID, client, music);
+                    gameWindow.showGarageInterface(userID, client, music, rb);
                     return;
                 }
             }
@@ -198,7 +202,7 @@ public class LoginInterface extends CustomPanel {
                 user.addUser(finalConn);
                 setUserID(finalConn);
                 cardLayout.show(menuPanel, "userAddedPanel");
-                waitCode(4, () -> gameWindow.showGarageInterface(userID, client, music));
+                waitCode(4, () -> gameWindow.showGarageInterface(userID, client, music, rb));
             }
         });
 

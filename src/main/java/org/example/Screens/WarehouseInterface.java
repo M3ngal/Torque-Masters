@@ -18,10 +18,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class WarehouseInterface extends CustomPanel {
     private int y = 0;
     private Client client;
+    private ResourceBundle rb;
 
     private JLabel warehouseLabel;
     private JLabel carNameLabel;
@@ -69,9 +71,10 @@ public class WarehouseInterface extends CustomPanel {
     Font engineFont = new Font("Arial", Font.BOLD, 16);
     Font titleLabelFont = new Font("Arial", Font.BOLD, 26);
 
-    WarehouseInterface(int userId, GameWindow gameWindow, Client client, Music music) {
+    WarehouseInterface(int userId, GameWindow gameWindow, Client client, Music music, ResourceBundle rb) {
         super("images//warehouse.jpg");
         this.client = client;
+        this.rb = rb;
         this.setLayout(null);
 
         // Warehouse Title Label
@@ -109,12 +112,12 @@ public class WarehouseInterface extends CustomPanel {
         userCarsPanel.setBounds(70, 140, 750, 455);
 
         // Return Button
-        returnButton = new PixelatedWarehouseButton("Menu");
-        returnButton.setBounds(20, 40, 80, 30);
+        returnButton = new PixelatedWarehouseButton(rb.getString("menu"));
+        returnButton.setBounds(5, 40, 110, 30);
 
         // Exit Button
-        exitButton = new PixelatedWarehouseButton("Exit");
-        exitButton.setBounds(785, 40, 80, 30);
+        exitButton = new PixelatedWarehouseButton(rb.getString("sair"));
+        exitButton.setBounds(780, 40, 110, 30);
 
         // Database Connection
         Connection conn = null;
@@ -213,8 +216,8 @@ public class WarehouseInterface extends CustomPanel {
                 }
 
                 // Back Button
-                backButton = new PixelatedWarehouseButton("Back");
-                backButton.setBounds(655, 15, 80, 30);
+                backButton = new PixelatedWarehouseButton(rb.getString("retornar"));
+                backButton.setBounds(635, 15, 100, 30);
 
                 backButton.addActionListener(e -> {
                     cardLayout.show(mainPanel, "userCarsPanel");
@@ -224,7 +227,7 @@ public class WarehouseInterface extends CustomPanel {
                 });
 
                 // Engine Labels
-                engineComponentsLabel = new JLabel("Engine");
+                engineComponentsLabel = new JLabel(rb.getString("motor"));
                 engineComponentsLabel.setForeground(backgroundColor);
                 engineComponentsLabel.setBounds(18, 78, 110, 40);
                 engineComponentsLabel.setFont(titleLabelFont);
@@ -234,45 +237,45 @@ public class WarehouseInterface extends CustomPanel {
                 engineComponentsLabel.setBackground(Color.DARK_GRAY);
                 engineComponentsLabel.setBorder(new LineBorder(Color.BLACK, 5));
 
-                typeLabel = new JLabel("Type: " + c.getEngineType());
+                typeLabel = new JLabel(rb.getString("tipo") + ": " + rb.getString(c.getEngineType()));
                 typeLabel.setForeground(backgroundColor);
                 typeLabel.setBounds(30, 140, 230, 30);
                 typeLabel.setFont(engineFont);
 
-                cylAmtLabel = new JLabel("Cyl Amt: " + c.getCylinderAmount());
+                cylAmtLabel = new JLabel(rb.getString("quantidade-cilindros") + ": " + c.getCylinderAmount());
                 cylAmtLabel.setForeground(backgroundColor);
                 cylAmtLabel.setBounds(430, 85, 210, 30);
                 cylAmtLabel.setFont(engineFont);
 
-                cylindersLabel = new JLabel("Cylinders: " + c.getCylinders());
+                cylindersLabel = new JLabel(rb.getString("cilindradas") + ": " + c.getCylinders());
                 cylindersLabel.setForeground(backgroundColor);
                 cylindersLabel.setBounds(590, 85, 210, 30);
                 cylindersLabel.setFont(engineFont);
 
-                aspirationLabel = new JLabel("Asp: " + c.getAspiration());
+                aspirationLabel = new JLabel(rb.getString("aspiração") + ": " + rb.getString(c.getAspiration()));
                 aspirationLabel.setForeground(backgroundColor);
                 aspirationLabel.setBounds(155, 85, 250, 30);
                 aspirationLabel.setFont(engineFont);
 
-                fuelLabel = new JLabel("Fuel: " + c.getFuel());
+                fuelLabel = new JLabel(rb.getString("combustivel") + ": " + rb.getString(c.getFuel()));
                 fuelLabel.setForeground(backgroundColor);
-                fuelLabel.setBounds(195, 140, 210, 30);
+                fuelLabel.setBounds(155, 140, 210, 30);
                 fuelLabel.setFont(engineFont);
 
-                materialLabel = new JLabel("Material: " + c.getMaterial());
+                materialLabel = new JLabel(rb.getString("material") + ": " + rb.getString(c.getMaterial()));
                 materialLabel.setForeground(backgroundColor);
                 materialLabel.setBounds(350, 140, 210, 30);
                 materialLabel.setFont(engineFont);
 
-                tractionLabel = new JLabel("Traction: " + c.getTraction());
+                tractionLabel = new JLabel(rb.getString("tração") + ": " + rb.getString(c.getTraction()));
                 tractionLabel.setForeground(backgroundColor);
-                tractionLabel.setBounds(570, 140, 210, 30);
+                tractionLabel.setBounds(570, 140, 160, 30);
                 tractionLabel.setFont(engineFont);
 
                 // Car Labels
-                carComponentsLabel = new JLabel("Car");
+                carComponentsLabel = new JLabel(rb.getString("carro"));
                 carComponentsLabel.setForeground(backgroundColor);
-                carComponentsLabel.setBounds(18, 198, 70, 40);
+                carComponentsLabel.setBounds(18, 198, 100, 40);
                 carComponentsLabel.setFont(titleLabelFont);
                 carComponentsLabel.setOpaque(true);
                 carComponentsLabel.setVerticalAlignment(JLabel.CENTER);
@@ -280,28 +283,28 @@ public class WarehouseInterface extends CustomPanel {
                 carComponentsLabel.setBackground(Color.DARK_GRAY);
                 carComponentsLabel.setBorder(new LineBorder(Color.BLACK, 5));
 
-                brakesLabel = new JLabel("Brakes: " + c.getBrakes());
+                brakesLabel = new JLabel(rb.getString("freios") + ": " + rb.getString(c.getBrakes()));
                 brakesLabel.setForeground(backgroundColor);
                 brakesLabel.setBounds(30, 250, 320, 30);
                 brakesLabel.setFont(carFont);
 
-                tiresLabel = new JLabel("Tires: " + c.getTires());
+                tiresLabel = new JLabel(rb.getString("rodas") + ": " + rb.getString(c.getTires()));
                 tiresLabel.setForeground(backgroundColor);
                 tiresLabel.setBounds(30, 300, 320, 30);
                 tiresLabel.setFont(carFont);
 
-                chassisLabel = new JLabel("Chassis: " + c.getChassis());
+                chassisLabel = new JLabel(rb.getString("chassi") + ": " + rb.getString(c.getChassis()));
                 chassisLabel.setForeground(backgroundColor);
                 chassisLabel.setBounds(30, 350, 320, 30);
                 chassisLabel.setFont(carFont);
 
-                suspensionLabel = new JLabel("Suspension: " + c.getSuspension());
+                suspensionLabel = new JLabel(rb.getString("suspensão") + ": " + rb.getString(c.getSuspension()));
                 suspensionLabel.setForeground(backgroundColor);
                 suspensionLabel.setBounds(30, 400, 320, 30);
                 suspensionLabel.setFont(carFont);
 
                 // Stats Labels
-                statsLabel = new JLabel("Stats");
+                statsLabel = new JLabel(rb.getString("estatisticas"));
                 statsLabel.setForeground(backgroundColor);
                 statsLabel.setBounds(395, 198, 100, 40);
                 statsLabel.setFont(titleLabelFont);
@@ -311,55 +314,55 @@ public class WarehouseInterface extends CustomPanel {
                 statsLabel.setBackground(Color.DARK_GRAY);
                 statsLabel.setBorder(new LineBorder(Color.BLACK, 5));
 
-                costLabel = new JLabel("Cost:");
+                costLabel = new JLabel(rb.getString("custo"));
                 costLabel.setForeground(backgroundColor);
                 costLabel.setBounds(390, 240, 120, 30);
                 costLabel.setFont(statsFont);
                 costLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                consumptionLabel = new JLabel("Consumption:");
+                consumptionLabel = new JLabel(rb.getString("consumo"));
                 consumptionLabel.setForeground(backgroundColor);
                 consumptionLabel.setBounds(390, 260, 120, 30);
                 consumptionLabel.setFont(statsFont);
                 consumptionLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                weightLabel = new JLabel("Weight:");
+                weightLabel = new JLabel(rb.getString("peso"));
                 weightLabel.setForeground(backgroundColor);
                 weightLabel.setBounds(390, 280, 120, 30);
                 weightLabel.setFont(statsFont);
                 weightLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                maxSpeedLabel = new JLabel("Max Speed:");
+                maxSpeedLabel = new JLabel(rb.getString("velocidade-maxima"));
                 maxSpeedLabel.setForeground(backgroundColor);
                 maxSpeedLabel.setBounds(390, 300, 120, 30);
                 maxSpeedLabel.setFont(statsFont);
                 maxSpeedLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                accelerationLabel = new JLabel("Acceleration:");
+                accelerationLabel = new JLabel(rb.getString("aceleração"));
                 accelerationLabel.setForeground(backgroundColor);
                 accelerationLabel.setBounds(390, 320, 120, 30);
                 accelerationLabel.setFont(statsFont);
                 accelerationLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                torqueLabel = new JLabel("Torque:");
+                torqueLabel = new JLabel(rb.getString("torque"));
                 torqueLabel.setForeground(backgroundColor);
                 torqueLabel.setBounds(390, 340, 120, 30);
                 torqueLabel.setFont(statsFont);
                 torqueLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                powerLabel = new JLabel("Power:");
+                powerLabel = new JLabel(rb.getString("potencia"));
                 powerLabel.setForeground(backgroundColor);
                 powerLabel.setBounds(390, 360, 120, 30);
                 powerLabel.setFont(statsFont);
                 powerLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                handlingLabel = new JLabel("Handling:");
+                handlingLabel = new JLabel(rb.getString("manuseio"));
                 handlingLabel.setForeground(backgroundColor);
                 handlingLabel.setBounds(390, 380, 120, 30);
                 handlingLabel.setFont(statsFont);
                 handlingLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-                brakesPowerLabel = new JLabel("Brakes Power:");
+                brakesPowerLabel = new JLabel(rb.getString("frenagem"));
                 brakesPowerLabel.setForeground(backgroundColor);
                 brakesPowerLabel.setBounds(390, 400, 120, 30);
                 brakesPowerLabel.setFont(statsFont);
@@ -401,7 +404,7 @@ public class WarehouseInterface extends CustomPanel {
         }
 
         //Action Listeners
-        returnButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music));
+        returnButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music, rb));
 
         exitButton.addActionListener(event -> System.exit(0));
 

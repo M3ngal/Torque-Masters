@@ -85,7 +85,7 @@ public class Engine {
 
     public double setRadius() {
         switch (engineType) {
-            case "em linha":
+            case "em-linha":
                 return 1.2;
 
             case "boxer":
@@ -103,11 +103,11 @@ public class Engine {
         double carWeight = 0;
 
         switch (aspiration) {
-            case "turbo compressor":
+            case "turbo-compressor":
                 carWeight += 13;
                 break;
             
-            case "super compressor":
+            case "super-compressor":
                 carWeight += 22;
                 break;
         
@@ -116,15 +116,15 @@ public class Engine {
         }
 
         switch (engineMaterial) {
-            case "ferro fundido":
+            case "ferro-fundido":
                 carWeight += 150 + (5 * cylindersAmmount * cylinders);
                 break;
 
-            case "liga de aluminio":
+            case "liga-de-aluminio":
                 carWeight += 130 + (3 * cylindersAmmount * cylinders);
                 break;
 
-            case "liga de titanio":
+            case "liga-de-titanio":
                 carWeight += 110 + (2 * cylindersAmmount * cylinders);
         
             default:
@@ -155,11 +155,11 @@ public class Engine {
         double carHorsePower = 0;
 
         switch (aspiration) {
-            case "turbo compressor":
+            case "turbo-compressor":
                 carHorsePower += 15 * cylindersAmmount;
                 break;
             
-            case "super compressor":
+            case "super-compressor":
                 carHorsePower += 25 * cylindersAmmount;
                 break;
         
@@ -181,15 +181,15 @@ public class Engine {
         }
 
         switch (engineMaterial) {
-            case "ferro fundido":
+            case "ferro-fundido":
                 carHorsePower += 10 * cylindersAmmount;
                 break;
 
-            case "liga de aluminio":
+            case "liga-de-aluminio":
                 carHorsePower += 11 * cylindersAmmount;
                 break;
 
-            case "liga de titanio":
+            case "liga-de-titanio":
                 carHorsePower += 12 * cylindersAmmount;
         
             default:
@@ -232,15 +232,15 @@ public class Engine {
         }
 
         switch (engineMaterial) {
-            case "ferro fundido":
+            case "ferro-fundido":
                 carConsumption += 1;
                 break;
 
-            case "liga de aluminio":
+            case "liga-de-aluminio":
                 carConsumption += 0.95;
                 break;
 
-            case "liga de titanio":
+            case "liga-de-titanio":
                 carConsumption += 0.9;
         
             default:
@@ -254,11 +254,11 @@ public class Engine {
         double carCost = 0;
 
         switch (aspiration) {
-            case "turbo compressor":
+            case "turbo-compressor":
                 carCost += 5000;
                 break;
             
-            case "super compressor":
+            case "super-compressor":
                 carCost += 8000;
                 break;
         
@@ -267,15 +267,15 @@ public class Engine {
         }
 
         switch (engineMaterial) {
-            case "ferro fundido":
+            case "ferro-fundido":
                 carCost += 10000 + 10 * (150 + (5 * cylindersAmmount * cylinders));
                 break;
 
-            case "liga de aluminio":
+            case "liga-de-aluminio":
                 carCost += 15000 + 15 * (130 + (3 * cylindersAmmount * cylinders));
                 break;
 
-            case "liga de titanio":
+            case "liga-de-titanio":
                 carCost += 25000 + 25 * (110 + (2 * cylindersAmmount * cylinders));
         
             default:

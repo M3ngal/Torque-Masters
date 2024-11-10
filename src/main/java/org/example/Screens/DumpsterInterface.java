@@ -17,12 +17,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class DumpsterInterface extends CustomPanel {
     private int y = 0;
     private Client client;
     private CardLayout cardLayout;
     private Car selectedCar;
+    private ResourceBundle rb;
 
     private JLabel dumpsterLabel;
     private JLabel deleteLabel;
@@ -39,9 +41,10 @@ public class DumpsterInterface extends CustomPanel {
     Color dumpColor = new Color(183,208,242);
     Color backgroundColor = new Color(29,22,62, 210);
 
-    DumpsterInterface(int userId, GameWindow gameWindow, Client client, Music music) {
+    DumpsterInterface(int userId, GameWindow gameWindow, Client client, Music music, ResourceBundle rb) {
         super("images//dumpster.jpg");
         this.client = client;
+        this.rb = rb;
         this.setLayout(null);
 
         cardLayout = new CardLayout();
@@ -78,22 +81,23 @@ public class DumpsterInterface extends CustomPanel {
         deletePanel.setLayout(null);
 
         // Confirm car deletion label
-        deleteLabel = new JLabel("Are you sure you want to delete this car?");
-        deleteLabel.setFont(new Font("Arial", Font.BOLD, 34));
+        deleteLabel = new JLabel(rb.getString("quer-excluir-carro"));
+        deleteLabel.setFont(new Font("Arial", Font.BOLD, 26));
         deleteLabel.setForeground(dumpColor);
-        deleteLabel.setBounds(45, 120, 700, 80);
+        deleteLabel.setBounds(45, 120, 650, 80);
+        deleteLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        confirmButton = new PixelatedDumpsterButton("Confirm");
+        confirmButton = new PixelatedDumpsterButton(rb.getString("confirmar"));
         confirmButton.setBounds(406, 240, 280, 70);
 
-        returnButton = new PixelatedDumpsterButton("Return");
+        returnButton = new PixelatedDumpsterButton(rb.getString("retornar"));
         returnButton.setBounds(63, 240, 280, 70);
 
-        exitButton = new PixelatedDumpsterButton("Exit");
-        exitButton.setBounds(740, 70, 80, 30);
+        exitButton = new PixelatedDumpsterButton(rb.getString("sair"));
+        exitButton.setBounds(700, 70, 120, 30);
 
-        menuButton = new PixelatedDumpsterButton("Menu");
-        menuButton.setBounds(65, 70, 80, 30);
+        menuButton = new PixelatedDumpsterButton(rb.getString("menu"));
+        menuButton.setBounds(65, 70, 120, 30);
 
         Connection conn = null;
         Conector bd = new Conector();
@@ -125,7 +129,7 @@ public class DumpsterInterface extends CustomPanel {
             if (selectedCar != null) {
                 deleteCar(getEngID(finalConn, selectedCar.getCarName(), userId));
                 sendUpdateMessageToClient(selectedCar);
-                gameWindow.showGarageInterface(userId, client, music);
+                gameWindow.showGarageInterface(userId, client, music, rb);
                 mainPanel.revalidate();
                 mainPanel.repaint();
             }
@@ -139,7 +143,7 @@ public class DumpsterInterface extends CustomPanel {
 
         exitButton.addActionListener(event -> System.exit(0));
 
-        menuButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music));
+        menuButton.addActionListener(event -> gameWindow.showGarageInterface(userId, client, music, rb));
 
         returnButton.addActionListener(event -> cardLayout.show(mainPanel, "CarsPanel"));
 
