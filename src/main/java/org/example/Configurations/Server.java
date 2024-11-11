@@ -2,6 +2,7 @@ package org.example.Configurations;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,6 +11,10 @@ public class Server {
     private ServerSocket serverSocket;
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private static FileLogWriter file = new FileLogWriter();
+    CryptoAES caes = new CryptoAES();
+
+    public Server() throws NoSuchAlgorithmException {
+    }
 
     public void start() throws IOException {
         serverSocket = new ServerSocket(PORT);
@@ -24,14 +29,21 @@ public class Server {
     private void clientConnectionLoop() throws IOException {
         do {
             ClientSocket clientSocket = new ClientSocket(serverSocket.accept());
-            new Thread(() -> clientMessageLoop(clientSocket)).start();
+            new Thread(() -> {
+                try {
+                    clientMessageLoop(clientSocket);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }).start();
         } while (true);
     }
 
-    public void clientMessageLoop(ClientSocket clientSocket) {
+    public void clientMessageLoop(ClientSocket clientSocket) throws Exception {
         String msg;
         try {
             while ((msg = clientSocket.getMessage()) != null && !msg.equalsIgnoreCase("sair")) {
+                msg = caes.geraDecifra(msg);
                 System.out.printf("\n<SERVER> (%s) Cliente %s: %s", sdf.format(new Date()), clientSocket.getRemoteSocketAddress(), msg);
                 file.writeRecord(String.format("<SERVER> (%s) Cliente %s: %s", sdf.format(new Date()), clientSocket.getRemoteSocketAddress(), msg));
             }
@@ -44,7 +56,7 @@ public class Server {
         try {
             Server server = new Server();
             server.start();
-        } catch (IOException ex) {
+        } catch (IOException | NoSuchAlgorithmException ex) {
             System.out.printf("\n<SERVER> (%s) Erro ao iniciar o servidor: %s", sdf.format(new Date()),ex.getMessage());
             file.writeRecord(String.format("\n<SERVER> (%s) Erro ao iniciar o servidor: %s", sdf.format(new Date()),ex.getMessage()));
         }

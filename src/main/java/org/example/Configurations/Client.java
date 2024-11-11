@@ -1,16 +1,12 @@
 package org.example.Configurations;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-import java.util.ResourceBundle;
 import java.util.Scanner;
 import org.example.Screens.GameWindow;
-import org.example.Configurations.Music;
-import org.springframework.cglib.core.Local;
 
 public class Client {
     private Socket clientSocket;
@@ -22,14 +18,15 @@ public class Client {
     private boolean messageUpdated = false;  // Flag para controlar o envio
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private static FileLogWriter file = new FileLogWriter();
+    CryptoAES caes = new CryptoAES();
 
-    public Client(String serverAddress, int serverPort) {
+    public Client(String serverAddress, int serverPort) throws NoSuchAlgorithmException {
         this.serverAddress = serverAddress;
         this.serverPort = serverPort;
         scanner = new Scanner(System.in);
     }
 
-    public void start(Client client) throws IOException {
+    public void start(Client client) throws Exception {
         clientSocket = new Socket(serverAddress, serverPort);
         saida = new PrintWriter(clientSocket.getOutputStream(), true);
 
@@ -40,10 +37,11 @@ public class Client {
         messageLoop();
     }
 
-    private void messageLoop() throws IOException {
+    private void messageLoop() throws Exception {
         while (!msg.equalsIgnoreCase("sair")) {
             if (messageUpdated) {   // Envia apenas quando a mensagem é atualizada
-                saida.println(msg);
+                String cypher = caes.geraCifra(msg);
+                saida.println(cypher);
                 messageUpdated = false;  // Reseta a flag após o envio
             }
             try {
@@ -64,7 +62,7 @@ public class Client {
         try {
             Client client = new Client("127.0.0.1", 4000);
             client.start(client);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.out.printf("<CLIENT> (%s) Erro ao iniciar o cliente: %s", sdf.format(new Date()), ex.getMessage());
         }
 
