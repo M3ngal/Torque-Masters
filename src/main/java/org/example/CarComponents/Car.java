@@ -47,14 +47,12 @@ public class Car {
         this.cost = this.engine.setCost() + this.brakes.setCost() + this.tires.setCost() + this.chassis.setCost() + this.suspension.setCost() + this.bodyPaint.setCost();
         this.consumption = this.engine.setConsumption();
         this.weight = this.engine.setWeight() + this.brakes.setWeight() + this.tires.setWeight() + this.chassis.setWeight() + this.suspension.setWeight();
-        this.power = this.engine.setHorsePower();
-        this.torque = (((Math.pow(this.power - 470, 2)) / 800) + this.power - 200) * (4.2 / 3);
-        this.maxSpeed = (this.power / this.torque) * this.tires.setDiameter() * 8;
-        this.handling = (this.engine.setHandling() + this.tires.setHandling() + this.chassis.setHandling() + this.suspension.setHandling()) / 4;
-        this.acceleration = this.engine.setTractionCoef() * (this.torque / (this.tires.setDiameter() / 100)) / this.weight;
-
-        double frictionCoef = (this.brakes.setBrake() + this.tires.setBrake() + this.chassis.setBrake() + this.suspension.setBrake()) / 4;
-        this.brakesPower = (160 / frictionCoef) / 55.56;
+        this.torque = this.engine.setTorque();
+        this.power = -0.1466 * Math.pow(this.engine.setTorque(), 2) + 22.86 * this.engine.setTorque() - 93.5;
+        this.maxSpeed = 230 * Math.exp(0.0008347 * (this.power - 80));
+        this.handling = (this.tires.setHandling() / 3 + this.engine.setHandling() + this.suspension.setHandling() + 2) - this.weight / 100;
+        this.acceleration = 21 - (((this.weight * 27.78) / (this.power * 35)) * this.tires.setDiameter() * this.engine.setTractionCoef());
+        this.brakesPower = this.tires.setHandling() + this.brakes.setBrake() + 2 - this.weight / 100;
     }
 
     //Metodo para exibição no terminal

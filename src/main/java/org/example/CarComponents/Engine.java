@@ -151,16 +151,19 @@ public class Engine {
         return carWeight;
     }
 
-    public double setHorsePower() {
-        double carHorsePower = 0;
+    public double setTorque() {
+        double cylpres = 0;
+        double torque = 0;
+        double asp = 0;
+        double fl = 0;
 
         switch (aspiration) {
             case "turbo-compressor":
-                carHorsePower += 15 * cylindersAmmount;
+                asp = 1.5;
                 break;
             
             case "super-compressor":
-                carHorsePower += 25 * cylindersAmmount;
+                asp = 1.6;
                 break;
         
             default:
@@ -169,46 +172,34 @@ public class Engine {
 
         switch (fuel) {
             case "gasolina":
-                carHorsePower += 10 * cylindersAmmount;
+                fl = 4;
+
                 break;
 
             case "diesel":
-                carHorsePower += 8 * cylindersAmmount;
+                fl = 3.5;
                 break;
         
             default:
                 break;
         }
 
-        switch (engineMaterial) {
-            case "ferro-fundido":
-                carHorsePower += 10 * cylindersAmmount;
-                break;
+        cylpres = asp * fl;
+        torque = (cylinders * cylpres * cylindersAmmount)/2;
 
-            case "liga-de-aluminio":
-                carHorsePower += 11 * cylindersAmmount;
-                break;
-
-            case "liga-de-titanio":
-                carHorsePower += 12 * cylindersAmmount;
-        
-            default:
-                break;
-        }
-
-        return (carHorsePower + (cylinders * cylindersAmmount * 10));
+        return torque;
     }
 
     public double setHandling() {
         switch (traction) {
             case "traseira":
-                return 0.7;
+                return 10;
 
             case "dianteira":
-                return 0.85;
+                return 30;
             
             case "integral":
-                return 1;
+                return 50;
         
             default:
                 return 0;
@@ -305,13 +296,13 @@ public class Engine {
     public double setTractionCoef() {
         switch (traction) {
             case "traseira":
-                return 2.5;
+                return 1;
 
             case "dianteira":
-                return 2;
+                return 0.8;
             
             case "integral":
-                return 4;
+                return 0.7;
         
             default:
                 return 0;

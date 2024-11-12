@@ -18,16 +18,16 @@ public class Tires {
     public double setDiameter() {
         switch (tireType) {
             case "popular":
-                return 35;
+                return 1.4;
                 
             case "esportivo":
-                return 45;
+                return 1.2;
             
             case "corrida":
-                return 60;
+                return 1;
             
             case "off-road":    
-                return 50;
+                return 1.3;
                
             default:
                 return 0;
@@ -72,40 +72,19 @@ public class Tires {
         }
     }
 
-    //INCOMPLETO
-    public double setBrake() {
-        switch (tireType) {
-            case "popular":
-                return 0.5;
-                
-            case "esportivo":
-                return 1;
-            
-            case "corrida":
-                return 1.5;
-            
-            case "off-road":
-                return 2;
-               
-            default:
-                return 0;
-        }
-    }
-
-    //INCOMPLETO
     public double setHandling() {
         switch (tireType) {
             case "popular":
-                return 0.6;
+                return 20;
                 
             case "esportivo":
-                return 0.8;
+                return 40;
 
             case "corrida":
-                return 1;
+                return 60;
             
             case "off-road":
-                return 0.9;
+                return 30;
                
             default:
                 return 0;

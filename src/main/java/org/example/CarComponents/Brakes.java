@@ -56,18 +56,18 @@ public class Brakes {
     public double setBrake() {
         switch (brakeType) {
             case "popular":
-                return 1;
+                return 10;
                 
             case "esportivo":
-                return 1.5;
+                return 30;
             
 
             case "corrida":
-                return 2;
+                return 45;
             
 
             case "ceramica":
-                return 2;
+                return 50;
                
             default:
                 return 0;
